@@ -1,0 +1,50 @@
+.registration{
+	text-align: center;
+	font-weight: bold;
+	font-size: 30px;
+	color: #2FA360;
+}
+.top{
+	margin-top: 20px;
+	font-size: 16px;
+}
+/*User pannel*/
+.welcome{
+	text-align: center;
+	font-size: 40px;
+	color: green;
+	margin-top: 20%;
+}
+
+/*User location select*/
+.main{
+	width: 40%;
+	margin: 0 auto; 
+}
+.district{
+	font-weight: bold;
+	font-size: 25px;
+	color: #000;
+	margin-top: 20px;
+}
+.counters{
+	font-weight: bold;
+	font-size: 25px;
+	color: #000;
+	margin-top: 20px;
+}
+.font{
+	font-size: 18px;
+}
+.paragraph{
+	font-size: 18px;
+	color: green;
+	margin-left: 20px;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-inner-spin-button{
+	-webkit-appearance: none;
+}
+
+
+/*Login*/
