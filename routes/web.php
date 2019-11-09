@@ -59,6 +59,8 @@ Route::post('/admin/chassis_insert', 'InputController@input_chassis')-> name('in
 Route::post('/admin/route_insert', 'InputController@input_route')-> name('input_route');
 // operator insert
 Route::post('/admin/operator_insert', 'InputController@input_operator')-> name('input_operator');
+// Date insert
+Route::post('/admin/date_insert','InputController@input_date')->name('date_input');
 // Time Insert
 Route::post('/admin/time_insert', 'InputController@input_time')-> name('input_time');
 // Bus Type Insert
@@ -69,7 +71,7 @@ Route::post('/admin/total_seat_insert', 'InputController@input_total_seat')-> na
 Route::post('/admin/ticket_price_insert', 'InputController@input_ticket_price')-> name('input_ticket_price');
 
 
-// Edit Individual Bus Components information
+// Edit & Update Individual Bus Components information
 // Edit Chassis No
 Route::get('/admin/chassis/edit/{id}','InputController@edit_chassis')->name('chassis_edit');
 // Update Chassis info
@@ -85,10 +87,22 @@ Route::get('/admin/bus_operator/edit/{id}','InputController@edit_operator')->nam
 // Update operator
 Route::post('/admin/bus_operator/update','InputController@update_operator')->name('operator_update');
 
+// Edit Date
+Route::get('/admin/dates/edit/{id}','InputController@edit_date')->name('date_edit');
+// Update Date
+Route::post('/admin/dates/update','InputController@update_date')->name('date_update');
+
 // Edit Departure Time
 Route::get('/admin/departure_time/edit/{id}','InputController@edit_departure_time')->name('departure_time_edit');
 // Update Departure Time
 Route::post('/admin/departure_time/update','InputController@update_departure_time')->name('departure_time_update');
+
+
+
+
+
+
+
 
 Auth::routes();
 

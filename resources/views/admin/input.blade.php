@@ -219,6 +219,67 @@ Add Bus Informations
 	</div>
 	<!-- Bus Opearator End -->
 
+	<!-- Date start here -->
+	<div class="container-fluid">
+	    <div class="row justify-content-center">
+	        <div class="col-lg-6">
+	            <div class="card">
+	                <div class="card-body">
+	                    <div class="form-validation">
+	                        <form class="form-valide" action="{{ route('date_input') }}" method="post">
+	                        	@csrf
+	                            <div class="form-group row">
+	                                <label class="col-lg-4 col-form-label" for="date">Date<span class="text-danger">*</span></label>
+	                                <div class="col-lg-6">
+	                                    <input type="date" class="form-control" id="date" name="date"  value="{{ old('date') }}" required>
+	                                </div>
+	                            </div>
+	                            
+	                            <div class="form-group row">
+	                                <div class="col-lg-8 ml-auto">
+	                                    <button type="submit" class="btn btn-primary">Submit</button>
+	                                </div>
+	                            </div>
+	                        </form>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Date Info</h4>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered zero-configuration" style="color: #000;">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Date</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($all_dates as $dates)
+                                    <tr>
+                                        <td>{{$dates->id}}</td>
+                                        <td>{{$dates->date}}</td>
+                                        <td>
+                                            <a href="{{ url('/admin/dates/edit') }}\{{ $dates->id }}" class="btn btn-primary">Edit</a>
+                                            <a href="#" class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            {{ $all_dates->links() }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+	    </div>
+	</div>
+	<!-- Date End here -->
+
 	<!-- Departure Time start -->
 	<div class="container-fluid">
 	    <div class="row justify-content-center">

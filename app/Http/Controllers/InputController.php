@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Chassis;
 use App\BusRoute;
 use App\Operator;
+use App\Date;
 use App\DepartureTime;
 use App\BusType;
 use App\TotalSeat;
@@ -18,11 +19,12 @@ class InputController extends Controller
 		$all_chassis_no = Chassis::paginate(4);
 		$all_routes = BusRoute::paginate(4);
 		$all_operators = Operator::paginate(4);
+		$all_dates = Date::paginate(4);
 		$all_departure_times = DepartureTime::paginate(4);
 		$all_bus_types = BusType::paginate(4);
 		$total_seats = TotalSeat::paginate(4);
 		$ticket_prices = TicketPrice::paginate(4);
-	    return view('admin.input',compact('all_chassis_no','all_routes','all_operators','all_departure_times','all_bus_types','total_seats','ticket_prices'));
+	    return view('admin.input',compact('all_chassis_no','all_routes','all_operators','all_dates','all_departure_times','all_bus_types','total_seats','ticket_prices'));
 	}
 
 	function input_chassis(Request $request){
@@ -41,6 +43,13 @@ class InputController extends Controller
 		Operator::insert($request->except('_token'));
 		return back();
 	}
+
+	// Input date
+	function input_date(Request $request){
+		Date::insert($request->except('_token'));
+		return back();
+	}
+
 	// Departure Time insert
 	function input_time(Request $request){
 		DepartureTime::insert($request->except('_token'));
@@ -103,6 +112,20 @@ class InputController extends Controller
 	function update_operator(Request $request){
 		Operator::find($request->id)->update([
 			'operator_name' =>$request->operator_name,
+		]);
+		return redirect(url('/admin/input'));
+	}
+
+	// Edit Date
+	function edit_date($id){
+		$single_date = Date::find($id);
+		return view('admin.input.date_edit',compact('single_date'));
+	}
+
+	// Update Date
+	function update_date(Request $request){
+		Date::find($request->id)->update([
+			'date' =>$request->date,
 		]);
 		return redirect(url('/admin/input'));
 	}
