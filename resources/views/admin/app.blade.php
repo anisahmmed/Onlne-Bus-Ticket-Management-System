@@ -10,7 +10,7 @@
        @yield('title')
     </title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontend/images/all-img/icon.jpg') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('login_resource/icon.jpg') }} }}">
     <!-- Pignose Calender -->
     <link href="{{ asset('dashboard/assets/plugins/pg-calendar/css/pignose.calendar.min.css') }}" rel="stylesheet">
     <!-- Chartist -->
@@ -232,22 +232,21 @@
                         </a>
                     </li>
                     <li class="mega-menu mega-menu-sm">
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Layouts</span>
+                        <a class="has-arrow" href="#" aria-expanded="false">
+                            <i class="icon-note menu-icon"></i><span class="nav-text">Input</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="layout-blank.html">Blank</a></li>
-                            <li><a href="layout-one-column.html">One Column</a></li>
-                            <li><a href="layout-two-column.html">Two column</a></li>
-                            <li><a href="layout-compact-nav.html">Compact Nav</a></li>
-                            <li><a href="layout-vertical.html">Vertical</a></li>
-                            <li><a href="layout-horizontal.html">Horizontal</a></li>
-                            <li><a href="layout-boxed.html">Boxed</a></li>
-                            <li><a href="layout-wide.html">Wide</a></li>
-                            
-                            
-                            <li><a href="layout-fixed-header.html">Fixed Header</a></li>
-                            <li><a href="layout-fixed-sidebar.html">Fixed Sidebar</a></li>
+                            <li><a href="{{ route('bus_info') }}">Bus Information Add</a></li>
+                            <li><a href="{{ route('input') }}">Add Individual Components Info</a></li>
+                        </ul>
+                    </li>
+                    <li class="mega-menu mega-menu-sm">
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-globe-alt menu-icon"></i><span class="nav-text">View</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{ route('view_bus') }}">Bus Information</a></li>
+                            <li><a href="{{ route('users_info') }}">Users Information</a></li>
                         </ul>
                     </li>
                     <li class="nav-label">Apps</li>

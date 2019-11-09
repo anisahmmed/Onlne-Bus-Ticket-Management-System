@@ -2,10 +2,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Login V2</title>
+    <title>Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
-    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+    <link rel="icon" type="image/png" href="{{ asset('login_resource/icon.jpg') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('login_resource/vendor/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('login_resource/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('login_resource/fonts/iconic/css/material-design-iconic-font.min.css') }}">
@@ -17,11 +17,28 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('login_resource/css/util.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('login_resource/css/main.css') }}">
 </head>
+
+<ul class="nav ">
+  <li class="nav-item">
+    <a href="{{ route('homepage') }}" class="nav-link btn-outline-success " style="font-weight: bold; font-size: 16px;">Home</a>
+  </li>
+</ul>
 <body>
     
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
+                
+                @if($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div><br />
+                @endif
+
                 <form class="login100-form validate-form" method="post" action="{{ route('login') }}">
 
                 @csrf
@@ -33,7 +50,7 @@
                     </span>
 
                     <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-                        <input class="input100" type="email" name="email">
+                        <input class="input100" type="email" name="email" required>
                         <span class="focus-input100" data-placeholder="Email"></span>
                     </div>
 
@@ -41,7 +58,7 @@
                         <span class="btn-show-pass">
                             <i class="zmdi zmdi-eye"></i>
                         </span>
-                        <input class="input100" type="password" name="password">
+                        <input class="input100" type="password" name="password" required>
                         <span class="focus-input100" data-placeholder="Password"></span>
                     </div>
                     <div class="contact100-form-checkbox m-l-4">
@@ -65,7 +82,7 @@
                             Don’t have an account?
                         </span>
 
-                        <a class="txt2" href="{{ url('\register') }}">
+                        <a class="txt2 btn-primaryfont-weight-bold" style="color: #00ff40;" href="{{ url('\register') }}">
                             Sign Up
                         </a>
                     </div>

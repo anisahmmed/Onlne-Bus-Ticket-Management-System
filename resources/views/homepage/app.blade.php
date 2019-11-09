@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/homepage7.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/responsive.css') }}" />
     <link href="{{ asset('frontend/assets/css/skin.less" rel="stylesheet/less') }}">
-    @yield('css')
+    
     
     </head>
     <body>
@@ -41,50 +41,13 @@
         <div id="wrapper" class="homepage homepage-3 homepage7-wrap">
             <!--header Section Start Here -->
             <header id="header" class="header homepage7-header">
-                <!-- primary header Start Here -->
-                <div class="primary-header">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-8 col-md-6">
-                                <ul class="link-wrap clearfix">
-                                    <li class="mail">
-                                        <img src="assets/images/icon-mail.png" alt="" />
-                                        <span><a class="email-us" href="https://theemon.com/cdn-cgi/l/email-protection#31585f575e714543505f42415e43454559545c541f525e5c"><span class="__cf_email__" data-cfemail="d7beb9b1b897a3a5b6b9a4a7b8a5a3a3bfb2bab2f9b4b8ba">[email&#160;protected]</span></a></span>
-                                    </li>
-                                    <li>
-                                        <a href="tel:5917890123"> <i class="fa fa-phone-square"> </i> 591 7890 123 </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> <i class="fa fa-clock-o"> </i> Mon - Sat 9:00 - 18:00 </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-xs-12 col-sm-4 col-md-6">
-                                <div class="social-wrap clearfix">
 
-                                    <ul class="social">
-                                        <li>
-                                            <a href="#"> <i class="fa fa-facebook"></i> </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"> <i class="fa fa-twitter"></i> </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"> <i class="fa fa-google-plus"></i> </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- primary header Ends Here -->
                 <!-- main header Starts Here -->
                 <div class="main-header">
                     <div class="container">
                         <div class="row">
                             <div class="col-xs-12 col-sm-3">
-                                <a href="index.html" class="logo"> <img src="assets/images/logo.png" alt="" /> </a>
+                                <a href="index.html" class="logo"> <img src="{{asset('frontend/assets/bu.png') }}" alt="" /> </a>
 
                             </div>
 
@@ -132,7 +95,7 @@
                                                 <a href="contact-us.html">contact</a>
                                             </li>
                                             <li>
-                                                <a href="contact-us.html">Login</a>
+                                                <a href="{{ url('\login') }}">Login</a>
                                             </li>
                                         </ul>
 
@@ -146,7 +109,7 @@
                             </div>
 
                             <div class="col-md-2 col-sm-2">
-                                <a href="request-a-quote.html" class="request">request a quote</a>
+                                <a href="request-a-quote.html" class="request">Buy Ticket</a>
                             </div>
                             <!-- secondary header Ends Here -->
                         </div>
@@ -289,7 +252,6 @@
         <!-- Switcher Js -->
 
         <script src="{{ asset('frontend/assets/js/script.js" type="text/javascript') }}"></script>
-        @yield('js')
         <script type="text/javascript" src="{{ asset('frontend/assets/js/site.js') }}"></script>
 
     </body>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Chassis;
 use Alert;
 
 class AdminController extends Controller
@@ -50,6 +51,8 @@ class AdminController extends Controller
             Alert::toast('Record Updated Successfully','delete');
 	    	return back();
 	    }
+
+
 
 
 
