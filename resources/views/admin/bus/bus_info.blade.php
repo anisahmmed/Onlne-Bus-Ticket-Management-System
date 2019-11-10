@@ -25,6 +25,7 @@ Bus Informations
                             <table class="table table-striped table-bordered zero-configuration" style="color: #000;">
                                 <thead>
                                     <tr>
+                                        <th>Journey Date</th>
                                         <th>Operator Name</th>
                                         <th>Chassis Number</th>
                                         <th>Bus Type</th>
@@ -38,6 +39,7 @@ Bus Informations
                                 <tbody>
                                     @foreach($all_buses as $buses)
                                     <tr>
+                                        <td>{{ $buses->ralationbetweenOperator->operator_name }}</td>
                                         <td>{{ $buses->ralationbetweenOperator->operator_name }}</td>
                                         <td>{{ $buses->relationbetweenchassis->chassis_no }}</td>
                                         <td>{{ $buses->relationbetweenBusType->bus_type }}</td>

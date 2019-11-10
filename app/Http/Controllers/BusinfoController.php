@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Date;
 use App\Businfo;
 use App\Bus;
 use App\BusType;
@@ -39,6 +40,7 @@ class BusinfoController extends Controller
 
 	
 	function buses(){
+		$all_dates = Date::all();
 		$all_chassises = Chassis::all();
 		$all_buses = Bus::paginate(4);
 		$all_routes = BusRoute::paginate(4);
@@ -47,7 +49,7 @@ class BusinfoController extends Controller
 		$all_operators = Operator::paginate(4);
 		$all_seats = TotalSeat::paginate(4);
 		$all_ticket_prices = TicketPrice::paginate(4);
-		return view('admin.buses',compact('all_chassises','all_buses','all_routes','all_times','all_bus_types','all_operators','all_seats','all_ticket_prices'));
+		return view('admin.buses',compact('all_dates','all_chassises','all_buses','all_routes','all_times','all_bus_types','all_operators','all_seats','all_ticket_prices'));
 	}
 	
 	// Add Buses
@@ -67,7 +69,6 @@ class BusinfoController extends Controller
 		Bus::insert($request->except('_token'));
 		Alert::toast('Record Inserted Successfully','success');
 		return back();
-		// $insert = User::insert($request->except('_token'));
 	}
 
 	//  Bus Type form

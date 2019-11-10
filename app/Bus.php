@@ -7,8 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Bus extends Model
 {
     protected $fillable=[
-    	'operator_name_id','chassis_no_id','bus_type_id','departure_destination_id','departure_time_id','total_seat_id','ticket_price_id',
+    	'date_id','operator_name_id','chassis_no_id','bus_type_id','departure_destination_id','departure_time_id','total_seat_id','ticket_price_id',
     ];
+
+    // Relation with date
+    function relationbetweendate(){
+        return $this->hasOne('App\Date','id','date_id');
+    }
 
     // Relation with chassis
     function relationbetweenchassis(){

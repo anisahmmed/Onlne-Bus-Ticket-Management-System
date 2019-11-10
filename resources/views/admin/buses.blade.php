@@ -46,9 +46,21 @@ Buses
 	                        <form class="form-valide" action="{{ route('buses') }}" method="post">
 	                        	@csrf
 	                            <div class="form-group row">
+	                                <label class="col-lg-4 col-form-label" for="date_id">Journey Date<span class="text-danger">*</span></label>
+	                                <div class="col-lg-6">
+	                                    <select name="date_id" id="date_id" class="form-control" required>
+	                                    	<option value="">Select</option>
+	                                    	@foreach($all_dates as $dates)
+	                                    	<option value="{{ $dates->id }}">{{ $dates->date }}</option>
+	                                    	@endforeach
+	                                    </select>
+	                                </div>
+	                            </div>
+	                            <div class="form-group row">
 	                                <label class="col-lg-4 col-form-label" for="operator_name_id">Operator Name<span class="text-danger">*</span></label>
 	                                <div class="col-lg-6">
-	                                    <select name="operator_name_id" id="operator_name_id" class="form-control">
+	                                    <select name="operator_name_id" id="operator_name_id" class="form-control" required>
+	                                    	<option value="">Select</option>
 	                                    	@foreach($all_operators as $operators)
 	                                    	<option value="{{ $operators->id }}">{{ $operators->operator_name }}</option>
 	                                    	@endforeach
@@ -58,7 +70,8 @@ Buses
 	                            <div class="form-group row">
 	                                <label class="col-lg-4 col-form-label" for="chassis_no_id">Chassis Number<span class="text-danger">*</span></label>
 	                                <div class="col-lg-6">
-	                                    <select name="chassis_no_id" id="chassis_no_id" class="form-control">
+	                                    <select name="chassis_no_id" id="chassis_no_id" class="form-control" required>
+	                                    	<option value="">Select</option>
 	                                    	@foreach($all_chassises as $chassis)
 	                                    	<option value="{{ $chassis->id }}">{{ $chassis->chassis_no }}</option>
 	                                    	@endforeach
@@ -68,7 +81,8 @@ Buses
 	                            <div class="form-group row">
 	                                <label class="col-lg-4 col-form-label" for="bus_type_id">Bus Type<span class="text-danger">*</span></label>
 	                                <div class="col-lg-6">
-	                                    <select name="bus_type_id" id="" class="form-control">
+	                                    <select name="bus_type_id" id="" class="form-control" required>
+	                                    	<option value="">Select</option>
 	                                    	@foreach($all_bus_types as $bus_types)
 	                                    	<option value="{{ $bus_types->id }}">{{ $bus_types->bus_type }}</option>
 	                                    	@endforeach
@@ -78,7 +92,8 @@ Buses
 	                            <div class="form-group row">
 	                                <label class="col-lg-4 col-form-label" for="departure_destination_id">Departure & Destination<span class="text-danger">*</span></label>
 	                                <div class="col-lg-6">
-	                                    <select name="departure_destination_id" id="departure_destination_id" class="form-control">
+	                                    <select name="departure_destination_id" id="departure_destination_id" class="form-control" required>
+	                                    	<option value="">Select</option>
 	                                    	@foreach($all_routes as $bus_routes)
 	                                    	<option value="{{ $bus_routes->id }}">{{ $bus_routes->bus_route }}</option>
 	                                    	@endforeach
@@ -88,7 +103,8 @@ Buses
 	                            <div class="form-group row">
 	                                <label class="col-lg-4 col-form-label" for="departure_time_id">Departure Time<span class="text-danger">*</span></label>
 	                                <div class="col-lg-6">
-	                                    <select name="departure_time_id" id="departure_time_id" class="form-control">
+	                                    <select name="departure_time_id" id="departure_time_id" class="form-control" required>
+	                                    	<option value="">Select</option>
 	                                    	@foreach($all_times as $time)
 	                                    	<option value="{{ $time->id }}">{{ $time->departure_time }}</option>
 	                                    	@endforeach
@@ -98,7 +114,8 @@ Buses
 	                            <div class="form-group row">
 	                                <label class="col-lg-4 col-form-label" for="total_seat_id">Total Seat<span class="text-danger">*</span></label>
 	                                <div class="col-lg-6">
-	                                    <select name="total_seat_id" id="total_seat_id" class="form-control">
+	                                    <select name="total_seat_id" id="total_seat_id" class="form-control" required>
+	                                    	<option value="">Select</option>
 	                                    	@foreach($all_seats as $seats)
 	                                    	<option value="{{ $seats->id }}">{{ $seats->total_seat }}</option>
 	                                    	@endforeach
@@ -108,7 +125,8 @@ Buses
 	                            <div class="form-group row">
 	                                <label class="col-lg-4 col-form-label" for="ticket_price_id">Ticket Price<span class="text-danger">*</span></label>
 	                                <div class="col-lg-6">
-	                                    <select name="ticket_price_id" id="ticket_price_id" class="form-control">
+	                                    <select name="ticket_price_id" id="ticket_price_id" class="form-control" required>
+	                                    	<option value="">Select</option>
 	                                    	@foreach($all_ticket_prices as $prices)
 	                                    	<option value="{{ $prices->id }}">{{ $prices->ticket_price }}</option>
 	                                    	@endforeach
@@ -142,6 +160,7 @@ Buses
                             <table class="table table-striped table-bordered zero-configuration" style="color: #000;">
                                 <thead>
                                     <tr>
+                                        <th>Journey Date</th>
                                         <th>Operator Name</th>
                                         <th>Chassis Number</th>
                                         <th>Bus Type</th>
@@ -155,11 +174,12 @@ Buses
                                 <tbody>
                                     @foreach($all_buses as $buses)
                                     <tr>
+                                        <td>{{ $buses->relationbetweendate->date }}</td>
                                         <td>{{ $buses->ralationbetweenOperator->operator_name }}</td>
                                         <td>{{ $buses->relationbetweenchassis->chassis_no }}</td>
                                         <td>{{ $buses->relationbetweenBusType->bus_type }}</td>
-                                        <td>{{$buses->relationbetweenbusroutes->bus_route}}</td>
-                                        <td>{{$buses->relationbetweentime->departure_time}}</td>
+                                        <td>{{ $buses->relationbetweenbusroutes->bus_route }}</td>
+                                        <td>{{ $buses->relationbetweentime->departure_time }}</td>
                                         <td>{{ $buses->relationbetweenTotalSeat->total_seat }}</td>
                                         <td>{{ $buses->relationbetweenTicketPrice->ticket_price }}</td>
                                         <td>
