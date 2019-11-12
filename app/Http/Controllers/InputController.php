@@ -227,6 +227,18 @@ class InputController extends Controller
 		return view('admin.input.ticket_price_edit',compact('single_ticket_price'));
 	}
 
+	// Update Ticket Price
+	function update_ticket_price(Request $request){
+		$request->validate([
+			'ticket_price' =>$request->ticket_price,
+		]);
+		TicketPrice::find($request->id)->update([
+			'ticket_price' =>$request->ticket_price,
+		]);
+		toastr()->success('Data has been updated successfully!');
+		return redirect(url('/admin/input'));
+	}
+
 	
 
 	

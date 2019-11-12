@@ -109,7 +109,8 @@ Route::post('/admin/total_seat/update','InputController@update_total_seat')->nam
 
 // Edit Ticket price
 Route::get('/admin/ticket_price/edit/{id}','InputController@edit_ticket_price')->name('ticket_price_edit');
-
+// Update Ticket Price
+Route::post('/admin/ticket_price/update','InputController@update_ticket_price')->name('ticket_price_update');
 
 
 
