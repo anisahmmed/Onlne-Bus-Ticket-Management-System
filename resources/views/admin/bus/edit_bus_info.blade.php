@@ -23,10 +23,16 @@ Edit Bus Information
 	                        <form class="form-valide" action="{{ route('bus_info_update') }}" method="post">
 	                        	@csrf
 	                            <div class="form-group row">
+	                                <label class="col-lg-4 col-form-label" for="date_id">Journey Date</label>
+	                                <div class="col-lg-6">
+	                                    <input type="date" class="form-control" name="date_id" value="{{ $single_bus_info->relationbetweendate->date }}">
+	                                    <input type="hidden" class="form-control" name="id" value="{{ $single_bus_info->relationbetweendate->id }}">
+	                                </div>
+	                            </div>
+	                            <div class="form-group row">
 	                                <label class="col-lg-4 col-form-label" for="operator_name_id">Operator Name</label>
 	                                <div class="col-lg-6">
 	                                    <input type="text" class="form-control" name="operator_name_id" value="{{ $single_bus_info->ralationbetweenOperator->operator_name }}">
-	                                    <input type="hidden" class="form-control" name="id" value="{{ $single_bus_info->ralationbetweenOperator->id }}">
 	                                </div>
 	                            </div>
 	                            <div class="form-group row">

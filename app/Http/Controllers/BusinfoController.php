@@ -18,26 +18,6 @@ use Alert;
 
 class BusinfoController extends Controller
 {
-	// function index(){
-	// 	return view('admin.bus_info_form');
-	// }
- //    function insert(Request $request){
- //    	Businfo::insert([
- //    		'operator' => $request->operator,
-	// 		'ac_nac' => $request->ac_nac,
-	// 		'departure' => $request->departure,
-	// 		'duration' => $request->duration,
-	// 		'distance' => $request->distance,
-	// 		'arrival' => $request->arrival,
-	// 		'total_seat' => $request->total_seat,
-	// 		'price' => $request->price,
-	// 		'created_at' => Carbon::now(),
- //    	]);
- //    	return back();
-   
-    	
- //    }
-
 	
 	function buses(){
 		$all_dates = Date::all();
@@ -52,7 +32,7 @@ class BusinfoController extends Controller
 		return view('admin.buses',compact('all_dates','all_chassises','all_buses','all_routes','all_times','all_bus_types','all_operators','all_seats','all_ticket_prices'));
 	}
 	
-	// Add Buses
+	// Add Bus Info
 	function bus_insert(Request $request){
 		// $request->validate([
 		// 	'sessis_no' => 'required|numeric|min:4',

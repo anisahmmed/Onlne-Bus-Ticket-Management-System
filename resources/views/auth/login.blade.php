@@ -18,11 +18,11 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('login_resource/css/main.css') }}">
 </head>
 
-<ul class="nav ">
+<!-- <ul class="nav ">
   <li class="nav-item">
     <a href="{{ route('homepage') }}" class="nav-link btn-outline-success " style="font-weight: bold; font-size: 16px;">Home</a>
   </li>
-</ul>
+</ul> -->
 <body>
     
     <div class="limiter">
@@ -75,6 +75,14 @@
                                 Login
                             </button>
                         </div>
+                        <div class="text-center p-t-20">
+                            <span class="txt1">
+                                Return to home
+                            </span>
+                            <a class="txt2 btn-primaryfont-weight-bold" style="color: #00ff40;" href="{{ route('homepage') }}">
+                            Home
+                        </a>
+                        </div>
                     </div>
 
                     <div class="text-center p-t-115">
@@ -82,7 +90,7 @@
                             Don’t have an account?
                         </span>
 
-                        <a class="txt2 btn-primaryfont-weight-bold" style="color: #00ff40;" href="{{ url('\register') }}">
+                        <a class="txt2 btn-primaryfont-weight-bold" style="color: #00ff40;" href="{{ route('homepage') }}">
                             Sign Up
                         </a>
                     </div>

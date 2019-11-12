@@ -3,6 +3,7 @@
 Add Bus Informations
 @endsection
 @section('content')
+
 <div class="content-body">
 
     <div class="row page-titles mx-0">
@@ -13,7 +14,7 @@ Add Bus Informations
             </ol>
         </div>
     </div>
-    @if (session('success'))
+    <!-- @if (session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
     </div>
@@ -23,7 +24,7 @@ Add Bus Informations
     <div class="alert alert-danger">
         {{ session('delete') }}
     </div>
-    @endif
+    @endif -->
     <!-- Error -->
     @if($errors->any())
     <div class="alert alert-danger">
@@ -528,3 +529,4 @@ Add Bus Informations
 	<!-- Ticket Price End here -->
 </div>
 @endsection
+

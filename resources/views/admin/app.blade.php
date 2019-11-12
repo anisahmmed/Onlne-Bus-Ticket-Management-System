@@ -19,6 +19,8 @@
     <!-- Custom Stylesheet -->
     <link href="{{ asset('dashboard/assets/css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/custom.css') }}">
+    <link href="{{asset('toastr.css') }}" rel="stylesheet"/>
+     @toastr_css
 
 </head>
 
@@ -417,9 +419,12 @@
 
 
     <script src="{{ asset('dashboard/assets/js/dashboard/dashboard-1.js') }}"></script>
-    <script>
+    <!-- <script>
         @include('sweetalert::alert')
-    </script>
+    </script> -->
+    @jquery
+    @toastr_js
+    @toastr_render
 
 </body>
 

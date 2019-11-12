@@ -19,11 +19,11 @@
     </head>
     <body>
         
-        <ul class="nav ">
+        <!-- <ul class="nav ">
           <li class="nav-item">
             <a href="{{ route('homepage') }}" class="nav-link btn-outline-success " style="font-weight: bold; font-size: 16px;">Home</a>
           </li>
-        </ul>
+        </ul> -->
             
         <div class="limiter">
             <div class="container-login100">
@@ -94,9 +94,17 @@
                                     Sign Up
                                 </button>
                             </div>
+                            <div class="text-center p-t-20">
+                                <span class="txt1">
+                                    Return to home
+                                </span>
+                                <a class="txt2 btn-primaryfont-weight-bold" style="color: #00ff40;" href="{{ route('homepage') }}">
+                                Home
+                                </a>
+                            </div>
                         </div>
 
-                        <div class="text-center p-t-115">
+                        <div class="text-center p-t-50">
                             <span class="txt1">
                                 Have already an account?
                             </span>

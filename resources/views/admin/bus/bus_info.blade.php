@@ -39,7 +39,7 @@ Bus Informations
                                 <tbody>
                                     @foreach($all_buses as $buses)
                                     <tr>
-                                        <td>{{ $buses->ralationbetweenOperator->operator_name }}</td>
+                                        <td>{{ $buses->relationbetweendate->date }}</td>
                                         <td>{{ $buses->ralationbetweenOperator->operator_name }}</td>
                                         <td>{{ $buses->relationbetweenchassis->chassis_no }}</td>
                                         <td>{{ $buses->relationbetweenBusType->bus_type }}</td>

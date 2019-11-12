@@ -29,49 +29,8 @@ class InputController extends Controller
 
 	function input_chassis(Request $request){
 	    Chassis::insert($request->except('_token'));
+	    toastr()->success('Data has been added successfully!');
 	    return back();
-	}
-
-	// Route Insert
-	function input_route(Request $request){
-		BusRoute::insert($request->except('_token'));
-		return back();
-	}
-
-	// Operator Insert
-	function input_operator(Request $request){
-		Operator::insert($request->except('_token'));
-		return back();
-	}
-
-	// Input date
-	function input_date(Request $request){
-		Date::insert($request->except('_token'));
-		return back();
-	}
-
-	// Departure Time insert
-	function input_time(Request $request){
-		DepartureTime::insert($request->except('_token'));
-		return back();
-	}
-
-	// Bus Type Insert
-	function input_bus_type(Request $request){
-		BusType::insert($request->except('_token'));
-		return back();
-	}
-
-	// Total seat insert
-	function input_total_seat(Request $request){
-		TotalSeat::insert($request->except('_token'));
-		return back();
-	}
-
-	// Ticket Price Insert
-	function input_ticket_price(Request $request){
-		TicketPrice::insert($request->except('_token'));
-		return back();
 	}
 
 	// Chassis Edit
@@ -85,7 +44,15 @@ class InputController extends Controller
 		Chassis::find($request->id)->update([
 			'chassis_no' =>$request->chassis_no,
 		]);
+	    toastr()->success('Data has been saved successfully!');
 		return redirect(url('/admin/input'));
+	}
+
+	// Route Insert
+	function input_route(Request $request){
+		BusRoute::insert($request->except('_token'));
+	    toastr()->success('Data has been added successfully!');
+		return back();
 	}
 
 	// Edit Bus Route
@@ -99,7 +66,15 @@ class InputController extends Controller
 		BusRoute::find($request->id)->update([
 			'bus_route' =>$request->bus_route,
 		]);
+	    toastr()->success('Data has been saved successfully!');
 		return redirect(url('/admin/input'));
+	}
+
+	// Operator Insert
+	function input_operator(Request $request){
+		Operator::insert($request->except('_token'));
+	    toastr()->success('Data has been added successfully!');
+		return back();
 	}
 
 	// Operator Edit
@@ -113,7 +88,15 @@ class InputController extends Controller
 		Operator::find($request->id)->update([
 			'operator_name' =>$request->operator_name,
 		]);
+	    toastr()->success('Data has been saved successfully!');
 		return redirect(url('/admin/input'));
+	}
+
+	// Input date
+	function input_date(Request $request){
+	    toastr()->success('Data has been added successfully!');
+		Date::insert($request->except('_token'));
+		return back();
 	}
 
 	// Edit Date
@@ -127,8 +110,45 @@ class InputController extends Controller
 		Date::find($request->id)->update([
 			'date' =>$request->date,
 		]);
+	    toastr()->success('Data has been saved successfully!');
 		return redirect(url('/admin/input'));
 	}
+
+	// Departure Time insert
+	function input_time(Request $request){
+		DepartureTime::insert($request->except('_token'));
+	    toastr()->success('Data has been added successfully!');
+		return back();
+	}
+
+	// Bus Type Insert
+	function input_bus_type(Request $request){
+		BusType::insert($request->except('_token'));
+	    toastr()->success('Data has been added successfully!');
+		return back();
+	}
+
+	// Total seat insert
+	function input_total_seat(Request $request){
+		TotalSeat::insert($request->except('_token'));
+	    toastr()->success('Data has been added successfully!');
+		return back();
+	}
+
+	// Ticket Price Insert
+	function input_ticket_price(Request $request){
+		TicketPrice::insert($request->except('_token'));
+	    toastr()->success('Data has been added successfully!');
+		return back();
+	}
+
+	
+
+	
+
+	
+
+	
 
 	// Departure Time edit
 	function edit_departure_time($id){
@@ -141,6 +161,7 @@ class InputController extends Controller
 		DepartureTime::find($request->id)->update([
 			'departure_time' =>$request->departure_time,
 		]);
+	    toastr()->success('Data has been saved successfully!');
 		return redirect(url('/admin/input'));
 	}
 }
