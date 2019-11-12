@@ -10,10 +10,11 @@ Edit Bus Operator
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url('/admin/homepage') }}">Dashboard</a></li>
                 <li class="breadcrumb-item active"><a href="{{ url('/admin/input') }}">Add Bus Informations</a></li>
+                <li class="breadcrumb-item active"><a href="{{ url('/admin/bus_operator/edit') }}\{{ $single_operator->id }}">Edit Bus Operator</a></li>
             </ol>
         </div>
     </div>
-    @if (session('success'))
+    <!-- @if (session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
     </div>
@@ -23,7 +24,7 @@ Edit Bus Operator
     <div class="alert alert-danger">
         {{ session('delete') }}
     </div>
-    @endif
+    @endif -->
     <!-- Error -->
     @if($errors->any())
     <div class="alert alert-danger">

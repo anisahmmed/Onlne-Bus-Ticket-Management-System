@@ -42,10 +42,10 @@ class RegisterController extends Controller
             	'phone'=>$request->phone,
             	'password'=>Hash::make($request->password),
             ]);
-            Alert::toast('Record Inserted Successfully','success');
             // $insert = User::insert($request->except('_token'));
 
-           return redirect(route('register'));
+            toastr()->success('Registration has been completed successfully!');
+            return redirect(route('register'));
             
         }
 }

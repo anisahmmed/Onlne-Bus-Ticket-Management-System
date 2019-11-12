@@ -1,6 +1,6 @@
 @extends('admin.app')
 @section('title')
-Edit Chassis Number
+Edit Bus Type
 @endsection
 @section('content')
 <div class="content-body">
@@ -10,7 +10,7 @@ Edit Chassis Number
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url('/admin/homepage') }}">Dashboard</a></li>
                 <li class="breadcrumb-item active"><a href="{{ url('/admin/input') }}">Add Bus Informations</a></li>
-                <li class="breadcrumb-item active"><a href="{{ url('/admin/chassis/edit') }}\{{ $single_chassis->id }}">Edit Chassis No</a></li>
+                <li class="breadcrumb-item active"><a href="{{ url('/admin/bus_type/edit') }}\{{ $single_bus_type->id }}">Edit Bus Type</a></li>
             </ol>
         </div>
     </div>
@@ -33,15 +33,15 @@ Edit Chassis Number
 	        <div class="col-lg-12">
 	            <div class="card">
 	                <div class="card-body">
-                        <h4 class="card-title">Edit Chassis Number</h4>
+                        <h4 class="card-title">Edit Bus Type</h4>
 	                    <div class="form-validation">
-	                        <form class="form-valide" action="{{ route('chassis_update') }}" method="post">
+	                        <form class="form-valide" action="{{ route('bus_type_update') }}" method="post">
 	                        	@csrf
 	                            <div class="form-group row">
-	                                <label class="col-lg-4 col-form-label" for="sessis_no">Chassis Number</label>
+	                                <label class="col-lg-4 col-form-label" for="bus_type">Bus Type</label>
 	                                <div class="col-lg-6">
-	                                    <input type="text" class="form-control" name="chassis_no"  value="{{ $single_chassis->chassis_no }}" required>
-	                                    <input type="hidden" class="form-control" name="id"  value="{{ $single_chassis->id }}" required>
+	                                    <input type="text" class="form-control" name="bus_type"  value="{{ $single_bus_type->bus_type }}" required>
+	                                    <input type="hidden" class="form-control" name="id"  value="{{ $single_bus_type->id }}" required>
 	                                </div>
 	                            </div>
 	                            

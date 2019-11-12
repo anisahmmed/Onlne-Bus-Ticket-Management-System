@@ -354,10 +354,7 @@ Add Bus Informations
 	                            <div class="form-group row">
 	                                <label class="col-lg-4 col-form-label" for="bus_type">Bus Type<span class="text-danger">*</span></label>
 	                                <div class="col-lg-6">
-	                                	<select name="bus_type" id="bus_type" class="form-control">
-		                                    <option>AC</option>
-		                                    <option>NAC</option>
-	                                    </select>
+	                                	<input type="text" class="form-control" name="bus_type" required>
 	                                </div>
 	                            </div>
 	                            
@@ -390,7 +387,7 @@ Add Bus Informations
                                         <td>{{$bus_types->id}}</td>
                                         <td>{{$bus_types->bus_type}}</td>
                                         <td>
-                                            <a href="#" class="btn btn-primary">Edit</a>
+                                            <a href="{{ url('/admin/bus_type/edit') }}\{{ $bus_types->id }}" class="btn btn-primary">Edit</a>
                                             <a href="#" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>

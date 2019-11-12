@@ -10,20 +10,11 @@ Edit Bus Route
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url('/admin/homepage') }}">Dashboard</a></li>
                 <li class="breadcrumb-item active"><a href="{{ url('/admin/input') }}">Add Bus Informations</a></li>
+                <li class="breadcrumb-item active"><a href="{{ url('/admin/bus_route/edit') }}\{{ $single_bus_route->id }}">Edit Bus Route</a></li>
             </ol>
         </div>
     </div>
-    @if (session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-    @endif
     
-    @if (session('delete'))
-    <div class="alert alert-danger">
-        {{ session('delete') }}
-    </div>
-    @endif
     <!-- Error -->
     @if($errors->any())
     <div class="alert alert-danger">

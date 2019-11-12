@@ -28,6 +28,9 @@ class InputController extends Controller
 	}
 
 	function input_chassis(Request $request){
+		$request->validate([
+			'chassis_no' => 'required|string|min:4',
+		]);
 	    Chassis::insert($request->except('_token'));
 	    toastr()->success('Data has been added successfully!');
 	    return back();
@@ -41,6 +44,9 @@ class InputController extends Controller
 
 	// Chassis Info update
 	function update_chassis(Request $request){
+		$request->validate([
+			'chassis_no' => 'required|string|min:4',
+		]);
 		Chassis::find($request->id)->update([
 			'chassis_no' =>$request->chassis_no,
 		]);
@@ -50,6 +56,9 @@ class InputController extends Controller
 
 	// Route Insert
 	function input_route(Request $request){
+		$request->validate([
+			'bus_route' => 'required|string',
+		]);
 		BusRoute::insert($request->except('_token'));
 	    toastr()->success('Data has been added successfully!');
 		return back();
@@ -63,6 +72,9 @@ class InputController extends Controller
 
 	// Update bus route
 	function update_busroute(Request $request){
+		$request->validate([
+			'bus_route' => 'required|string',
+		]);
 		BusRoute::find($request->id)->update([
 			'bus_route' =>$request->bus_route,
 		]);
@@ -72,6 +84,9 @@ class InputController extends Controller
 
 	// Operator Insert
 	function input_operator(Request $request){
+		$request->validate([
+			'operator_name' => 'required|string',
+		]);
 		Operator::insert($request->except('_token'));
 	    toastr()->success('Data has been added successfully!');
 		return back();
@@ -85,6 +100,9 @@ class InputController extends Controller
 
 	// Operator Update
 	function update_operator(Request $request){
+		$request->validate([
+			'operator_name' => 'required|string',
+		]);
 		Operator::find($request->id)->update([
 			'operator_name' =>$request->operator_name,
 		]);
@@ -94,6 +112,9 @@ class InputController extends Controller
 
 	// Input date
 	function input_date(Request $request){
+		$request->validate([
+			'date' => 'required|string',
+		]);
 	    toastr()->success('Data has been added successfully!');
 		Date::insert($request->except('_token'));
 		return back();
@@ -107,6 +128,9 @@ class InputController extends Controller
 
 	// Update Date
 	function update_date(Request $request){
+		$request->validate([
+			'date' => 'required|string',
+		]);
 		Date::find($request->id)->update([
 			'date' =>$request->date,
 		]);
@@ -121,11 +145,48 @@ class InputController extends Controller
 		return back();
 	}
 
+	// Departure Time edit
+	function edit_departure_time($id){
+		$single_departure_time = DepartureTime::find($id);
+		return view('admin.input.departure_time_edit',compact('single_departure_time'));
+	}
+
+	// update departure time
+	function update_departure_time(Request $request){
+		DepartureTime::find($request->id)->update([
+			'departure_time' =>$request->departure_time,
+		]);
+	    toastr()->success('Data has been saved successfully!');
+		return redirect(url('/admin/input'));
+	}
+
 	// Bus Type Insert
 	function input_bus_type(Request $request){
+		$request->validate([
+			'bus_type' => 'required|string',
+		]);
 		BusType::insert($request->except('_token'));
 	    toastr()->success('Data has been added successfully!');
 		return back();
+	}
+
+	// Edit Bus Type
+	function edit_bus_type($id){
+		$single_bus_type = BusType::find($id);
+		return view('admin.input.bus_type_edit',compact('single_bus_type'));
+	}
+
+	// Update Bus Type
+	function update_bus_type(Request $request){
+		$request->validate([
+			'bus_type' => 'required|string',
+		]);
+
+		BusType::find($request->id)->update([
+			'bus_type' =>$request->bus_type,
+		]);
+		toastr()->success('Data hase been updated successfully!');
+		return redirect(url('/admin/input'));
 	}
 
 	// Total seat insert
@@ -150,18 +211,5 @@ class InputController extends Controller
 
 	
 
-	// Departure Time edit
-	function edit_departure_time($id){
-		$single_departure_time = DepartureTime::find($id);
-		return view('admin.input.departure_time_edit',compact('single_departure_time'));
-	}
-
-	// update departure time
-	function update_departure_time(Request $request){
-		DepartureTime::find($request->id)->update([
-			'departure_time' =>$request->departure_time,
-		]);
-	    toastr()->success('Data has been saved successfully!');
-		return redirect(url('/admin/input'));
-	}
+	
 }

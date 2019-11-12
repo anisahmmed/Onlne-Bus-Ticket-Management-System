@@ -97,6 +97,11 @@ Route::get('/admin/departure_time/edit/{id}','InputController@edit_departure_tim
 // Update Departure Time
 Route::post('/admin/departure_time/update','InputController@update_departure_time')->name('departure_time_update');
 
+// Edit Bus Type
+Route::get('/admin/bus_type/edit/{id}','InputController@edit_bus_type')->name('bus_type_edit');
+// Update Bus Type
+Route::post('/admin/bus_type/update','InputController@update_bus_type')->name('bus_type_update');
+
 
 
 
