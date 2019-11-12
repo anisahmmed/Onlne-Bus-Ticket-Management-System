@@ -221,6 +221,12 @@ class InputController extends Controller
 		return back();
 	}
 
+	// Edit Ticket Price
+	function edit_ticket_price($id){
+		$single_ticket_price = TicketPrice::find($id);
+		return view('admin.input.ticket_price_edit',compact('single_ticket_price'));
+	}
+
 	
 
 	

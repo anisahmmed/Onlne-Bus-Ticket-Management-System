@@ -107,6 +107,9 @@ Route::get('/admin/total_seat/edit/{id}','InputController@edit_total_seat')->nam
 // Update total seat
 Route::post('/admin/total_seat/update','InputController@update_total_seat')->name('total_seat_update');
 
+// Edit Ticket price
+Route::get('/admin/ticket_price/edit/{id}','InputController@edit_ticket_price')->name('ticket_price_edit');
+
 
 
 

@@ -509,7 +509,7 @@ Add Bus Informations
                                         <td>{{$price->id}}</td>
                                         <td>{{$price->ticket_price}}</td>
                                         <td>
-                                            <a href="#" class="btn btn-primary">Edit</a>
+                                            <a href="{{ url('/admin/ticket_price/edit') }}\{{ $price->id }}" class="btn btn-primary">Edit</a>
                                             <a href="#" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
