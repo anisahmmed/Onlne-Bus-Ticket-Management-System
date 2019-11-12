@@ -196,6 +196,24 @@ class InputController extends Controller
 		return back();
 	}
 
+	// Edit total seat
+	function edit_total_seat($id){
+		$single_total_seat = TotalSeat::find($id);
+		return view('admin.input.total_seat_edit',compact('single_total_seat'));
+	}
+
+	// Update Total seat
+	function update_total_seat(Request $request){
+		$request->validate([
+			'total_seat' =>'required|string',
+ 		]);
+		TotalSeat::find($request->id)->update([
+			'total_seat' =>$request->total_seat,
+		]);
+		toastr()->success('Data has been updated successfully!');
+		return redirect(url('/admin/input'));
+	}
+
 	// Ticket Price Insert
 	function input_ticket_price(Request $request){
 		TicketPrice::insert($request->except('_token'));

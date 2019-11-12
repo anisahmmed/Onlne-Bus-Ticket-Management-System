@@ -448,7 +448,7 @@ Add Bus Informations
                                         <td>{{$seats->id}}</td>
                                         <td>{{$seats->total_seat}}</td>
                                         <td>
-                                            <a href="#" class="btn btn-primary">Edit</a>
+                                            <a href="{{ url('/admin/total_seat/edit') }}\{{ $seats->id }}" class="btn btn-primary">Edit</a>
                                             <a href="#" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>

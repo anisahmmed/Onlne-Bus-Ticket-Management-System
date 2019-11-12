@@ -102,6 +102,11 @@ Route::get('/admin/bus_type/edit/{id}','InputController@edit_bus_type')->name('b
 // Update Bus Type
 Route::post('/admin/bus_type/update','InputController@update_bus_type')->name('bus_type_update');
 
+// Edit Total Seat
+Route::get('/admin/total_seat/edit/{id}','InputController@edit_total_seat')->name('total_seat_edit');
+// Update total seat
+Route::post('/admin/total_seat/update','InputController@update_total_seat')->name('total_seat_update');
+
 
 
 
