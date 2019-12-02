@@ -1,6 +1,6 @@
 @extends('admin.app')
 @section('title')
-Add Bus Informations
+Add Individual Component
 @endsection
 @section('content')
 
@@ -10,22 +10,11 @@ Add Bus Informations
         <div class="col p-md-0">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url('/admin/homepage') }}">Dashboard</a></li>
-                <li class="breadcrumb-item active"><a href="{{ url('/admin/input') }}">Add Bus Informations</a></li>
+                <li class="breadcrumb-item active"><a href="{{ url('/admin/input') }}">Add Individual Component</a></li>
             </ol>
         </div>
     </div>
-    <!-- @if (session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-    @endif
     
-    @if (session('delete'))
-    <div class="alert alert-danger">
-        {{ session('delete') }}
-    </div>
-    @endif -->
-    <!-- Error -->
     @if($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -40,7 +29,7 @@ Add Bus Informations
     <!-- Bus Chassis -->
 	<div class="container-fluid">
 	    <div class="row justify-content-center">
-	        <div class="col-lg-6">
+	        <div class="col-lg-5">
 	            <div class="card">
 	                <div class="card-body">
 	                    <div class="form-validation">
@@ -63,7 +52,7 @@ Add Bus Informations
 	                </div>
 	            </div>
 	        </div>
-	        <div class="col-6">
+	        <div class="col-7">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Bus Chassis Informations</h4>
@@ -83,7 +72,7 @@ Add Bus Informations
                                         <td>{{$chassis->chassis_no}}</td>
                                         <td>
                                             <a href="{{ url('/admin/chassis/edit') }}\{{ $chassis->id }}" class="btn btn-primary">Edit</a>
-                                            <a href="#" class="btn btn-danger">Delete</a>
+                                            <a href="{{ url('/admin/chassis/delete') }}\{{ $chassis->id }}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -101,7 +90,7 @@ Add Bus Informations
 	<!-- Bus Routes -->
 	<div class="container-fluid">
 	    <div class="row justify-content-center">
-	        <div class="col-lg-6">
+	        <div class="col-lg-5">
 	            <div class="card">
 	                <div class="card-body">
 	                    <div class="form-validation">
@@ -124,7 +113,7 @@ Add Bus Informations
 	                </div>
 	            </div>
 	        </div>
-	        <div class="col-6">
+	        <div class="col-7">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Bus Route Informations</h4>
@@ -144,7 +133,7 @@ Add Bus Informations
                                         <td>{{$routes->bus_route}}</td>
                                         <td>
                                             <a href="{{ url('/admin/bus_route/edit') }}\{{ $routes->id }}" class="btn btn-primary">Edit</a>
-                                            <a href="#" class="btn btn-danger">Delete</a>
+                                            <a href="{{ url('/admin/bus_route/delete') }}\{{ $routes->id }}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -162,7 +151,7 @@ Add Bus Informations
 	<!-- Bus Operator -->
 	<div class="container-fluid">
 	    <div class="row justify-content-center">
-	        <div class="col-lg-6">
+	        <div class="col-lg-5">
 	            <div class="card">
 	                <div class="card-body">
 	                    <div class="form-validation">
@@ -185,7 +174,7 @@ Add Bus Informations
 	                </div>
 	            </div>
 	        </div>
-	        <div class="col-6">
+	        <div class="col-7">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Bus Route Informations</h4>
@@ -205,7 +194,7 @@ Add Bus Informations
                                         <td>{{$operators->operator_name}}</td>
                                         <td>
                                             <a href="{{ url('/admin/bus_operator/edit') }}\{{ $operators->id }}" class="btn btn-primary">Edit</a>
-                                            <a href="{{ url('/admin/bus_operator/update') }}" class="btn btn-danger">Delete</a>
+                                            <a href="{{ url('/admin/bus_operator/delete') }}\{{ $operators->id }}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -223,7 +212,7 @@ Add Bus Informations
 	<!-- Date start here -->
 	<div class="container-fluid">
 	    <div class="row justify-content-center">
-	        <div class="col-lg-6">
+	        <div class="col-lg-5">
 	            <div class="card">
 	                <div class="card-body">
 	                    <div class="form-validation">
@@ -246,7 +235,7 @@ Add Bus Informations
 	                </div>
 	            </div>
 	        </div>
-	        <div class="col-6">
+	        <div class="col-7">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Date Info</h4>
@@ -263,10 +252,10 @@ Add Bus Informations
                                     @foreach($all_dates as $dates)
                                     <tr>
                                         <td>{{$dates->id}}</td>
-                                        <td>{{$dates->date}}</td>
+                                        <td>{{ date('d-m-y', strtotime($dates->date)) }}</td>
                                         <td>
                                             <a href="{{ url('/admin/dates/edit') }}\{{ $dates->id }}" class="btn btn-primary">Edit</a>
-                                            <a href="#" class="btn btn-danger">Delete</a>
+                                            <a href="{{ url('/admin/dates/delete') }}\{{ $dates->id }}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -281,19 +270,25 @@ Add Bus Informations
 	</div>
 	<!-- Date End here -->
 
-	<!-- Departure Time start -->
+	<!-- Departure info start -->
 	<div class="container-fluid">
 	    <div class="row justify-content-center">
-	        <div class="col-lg-6">
+	        <div class="col-lg-5">
 	            <div class="card">
 	                <div class="card-body">
 	                    <div class="form-validation">
-	                        <form class="form-valide" action="{{ route('input_time') }}" method="post">
+	                        <form class="form-valide" action="{{ route('departure_info_input') }}" method="post">
 	                        	@csrf
+	                            <div class="form-group row">
+	                                <label class="col-lg-4 col-form-label" for="departure_time">Departure<span class="text-danger">*</span></label>
+	                                <div class="col-lg-6">
+	                                    <input type="text" class="form-control" id="departure" name="departure" required value="{{ old('departure') }}">
+	                                </div>
+	                            </div>
 	                            <div class="form-group row">
 	                                <label class="col-lg-4 col-form-label" for="departure_time">Departure Time<span class="text-danger">*</span></label>
 	                                <div class="col-lg-6">
-	                                    <input type="text" class="form-control" id="departure_time" name="departure_time" required value="{{ old('departure_time') }}">
+	                                    <input type="time" class="form-control" id="departure_time" name="departure_time" required value="{{ old('departure_time') }}">
 	                                </div>
 	                            </div>
 	                            
@@ -307,45 +302,116 @@ Add Bus Informations
 	                </div>
 	            </div>
 	        </div>
-	        <div class="col-6">
+	        <div class="col-7">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Departure Time Informations</h4>
+                        <h4 class="card-title">Departure Informations</h4>
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered zero-configuration" style="color: #000;">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
+                                        <th>Departure</th>
                                         <th>Departure Time</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($all_departure_times as $times)
+                                    @foreach($all_departure_info as $departure_infos)
                                     <tr>
-                                        <td>{{$times->id}}</td>
-                                        <td>{{$times->departure_time}}</td>
+                                        <td>{{ $departure_infos->id }}</td>
+                                        <td>{{ $departure_infos->departure }}</td>
+                                        <td>{{date('h:i A', strtotime($departure_infos->departure_time))}}</td>
                                         <td>
-                                            <a href="{{ url('/admin/departure_time/edit') }}\{{ $times->id }}" class="btn btn-primary">Edit</a>
-                                            <a href="#" class="btn btn-danger">Delete</a>
+                                            <a href="{{ url('/admin/departure_info/edit') }}\{{ $departure_infos->id }}" class="btn btn-primary">Edit</a>
+                                            <a href="{{ url('/admin/departure_info/delete') }}\{{ $departure_infos->id }}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
                                         </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
                             </table>
-                            {{ $all_departure_times->links() }}
+                            {{ $all_departure_info->links() }}
                         </div>
                     </div>
                 </div>
             </div>
 	    </div>
 	</div>
-	<!-- Departure Time End -->
+	<!-- Departure infp End -->
+
+	<!-- Destination info start -->
+	<div class="container-fluid">
+	    <div class="row justify-content-center">
+	        <div class="col-lg-5">
+	            <div class="card">
+	                <div class="card-body">
+	                    <div class="form-validation">
+	                        <form class="form-valide" action="{{ route('destination_info_input') }}" method="post" enctype="multipart/form-data">
+	                        	@csrf
+	                            <div class="form-group row">
+	                                <label class="col-lg-4 col-form-label" for="departure_time">Destination<span class="text-danger">*</span></label>
+	                                <div class="col-lg-6">
+	                                    <input type="text" class="form-control" id="destination" name="destination" required value="{{ old('destination') }}">
+	                                </div>
+	                            </div>
+	                            <div class="form-group row">
+	                                <label class="col-lg-4 col-form-label" for="departure_time">Destination Scenario<span class="text-danger">*</span></label>
+	                                <div class="col-lg-6">
+	                                    <input type="file" class="form-control" id="destination_scenario" name="destination_scenario" >
+	                                </div>
+	                            </div>
+	                            
+	                            <div class="form-group row">
+	                                <div class="col-lg-8 ml-auto">
+	                                    <button type="submit" class="btn btn-primary">Submit</button>
+	                                </div>
+	                            </div>
+	                        </form>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="col-7">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Destination Informations</h4>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered zero-configuration" style="color: #000;">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Destination</th>
+                                        <th>Destination Scenario</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($all_destination as $destinations)
+                                    <tr>
+                                        <td>{{ $destinations->id }}</td>
+                                        <td>{{ $destinations->destination }}</td>
+                                        <td>{{ $destinations->destination_scenario }}</td>
+                                        <td>
+                                            <a href="{{ url('/admin/destination_info/edit') }}\{{ $destinations->id }}" class="btn btn-primary">Edit</a>
+                                            <a href="{{ url('/admin/destination_info/delete') }}\{{ $destinations->id }}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            {{ $all_destination->links() }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+	    </div>
+	</div>
+	<!-- Departure infp End -->
 	
 	<!-- Bus Type Start -->
 	<div class="container-fluid">
 	    <div class="row justify-content-center">
-	        <div class="col-lg-6">
+	        <div class="col-lg-5">
 	            <div class="card">
 	                <div class="card-body">
 	                    <div class="form-validation">
@@ -368,7 +434,7 @@ Add Bus Informations
 	                </div>
 	            </div>
 	        </div>
-	        <div class="col-6">
+	        <div class="col-7">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Bus Type Informations</h4>
@@ -388,7 +454,7 @@ Add Bus Informations
                                         <td>{{$bus_types->bus_type}}</td>
                                         <td>
                                             <a href="{{ url('/admin/bus_type/edit') }}\{{ $bus_types->id }}" class="btn btn-primary">Edit</a>
-                                            <a href="#" class="btn btn-danger">Delete</a>
+                                            <a href="{{ url('/admin/bus_type/delete') }}\{{ $bus_types->id }}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -406,7 +472,7 @@ Add Bus Informations
 	<!-- Total Seat Start here -->
 	<div class="container-fluid">
 	    <div class="row justify-content-center">
-	        <div class="col-lg-6">
+	        <div class="col-lg-5">
 	            <div class="card">
 	                <div class="card-body">
 	                    <div class="form-validation">
@@ -429,7 +495,7 @@ Add Bus Informations
 	                </div>
 	            </div>
 	        </div>
-	        <div class="col-6">
+	        <div class="col-7">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Bus Seat Informations</h4>
@@ -449,7 +515,7 @@ Add Bus Informations
                                         <td>{{$seats->total_seat}}</td>
                                         <td>
                                             <a href="{{ url('/admin/total_seat/edit') }}\{{ $seats->id }}" class="btn btn-primary">Edit</a>
-                                            <a href="#" class="btn btn-danger">Delete</a>
+                                            <a href="{{ url('/admin/total_seat/delete') }}\{{ $seats->id }}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -467,7 +533,7 @@ Add Bus Informations
 	<!-- Ticket Price Start here -->
 	<div class="container-fluid">
 	    <div class="row justify-content-center">
-	        <div class="col-lg-6">
+	        <div class="col-lg-5">
 	            <div class="card">
 	                <div class="card-body">
 	                    <div class="form-validation">
@@ -490,7 +556,7 @@ Add Bus Informations
 	                </div>
 	            </div>
 	        </div>
-	        <div class="col-6">
+	        <div class="col-7">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Ticket Price Informations</h4>
@@ -510,7 +576,7 @@ Add Bus Informations
                                         <td>{{$price->ticket_price}}</td>
                                         <td>
                                             <a href="{{ url('/admin/ticket_price/edit') }}\{{ $price->id }}" class="btn btn-primary">Edit</a>
-                                            <a href="#" class="btn btn-danger">Delete</a>
+                                            <a href="{{ url('/admin/ticket_price/delete') }}\{{ $price->id }}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -524,6 +590,67 @@ Add Bus Informations
 	    </div>
 	</div>
 	<!-- Ticket Price End here -->
+
+    <!-- Boarding Point Start here -->
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-5">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-validation">
+                            <form class="form-valide" action="{{ route('terminal_input') }}" method="post">
+                                @csrf
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="terminal_name">Terminal Name<span class="text-danger">*</span></label>
+                                    <div class="col-lg-6">
+                                        <input type="text" class="form-control" name="terminal_name" value="{{ old('terminal_name') }}" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group row">
+                                    <div class="col-lg-8 ml-auto">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-7">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Terminal Informations</h4>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered zero-configuration" style="color: #000;">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Terminal Name</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($all_boarding_point as $terminals)
+                                    <tr>
+                                        <td>{{$terminals->id}}</td>
+                                        <td>{{$terminals->terminal_name}}</td>
+                                        <td>
+                                            <a href="{{ url('/admin/terminal/edit') }}\{{ $terminals->id }}" class="btn btn-primary">Edit</a>
+                                            <a href="{{ url('/admin/terminal/delete') }}\{{ $terminals->id }}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            {{ $ticket_prices->links() }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Boarding Point End here -->
 </div>
 @endsection
 

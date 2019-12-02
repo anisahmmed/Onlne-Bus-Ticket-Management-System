@@ -1,260 +1,154 @@
 <!DOCTYPE html>
 <html>
+   
 <head>
-    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <style>
+        .action{
+            background:url(../images/separator.jpg) 50% 0 no-repeat;
+        }
+    </style>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Transfers - Private Transport and Car Hire HTML Template" />
+    <meta name="description" content="Transfers - Private Transport and Car Hire HTML Template">
+    <meta name="author" content="themeenergy.com">
+    
     <title>
         @yield('title')
     </title>
     
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-
+    <link rel="stylesheet" href="{{ asset('frontend/front/css/styler.css') }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/front/css/theme-pink.css') }}" id="template-color" />
+    {{-- <link rel="stylesheet" href="../../../../ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"> --}}
+    <link rel="stylesheet" href="{{ asset('frontend/front/css/jquery-ui.theme.css') }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/front/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/front/css/animate.css') }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/front/css/icons.css') }}" />
+    {{-- <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700|Montserrat:400,700' rel='stylesheet' type='text/css'> --}}
+    <link rel="shortcut icon" href="{{ asset('frontend/front/images/favicon.ico') }}" />{{-- 
+    <script src="../../../../use.fontawesome.com/e808bf9397.js"></script> --}}
     
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900" rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/css?family=Karla:400,700italic,700,400italic" rel='stylesheet' type='text/css'>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/font-awesome.min.css') }}" />
-
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap.css') }}" />
-
-    <!-- REVOLUTION BANNER CSS SETTINGS -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/assets/rs-plugin/css/settings.css') }}" media="screen" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/assets/css/dropdown.css') }}" />
-
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/owl.carousel.css') }}" />
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/flexslider.css') }}" />
-    <link rel="stylesheet/less" href="{{ asset('frontend/assets/css/jquery.bxslider.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/global.css') }}" />
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}" />
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/homepage7.css') }}" />
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/responsive.css') }}" />
-    <link href="{{ asset('frontend/assets/css/skin.less" rel="stylesheet/less') }}">
-    
-    
-    </head>
-    <body>
-        <!--Wrapper Section Start Here -->
-        <div id="wrapper" class="homepage homepage-3 homepage7-wrap">
-            <!--header Section Start Here -->
-            <header id="header" class="header homepage7-header">
-
-                <!-- main header Starts Here -->
-                <div class="main-header">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-3">
-                                <a href="index.html" class="logo"> <img src="{{asset('frontend/assets/bu.png') }}" alt="" /> </a>
-
-                            </div>
-
-                            <div class="col-xs-12 hidden-xs col-sm-9">
-
-                                <div class="call-us">
-                                    <ul>
-                                        <li>
-                                            <img src="assets/images/iphone.png" alt="" />
-                                            <span class="transport">CALL US NOW FOR <span></span> ANY QUERY</span>
-                                        </li>
-                                        <li>
-                                            <a href="tel:5917890123">01926-702026</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  
+  <body class="home">
+        
+        <!-- Header -->
+        <header class="header" role="banner">
+            <div class="wrap">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="#" title="Transfers"><img src="{{ asset('frontend/front/images/transfers.jpg') }}" alt="Transfers" /></a>
                 </div>
-                <!-- secondary header Starts Here -->
-                <div class="secondary-header">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-10 col-md-10 custom-nav">
-                                <nav>
-                                    <div id='cssmenu'>
-                                        <ul class="navigation">
-                                            <li class='active'>
-                                                <a href='#'>Home</a>
-                                            </li>
-                                            <li>
-                                                <a href="about-us.html">about us</a>
-                                            </li>
-                                            <li>
-                                                <a href="#;">services</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">blog</a>
-                                            </li>
-                                            <li>
-                                                <a href="location.html">locations</a>
-                                            </li>
-                                            <li>
-                                                <a href="contact-us.html">contact</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ url('\login') }}">Login</a>
-                                            </li>
-                                        </ul>
+                <!-- //Logo -->
+                
+                <!-- Main Nav -->
+                <nav role="navigation" class="main-nav">
+                    <ul>
+                        <li><a href="{{ url('/') }}" title="">Home</a></li>
+                        <li><a href="{{ url('/destinations') }}" title="Destinations">Destinations</a></li>
+                        <li><a href="{{ url('/blog') }}" title="Blog">Blog</a></li>
+                        <li><a href="{{ url('/contact') }}" title="Contact">Contact</a></li>
+                        <li><a href="{{ url('/about') }}" title="Pages">About Us</a></li>
+                        <li><a href="{{ url('/customer_login') }}" title="Pages">Login</a></li>
+                           
+                        @guest
+                        @else
+                        <li><a>{{ Auth::user()->name }}</a>
+                            <ul>
+                                <li>
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                                </li>
 
-                                    </div>
-                                </nav>
-                                <div class="nav-icon">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                            </div>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </ul>
+                        </li>
 
-                            <div class="col-md-2 col-sm-2">
-                                <a href="request-a-quote.html" class="request">Buy Ticket</a>
-                            </div>
-                            <!-- secondary header Ends Here -->
-                        </div>
-                    </div>
-                </div>
-
-                <!-- main header Ends Here -->
-            </header>
-            <!--header Section Ends Here -->
+                        @endguest
+                    </ul>
+                </nav>
+                <!-- //Main Nav -->
+            </div>
+        </header>
+        <!-- //Header -->
 
 @yield('content')
 
-
-<!--Footer area starts Here -->
-<footer id="footer">
-    <!--Footer box starts Here -->
-    <div class="footer clearfix">
-        <div class="container">
+        <!-- Footer -->
+    <footer class="footer black" role="contentinfo">
+        <div class="wrap">
             <div class="row">
-                <div class="col-xs-12 col-sm-4">
-                    <div class="quick-links">
-                        <h5>QUICK LINKS</h5>
-                    </div>
-                    <div class="quick-list">
-                        <ul>
-                            <li>
-                                <a href="#">ground shipping</a>
-                            </li>
-                            <li>
-                                <a href="#">air freight</a>
-                            </li>
-                            <li>
-                                <a href="#">sea freight</a>
-                            </li>
-                            <li>
-                                <a href="#">storage &amp; packaging</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="quick-list">
-                        <ul>
-                            <li>
-                                <a href="#">rail shipping</a>
-                            </li>
-                            <li>
-                                <a href="#">logistic solutions</a>
-                            </li>
-                            <li>
-                                <a href="#">cargo shipping</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-4">
-                    <div class="our-address">
-                        <h5>contact us</h5>
-                        <div class="address">
-                            <h6>transport king</h6>
-                            <address>
-                                Contact Address will appear here, some text gonna
-                                appear here, Ney York City, - 10001, USA
-                            </address>
-                            <div class="phone">
-                                <span>phone : <a href="tel:5917890123">591 7890 123</a></span>
-                                <span>email : <a href="mail.html"><span class="__cf_email__" data-cfemail="d9b0b7bfb699adabb8b7aaa9b6abadadb1bcb4bcf7bab6b4">[email&#160;protected]</span></a></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-4">
-                    <div class="sign-up">
-                        <h5>newsletter signup</h5>
-                        <p>
-                            If you want receive our all weekly updates about new
-                            offers and discount, signup below.
-                        </p>
-                        <form>
-                            <input id="mail" type="text" placeholder="Email Address" name="email" />
-                            <!-- <input id="submit" type="submit" value="" class="fa fa-paper-plane-o" /> -->
-                            <button class="fa fa-paper-plane"></button>
-                        </form>
-                    </div>
-                </div>
+                <!-- Column -->
+                <article class="one-half">
+                    <h6>About us</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.</p>
+                </article>
+                <!-- //Column -->
+                
+                <!-- Column -->
+                <article class="one-fourth">
+                    <h6>Need help?</h6>
+                    <p>Contact us via phone or email:</p>
+                    <p class="contact-data"><span class="icon icon-themeenergy_call"></span> 01926-702026</p>
+                    <p class="contact-data"><span class="icon icon-themeenergy_mail-2"></span> <a href="mailto:help@transfers.com">16103128@iubat.edu</a></p>
+                </article>
+                <!-- //Column -->
+                
+                <!-- Column -->
+                <article class="one-fourth">
+                    <h6>Follow us</h6>
+                    <ul class="social">
+                        <li><a href="#" title="facebook"><i class="fa fa-fw fa-facebook"></i></a></li>
+                        <li><a href="#" title="twitter"><i class="fa fa-fw fa-twitter"></i></a></li>
+                        <li><a href="#" title="gplus"><i class="fa fa-fw fa-google-plus"></i></a></li>
+                        <li><a href="#" title="linkedin"><i class="fa fa-fw fa-linkedin"></i></a></li>
+                        <li><a href="#" title="pinterest"><i class="fa fa-fw fa-pinterest-p"></i></a></li>
+                        <li><a href="#" title="vimeo"><i class="fa fa-fw fa-vimeo"></i></a></li>
+                    </ul>
+                </article>
+                <!-- //Column -->
             </div>
-            <div class="row custom-row">
-                <div class="col-xs-12 col-sm-5">
-                    <div class="copyright">
-                        <span>Copyright 2019. All Rights Reserved by <a href="http://github.com/anisahmmed">Anis Ahmmed.</a></span>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-7 no-wrap-mobile">
-                    <div class="footer-nav">
-                        <ul>
-                            <li>
-                                <a href="#">terms of use</a>
-                            </li>
-                            <li>
-                                <a href="#">legal desclaimer</a>
-                            </li>
-                            <li>
-                                <a href="#">privacy policy</a>
-                            </li>
-                            <li>
-                                <a href="#">support</a>
-                            </li>
-                            <li>
-                                <a href="#">sitemap</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            
+            <div class="copy">
+                <p>Copyright 2019, Anis Ahmmed. All rights reserved. </p>
+                
+                <nav role="navigation" class="foot-nav">
+                    <ul>
+                        <li><a href="#" title="Home">Home</a></li>
+                        <li><a href="#" title="Blog">Blog</a></li>
+                        <li><a href="#" title="About us">About us</a></li>
+                        <li><a href="#" title="Contact us">Contact us</a></li>
+                        <li><a href="#" title="Terms of use">Terms of use</a></li>
+                        <li><a href="#" title="Help">Help</a></li>
+                        <li><a href="#" title="For partners">For partners</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
-    </div>
-    <!--Footer box ends Here -->
-</footer>
-<!--Footer area ends Here -->
-
-        
-
-        <script type="text/javascript" data-cfasync="false" src="{{ asset('frontend/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('frontend/assets/js/jquery-1.11.3.min.js') }}"></script>
-        <script src="{{ asset('frontend/assets/js/theme-option/style-switcher/assets/js/less.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('frontend/assets/js/owl.carousel.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('frontend/assets/js/jquery.flexslider.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('frontend/assets/js/jquery.selectbox-0.2.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('frontend/assets/js/jquery.bxslider.js') }}"></script>
-
-        <!--Parrallax -->
-        <script type="text/javascript" src="{{ asset('frontend/assets/js/parallax.js') }}"></script>
-
-        <!-- jQuery REVOLUTION Slider  -->
-        <script type="text/javascript" src="{{ asset('frontend/assets/js/jquery.themepunch.tools.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('frontend/assets/js/jquery.themepunch.revolution.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('frontend/assets/js/revolution.js') }}"></script>
-
-        <!-- Switcher Js -->
-        <script src="{{ asset('frontend/assets/js/theme-option/style-switcher/assets/js/style.switcher.js') }}"></script>
-        <script src="{{ asset('frontend/assets/js/theme-option/style-switcher/assets/js/jquery.cookie.js') }}"></script>
-        <!-- Switcher Js -->
-
-        <script src="{{ asset('frontend/assets/js/script.js" type="text/javascript') }}"></script>
-        <script type="text/javascript" src="{{ asset('frontend/assets/js/site.js') }}"></script>
-
-    </body>
-
+    </footer>
+    <!-- //Footer -->
+    
+     <!-- jQuery -->
+    {{-- <script src="../../../../ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="../../../../ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="../../../../cdn.jsdelivr.net/jquery.ui.timepicker.addon/1.4.5/jquery-ui-timepicker-addon.min.js"></script> --}}
+    <script src="{{ asset('frontend/front/js/jquery.uniform.min.js') }}"></script>
+    <script src="{{ asset('frontend/front/js/jquery.slicknav.min.js') }}"></script>
+    <script src="{{ asset('frontend/front/js/wow.min.js') }}"></script>
+    <script src="{{ asset('frontend/front/js/jquery-ui-sliderAccess.js') }}"></script>
+    <script src="{{ asset('frontend/front/js/search.js') }}"></script>
+    <script src="{{ asset('frontend/front/js/scripts.js') }}"></script>
+    <script src="https://use.fontawesome.com/185aa2bd5e.js"></script>
+    
+    
+    <script src="{{ asset('frontend/front/js/styler.js') }}"></script>
+  </body>
 
 </html>

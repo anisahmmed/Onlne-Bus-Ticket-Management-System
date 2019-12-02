@@ -10,17 +10,21 @@
        @yield('title')
     </title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('login_resource/icon.jpg') }} }}">
+    <link rel="shortcut icon" href="{{ asset('frontend/front/images/favicon.ico') }}" />
     <!-- Pignose Calender -->
     <link href="{{ asset('dashboard/assets/plugins/pg-calendar/css/pignose.calendar.min.css') }}" rel="stylesheet">
     <!-- Chartist -->
     <link rel="stylesheet" href="{{ asset('dashboard/assets/plugins/chartist/css/chartist.min.css') }}">
     <link rel="stylesheet" href="{{ asset('dashboard/assets/plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css') }}">
+    @toastr_css
+     @yield('css')
+
+     {{-- Data table --}}
+     <link href="{{ asset('dashboard/assets/plugins/tables/css/datatable/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
     <!-- Custom Stylesheet -->
     <link href="{{ asset('dashboard/assets/css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/custom.css') }}">
-    <link href="{{asset('toastr.css') }}" rel="stylesheet"/>
-     @toastr_css
+     
 
 </head>
 
@@ -36,12 +40,13 @@
         ***********************************-->
         <div class="nav-header">
             <div class="brand-logo">
-                <a href="index-2.html">
+                <a href="{{ url('/admin/homepage') }}">
                     <b class="logo-abbr"><img src="images/logo.png" alt=""> </b>
                     <span class="logo-compact"><img src="images/logo-compact.png" alt=""></span>
                     <span class="brand-title">
-                        <img src="images/logo-text.png" alt="">
+                        <img src="{{ asset('frontend/front/images/favicon.ico') }}" alt="">
                     </span>
+                    <span style="color: #fff">Ticket</span>
                 </a>
             </div>
         </div>
@@ -98,36 +103,6 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="notification-unread">
-                                            <a href="javascript:void()">
-                                                <img class="float-left mr-3 avatar-img" src="images/avatar/2.jpg" alt="">
-                                                <div class="notification-content">
-                                                    <div class="notification-heading">Adam Smith</div>
-                                                    <div class="notification-timestamp">08 Hours ago</div>
-                                                    <div class="notification-text">Can you do me a favour?</div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void()">
-                                                <img class="float-left mr-3 avatar-img" src="images/avatar/3.jpg" alt="">
-                                                <div class="notification-content">
-                                                    <div class="notification-heading">Barak Obama</div>
-                                                    <div class="notification-timestamp">08 Hours ago</div>
-                                                    <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void()">
-                                                <img class="float-left mr-3 avatar-img" src="images/avatar/4.jpg" alt="">
-                                                <div class="notification-content">
-                                                    <div class="notification-heading">Hilari Clinton</div>
-                                                    <div class="notification-timestamp">08 Hours ago</div>
-                                                    <div class="notification-text">Hello</div>
-                                                </div>
-                                            </a>
-                                        </li>
                                     </ul>
                                     
                                 </div>
@@ -152,33 +127,6 @@
                                                 <div class="notification-content">
                                                     <h6 class="notification-heading">Events near you</h6>
                                                     <span class="notification-text">Within next 5 days</span> 
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void()">
-                                                <span class="mr-3 avatar-icon bg-danger-lighten-2"><i class="icon-present"></i></span>
-                                                <div class="notification-content">
-                                                    <h6 class="notification-heading">Event Started</h6>
-                                                    <span class="notification-text">One hour ago</span> 
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void()">
-                                                <span class="mr-3 avatar-icon bg-success-lighten-2"><i class="icon-present"></i></span>
-                                                <div class="notification-content">
-                                                    <h6 class="notification-heading">Event Ended Successfully</h6>
-                                                    <span class="notification-text">One hour ago</span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void()">
-                                                <span class="mr-3 avatar-icon bg-danger-lighten-2"><i class="icon-present"></i></span>
-                                                <div class="notification-content">
-                                                    <h6 class="notification-heading">Events to Join</h6>
-                                                    <span class="notification-text">After two days</span> 
                                                 </div>
                                             </a>
                                         </li>
@@ -208,7 +156,18 @@
                                         <li>
                                             <a href="page-lock.html"><i class="icon-lock"></i> <span>Lock Screen</span></a>
                                         </li>
-                                        <li><a href="page-login.html"><i class="icon-key"></i> <span>Logout</span></a></li>
+                                        <li>
+                                        <a href="{{ route('logout') }}" 
+                                        onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            <i class="icon-key">
+                                            </i> <span>Logout</span>
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -229,16 +188,15 @@
                 <ul class="metismenu" id="menu">
                     <li class="nav-label">Dashboard</li>
                     <li>
-                        <a href="#">
+                        <a href="{{ url('/admin/homepage') }}">
                             <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
                         </a>
                     </li>
                     <li class="mega-menu mega-menu-sm">
                         <a class="has-arrow" href="#" aria-expanded="false">
-                            <i class="icon-note menu-icon"></i><span class="nav-text">Input</span>
+                            <i class="icon-note menu-icon"></i><span class="nav-text">Create</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="{{ route('bus_info') }}">Bus Information Add</a></li>
                             <li><a href="{{ route('input') }}">Add Individual Components Info</a></li>
                         </ul>
                     </li>
@@ -247,8 +205,18 @@
                             <i class="icon-globe-alt menu-icon"></i><span class="nav-text">View</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="{{ route('view_bus') }}">Bus Information</a></li>
+                            <li><a href="{{ route('view_bus_info') }}">Bus Information</a></li>
                             <li><a href="{{ route('users_info') }}">Users Information</a></li>
+                            <li><a href="{{ route('terminal_register') }}">Register Terminal</a></li>
+                        </ul>
+                    </li>
+                    <li class="mega-menu mega-menu-sm">
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Trash</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{ route('bus_info_trashed') }}">Bus Information</a></li>
+                            <li><a href="#">Users Information</a></li>
                         </ul>
                     </li>
                     <li class="nav-label">Apps</li>
@@ -419,12 +387,28 @@
 
 
     <script src="{{ asset('dashboard/assets/js/dashboard/dashboard-1.js') }}"></script>
-    <!-- <script>
-        @include('sweetalert::alert')
-    </script> -->
+    
+
     @jquery
     @toastr_js
     @toastr_render
+
+    @yield('js')
+{{-- Data table --}}
+    <script src="{{ asset('dashboard/assets/plugins/tables/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('dashboard/assets/plugins/tables/js/datatable/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('dashboard/assets/plugins/tables/js/datatable-init/datatable-basic.min.js') }}"></script>
+
+    {{-- Print --}}
+    <script>
+        function printDiv(divName) {
+            var printContents = document.getElementById(divName).innerHTML;
+            var originalContents = document.body.innerHTML;
+            document.body.innerHTML = printContents;
+            window.print();
+            document.body.innerHTML = originalContents;
+        }
+    </script>
 
 </body>
 

@@ -9,10 +9,13 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "algolia/scout-extended": "^1.8",
         "fideloper/proxy": "^4.0",
+        "intervention/image": "^2.5",
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",
         "realrashid/sweet-alert": "^2.0",
+        "stripe/stripe-php": "^7.14",
         "yoeunes/toastr": "^1.2"
     },
     "require-dev": {

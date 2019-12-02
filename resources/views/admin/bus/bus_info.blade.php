@@ -15,22 +15,25 @@ Bus Informations
             </ol>
         </div>
     </div>
-    <div class="container-fluid">
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title" style="font-weight: bold; font-size: 22px; color: blue;">Bus Informations</h4>
+                        <h4 class="card-title" style="font-weight: bold; font-size: 22px; text-align: center;">Bus Informations</h4><br>
+                        <a href="{{ route('bus_info_indexs') }}" class="btn btn-info ">Create New <i class="fa fa-plus-square-o" aria-hidden="true"></i></a> 
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered zero-configuration" style="color: #000;">
+                            <table class="table table-striped table-bordered zero-configuration" style="color: #000; font-size: 13px;">
                                 <thead>
                                     <tr>
+                                        <th>SL</th>
                                         <th>Journey Date</th>
                                         <th>Operator Name</th>
                                         <th>Chassis Number</th>
                                         <th>Bus Type</th>
-                                        <th>Departure & Destination</th>
+                                        <th>Bus Route</th>
+                                        <th>Departure</th>
                                         <th>Departure Time</th>
+                                        <th>Destination</th>
                                         <th>Total Seat</th>
                                         <th>Ticket Price</th>
                                         <th>Action</th>
@@ -39,17 +42,22 @@ Bus Informations
                                 <tbody>
                                     @foreach($all_buses as $buses)
                                     <tr>
-                                        <td>{{ $buses->relationbetweendate->date }}</td>
+                                        <td>{{ $buses->id }}</td>
+
+                                        <td>{{ date('d-M-y', strtotime($buses->relationbetweendate->date)) }}</td>
                                         <td>{{ $buses->ralationbetweenOperator->operator_name }}</td>
                                         <td>{{ $buses->relationbetweenchassis->chassis_no }}</td>
                                         <td>{{ $buses->relationbetweenBusType->bus_type }}</td>
                                         <td>{{$buses->relationbetweenbusroutes->bus_route}}</td>
-                                        <td>{{$buses->relationbetweentime->departure_time}}</td>
+                                        <td>{{$buses->relationbetweenDepartureInfo->departure}}</td>
+                                        <td>{{ date('h:i A', strtotime($buses->relationbetweenDepartureInfo->departure_time)) }}</td>
+
+                                        <td>{{ $buses->relationbetweenDestination->destination }}</td>
                                         <td>{{ $buses->relationbetweenTotalSeat->total_seat }}</td>
                                         <td>{{ $buses->relationbetweenTicketPrice->ticket_price }}</td>
                                         <td>
-                                            <a href="{{ url('/admin/view/bus_info/edit') }}\{{ $buses->id }}" class="btn btn-primary">Edit</a>
-                                            <a href="#" class="btn btn-danger">Delete</a>
+                                            <a href="{{ url('/admin/bus_info/view/edit') }}\{{ $buses->id }}" class="btn btn-primary">Edit</a>
+                                            <a href="{{ url('/admin/bus_info/view/delete') }}\{{ $buses->id }}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -61,7 +69,6 @@ Bus Informations
                 </div>
             </div>
         </div>
-    </div>
 
 </div>
 
