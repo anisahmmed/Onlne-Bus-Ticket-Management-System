@@ -4,7 +4,7 @@ Online Bus | Ticket
 @endsection
 
 @section('content')
-    
+
     <!-- Main -->
     <main class="main" role="main">
         <!-- Intro -->
@@ -14,15 +14,14 @@ Online Bus | Ticket
                     <h1 class="wow fadeInDown">Need To Buy Bus Ticket?</h1>
                     <h2 class="wow fadeInUp">You've come to the right place.</h2>
                     <div class="actions">
-                        <a href="#services" title="Our services" class="btn large white wow fadeInLeft anchor">Our services</a>
                         <a href="{{ url('/customer_login') }}" title="Make a booking" class="btn large color wow fadeInRight anchor">Buy Ticket</a>
                     </div>
                 </div>
             </div>
         </div>
         <!-- //Intro -->
-        
-        
+
+
         <!-- Services iconic -->
         <div class="services iconic white">
             <div class="wrap">
@@ -34,7 +33,7 @@ Online Bus | Ticket
                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy  tinc dolore magna.</p>
                     </div>
                     <!-- //Item -->
-                    
+
                     <!-- Item -->
                     <div class="one-third wow fadeIn" data-wow-delay=".2s">
                         <span class="circle"><span class="icon icon-themeenergy_lockpad"></span></span>
@@ -42,7 +41,7 @@ Online Bus | Ticket
                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy  tinc dolore magna.</p>
                     </div>
                     <!-- //Item -->
-                    
+
                     <!-- Item -->
                     <div class="one-third wow fadeIn" data-wow-delay=".4s">
                         <span class="circle"><span class="icon icon-themeenergy_open-wallet"></span></span>
@@ -50,7 +49,7 @@ Online Bus | Ticket
                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy  tinc dolore magna.</p>
                     </div>
                     <!-- //Item -->
-                    
+
                     <!-- Item -->
                     <div class="one-third wow fadeIn">
                         <span class="circle"><span class="icon icon-themeenergy_heart"></span></span>
@@ -58,7 +57,7 @@ Online Bus | Ticket
                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy  tinc dolore magna.</p>
                     </div>
                     <!-- //Item -->
-                    
+
                     <!-- Item -->
                     <div class="one-third wow fadeIn" data-wow-delay=".2s">
                         <span class="circle"><span class="icon icon-themeenergy_magic-trick"></span></span>
@@ -66,7 +65,7 @@ Online Bus | Ticket
                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy  tinc dolore magna.</p>
                     </div>
                     <!-- //Item -->
-                    
+
                     <!-- Item -->
                     <div class="one-third wow fadeIn" data-wow-delay=".4s">
                         <span class="circle"><span class="icon icon-themeenergy_call"></span></span>
@@ -74,7 +73,7 @@ Online Bus | Ticket
                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy  tinc dolore magna.</p>
                     </div>
                     <!-- //Item -->
-                    
+
                     <!-- Item -->
                     <div class="one-third wow fadeIn">
                         <span class="circle"><span class="icon icon-themeenergy_cup"></span></span>
@@ -82,7 +81,7 @@ Online Bus | Ticket
                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy  tinc dolore magna.</p>
                     </div>
                     <!-- //Item -->
-                    
+
                     <!-- Item -->
                     <div class="one-third wow fadeIn" data-wow-delay=".2s">
                         <span class="circle"><span class="icon icon-themeenergy_attach"></span></span>
@@ -90,7 +89,7 @@ Online Bus | Ticket
                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy  tinc dolore magna.</p>
                     </div>
                     <!-- //Item -->
-                    
+
                     <!-- Item -->
                     <div class="one-third wow fadeIn" data-wow-delay=".4s">
                         <span class="circle"><span class="icon icon-themeenergy_stars"></span></span>
@@ -102,16 +101,16 @@ Online Bus | Ticket
             </div>
         </div>
         <!-- //Services iconic -->
-        
+
         <!-- Call to action -->
         <div class="black cta">
             <div class="wrap">
                 <p class="wow fadeInLeft">Like what you see? Are you ready to stand out? You know what to do.</p>
-                
+
             </div>
         </div>
         <!-- //Call to action -->
-        
+
         <!-- Services -->
         <div class="services boxed white" id="services">
             <!-- Item -->
@@ -128,10 +127,10 @@ Online Bus | Ticket
                     <a class="more" title="Read more" href="services.html">Read more</a>
                 </div>
             </article>
-            <!-- //Item -->         
+            <!-- //Item -->
         </div>
         <!-- //Services -->
-        
+
         <!-- Testimonials -->
         <div class="testimonials center black">
             <div class="wrap">
@@ -141,11 +140,11 @@ Online Bus | Ticket
             </div>
         </div>
         <!-- //Testimonials -->
-        
+
         <div class="partners white center">
             <div class="wrap">
                 <h2 class="wow fadeIn" style="color:#5B2192; font-weight: bold;">AVIALABLE BUS OPERATORS</h2>
-                
+
                 @foreach($all_operator as $operators)
                 <div class="one-fifth wow fadeIn" data-wow-delay=".2s">
                 <i class="fa fa-bus" style="color:green; font-size: 16px;" aria-hidden="true"></i>
@@ -158,7 +157,7 @@ Online Bus | Ticket
         <!-- Call to action -->
         <div class="gray cta">
             <div class="wrap">
-                
+
             </div>
         </div>
         <!-- //Call to action -->
@@ -169,17 +168,15 @@ Online Bus | Ticket
 
                 @foreach($all_bus_route as $bus_routes)
                 <div class="one-fifth wow fadeIn" data-wow-delay=".2s">
-                    <i class="fa fa-map-marker" style="color: #5B2192; font-size: 20px;" aria-hidden="true"></i> 
+                    <i class="fa fa-map-marker" style="color: #5B2192; font-size: 20px;" aria-hidden="true"></i>
                     <h5 style="color: black;">{{ $bus_routes->bus_route }}</h5>
                 </div>
                 @endforeach
             </div>
         </div>
-        
-        
+
+
     </main>
     <!-- //Main -->
 
 @endsection
-    
-    

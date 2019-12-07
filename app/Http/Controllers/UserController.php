@@ -23,15 +23,11 @@ use App\Chassis;
 class UserController extends Controller
 {
     // function __construct(){
-    //     $this->middleware('customer');
+    //     $this->middleware('role');
     // }
     public function __construct()
     {
         $this->middleware('auth');
-    }
-    function index()
-    {
-    	return view('customer.index');
     }
 
     function bus_seat($id)

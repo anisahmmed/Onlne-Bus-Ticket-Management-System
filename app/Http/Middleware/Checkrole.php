@@ -25,7 +25,7 @@ class Checkrole
             return redirect(route('agent_dashboard'));
         }        
         elseif (Auth::user()->role_id==3) {
-            return redirect(route('customer_dashboard'));
+            return redirect(route('bus_info'));
         }
         else{
             return redirect(abort(404));

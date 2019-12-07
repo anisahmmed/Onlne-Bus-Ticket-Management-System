@@ -23,6 +23,7 @@ class BusinfoController extends Controller
 	public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('restrict_user');
     }
 	// View Bus info form
 	function bus_info_index(){

@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 use Session;
 use Stripe;
 use App\TicketBooking;
-   
+use App\Mail\TicketEmail;
+use Mail;
+
+
 class StripePaymentController extends Controller
 {
     /**
@@ -19,7 +22,7 @@ class StripePaymentController extends Controller
     {
         return view('stripe');
     }
-  
+
     /**
      * success response method.
      *
@@ -38,9 +41,14 @@ class StripePaymentController extends Controller
         TicketBooking::find($request->check)->update([
             'payment_status' => 1,
         ]);
-        return redirect('/');
+            $total_price = $request->total_price;
+            $phone = $request->phone;
+            $check = $request->check;
+            $seat_no = $request->seat_no;
+        Mail::to("xubi.aunshon@gmail.com")->send(new TicketEmail($total_price,$phone,'seat_no'));
+        return redirect('/customer/bus_info');
         // Session::flash('success', 'Payment successful!');
-          
+
         //   echo "Done";
         // return redirect('/customer/bus_info/view');
     }

@@ -48,19 +48,22 @@
                         </div>
                     @endif
   
-                    <form role="form" action="{{ route('stripe.post') }}" method="post" class="require-validation"
-                                                     data-cc-on-file="false"
-                                                    data-stripe-publishable-key="{{ env('STRIPE_KEY') }}"
-                                                    id="payment-form">
+                    <form role="form" action="{{ route('stripe.post') }}" method="post" class="require-validation" data-cc-on-file="false" data-stripe-publishable-key="{{ env('STRIPE_KEY') }}"
+                    id="payment-form">
                         @csrf
   
   						<input type="hidden" name="phone" value="{{$phone}}">
   						<input type="hidden" name="check" value="{{$check}}">
-  						<input type="hidden" name="total_price" value="{{$total_price}}">
+  						<input type="hidden" name="seat_no" value="{{$seat_no}}">
+                        <input type="hidden" name="total_price" value="{{$total_price}}">
+                        <input type="hidden" name="total_price" value="{{$total_price}}">
+                        <input type="hidden" name="total_price" value="{{$total_price}}">
+                        {{-- <input type="hidden" name="bus_chassis" value="{{$bus_chassis}}"> --}}
+                        <input type="hidden" name="seat_no" value="{{$seat_no}}">
                         <div class='form-row row'>
                             <div class='col-xs-12 form-group required'>
                                 <label class='control-label'>Name on Card</label> <input
-                                    class='form-control' size='4' type='text'>
+                                    class='form-control' size='4' type='text' value="Test">
                             </div>
                         </div>
   
@@ -68,7 +71,9 @@
                             <div class='col-xs-12 form-group card required'>
                                 <label class='control-label'>Card Number</label> <input
                                     autocomplete='off' class='form-control card-number' size='20'
-                                    type='text'>
+                                    type='text' value="4242 4242 4242 4242
+
+">
                             </div>
                         </div>
   
@@ -76,17 +81,17 @@
                             <div class='col-xs-12 col-md-4 form-group cvc required'>
                                 <label class='control-label'>CVC</label> <input autocomplete='off'
                                     class='form-control card-cvc' placeholder='ex. 311' size='4'
-                                    type='text'>
+                                    type='text' value="123">
                             </div>
                             <div class='col-xs-12 col-md-4 form-group expiration required'>
                                 <label class='control-label'>Expiration Month</label> <input
                                     class='form-control card-expiry-month' placeholder='MM' size='2'
-                                    type='text'>
+                                    type='text' value="12">
                             </div>
                             <div class='col-xs-12 col-md-4 form-group expiration required'>
                                 <label class='control-label'>Expiration Year</label> <input
                                     class='form-control card-expiry-year' placeholder='YYYY' size='4'
-                                    type='text'>
+                                    type='text'value="2024">
                             </div>
                         </div>
   

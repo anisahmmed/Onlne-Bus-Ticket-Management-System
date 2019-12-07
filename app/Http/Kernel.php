@@ -64,6 +64,7 @@ class Kernel extends HttpKernel
         'status' => \App\Http\Middleware\Checkstatus::class,
         'agent' => \App\Http\Middleware\Checkagent::class,
         'customer' => \App\Http\Middleware\Checkcustomer::class,
+        'restrict_user' => \App\Http\Middleware\RestrictUser::class,
 
     ];
 

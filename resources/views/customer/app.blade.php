@@ -37,7 +37,6 @@
     <![endif]-->
     
     {{-- search --}}
-    <link href="{{ asset('search_asset/css/main.css') }}" rel="stylesheet" />
     
   </head>
   
@@ -156,22 +155,7 @@
     <script src="{{ asset('frontend/front/js/styler.js') }}"></script>
 
 @yield('js')
-    {{-- search --}}
-    <script src="{{ asset('search_asset/js/extention/choices.js') }}"></script>
-    <script src="{{ asset('search_asset/js/extention/flatpickr.js') }}"></script>
-    <script>
-      flatpickr(".datepicker",
-      {});
-
-    </script>
-    <script>
-      const choices = new Choices('[data-trigger]',
-      {
-        searchEnabled: false,
-        itemSelectText: '',
-      });
-
-    </script>
+    
   </body>
 
 </html>

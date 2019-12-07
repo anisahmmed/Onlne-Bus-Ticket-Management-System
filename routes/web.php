@@ -43,7 +43,12 @@ Route::get('/admin/blocked_user','HomepageController@blocked_user')->name('user_
 // User Dashboard
 Route::get('/testCon', 'UserController@testCon');
 
-Route::get('/customer/homepage', 'UserController@index')->name('customer_dashboard');
+Route::get('/customer/homepage', 'SearchController@index')->name('customer_dashboard');
+
+// Search Result
+Route::post('/customer/search/result','SearchController@search_result')->name('search_result');
+
+
 
 // Bus info view
 // Route::get('/customer/bus_info/view','UserController@user_bus_info_view')->name('view_bus_info');
@@ -234,18 +239,30 @@ Route::get('/admin/terminal/delete/{id}','InputController@delete_terminal')->nam
 
 
 
+// Save ticket
+Route::post('/saveTicket','TicketBookingController@saveTicket')->name('saveTicket');
+// Stripe
+Route::get('stripe', 'StripePaymentController@stripe');
+Route::post('stripe', 'StripePaymentController@stripePost')->name('stripe.post');
+// Invoice
+Route::get('/sendMail', 'MailController@index');
+
+
+
+
+
 
 
 Route::post('/getsetprice','TicketBooking@getsetprice');
 
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::post('/saveTicket','TicketBookingController@saveTicket')->name('saveTicket');
-
-Route::get('stripe', 'StripePaymentController@stripe');
-Route::post('stripe', 'StripePaymentController@stripePost')->name('stripe.post');
+// DomPDF
+Route::get('/generate-pdf/{ch}','AdminController@generatePDF');
+Route::get('/admin/show_bus_chassis','AdminController@show_bus_chassis')->name('show_bus_chassis');
+Route::post('/admin/show_bus_details','AdminController@show_bus_details')->name('show_bus_details');

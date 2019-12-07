@@ -15,17 +15,17 @@ class CreateTicketBookingsTable extends Migration
     {
         Schema::create('ticket_bookings', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('customer_name_id')->default('No Data');
-            $table->string('phone_id')->default('No Data');
-            $table->string('bus_name_id')->default('No Data');
+            $table->string('customer_name')->default('No Data');
+            $table->string('phone')->default('No Data');
+            $table->string('bus_name')->default('No Data');
             $table->string('bus_chassis')->default('No Data');
-            $table->string('destination_id')->default('No Data');
-            $table->string('journey_date_id')->default('No Data');
-            $table->string('departure_time_id')->default('No Data');
+            $table->string('destination')->default('No Data');
+            $table->string('journey_date')->default('No Data');
+            $table->string('departure_time')->default('No Data');
             $table->string('seat_no')->default('No Data');
             $table->string('total_seat')->default('No Data');
-            $table->integer('terminal_id')->default(0);
-            $table->string('ticket_price')->default('No Data');
+            $table->string('terminal')->default('No Data');
+            $table->string('ticket_price')->default(0);
             $table->string('total_price')->default('No Data');
             $table->integer('payment_status')->default(0);
             $table->string('ticket_token')->default('No Data');
