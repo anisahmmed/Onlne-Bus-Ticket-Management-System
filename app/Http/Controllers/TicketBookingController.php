@@ -22,26 +22,6 @@ class TicketBookingController extends Controller
     
         $allInfo = $request;
         return view('customer.journey_deatails',compact('allInfo'));
-    	// print_r($request->all());
-   //  	$check = TicketBooking::insert([
-   //  		'terminal_id' =>$request->terminal_id,
-			// 'customer_name_id' =>$request->customer_name_id,
-			// 'phone_id' =>$request->phone_id,
-			// 'bus_name_id' =>$request->bus_name_id,
-			// 'journey_date_id' =>$request->journey_date_id,
-			// 'departure_time_id' =>$request->departure_time_id,
-			// 'destination_id' =>$request->destination_id,
-			// 'seat_no' =>$request->seat_no,
-			// 'ticket_price' =>$request->ticket_price,
-			// 'ticket_token' =>12324,
-			// 'total_price' =>$request->total_price,
-   //  	]);
-   //  	if ($check) {
-   //  		echo "Done";
-   //  	}
-   //  	else{
-   //  		echo "Fail";
-   //  	}
     }
 
     function saveTicket(Request $request){

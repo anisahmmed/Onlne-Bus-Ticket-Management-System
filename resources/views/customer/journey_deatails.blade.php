@@ -4,64 +4,117 @@ Journey Details
 @endsection
 
 @section('content')
-<div class="content-body">
+  <!-- Main -->
+<main class="main" role="main">
+  		<!-- Page info -->
+  		<header class="site-title color">
+  			<div class="wrap">
+  				<div class="container">
+  					<h1>Journey Details</h1>
+  					<nav role="navigation" class="breadcrumbs">
+  						<ul>
+  							<li><a href="{{ url('/customer/bus_info') }}" title="Home">Home</a></li>
+  							<li>Journey Details</li>
+  						</ul>
+  					</nav>
+  				</div>
+  			</div>
+  		</header>
+  		<!-- //Page info -->
 
-    <div class="row page-titles mx-0">
-        <div class="col p-md-0">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ url('/admin/homepage') }}">Dashboard</a></li>
-                <li class="breadcrumb-item active"><a href="{{ url('/admin/buses') }}">Bus Information</a></li>
-            </ol>
+      <div class="wrap">
+        <div class="row">
+          <!--- Content -->
+          <div class="full-width content">
+      				<!-- Form -->
+      				<div class="three-fourth">
+      					<form method="post" action="{{Route('saveTicket')}}" id="contactform">
+                  @csrf
+      						<div class="f-row">
+      							<div class="one-half">
+      								<label for="name">Passanger Name</label>
+      								<input type="text" name="customer_name" id="customer_name" value="{{ $allInfo->customer_name_id }}" readonly />
+      							</div>
+      							<div class="one-half">
+      								<label for="phone">Phone</label>
+      								<input type="text" id="phone" name="phone" value="{{ $allInfo->phone_id }}" />
+      							</div>
+      						</div>
+      						<div class="f-row">
+      							<div class="one-half">
+      								<label for="name">Bus Route</label>
+      								<input type="text" name="bus_route" id="bus_route" value="{{ $allInfo->bus_route }}" />
+      							</div>
+      							<div class="one-half">
+      								<label for="email">Drparture</label>
+      								<input type="text" name="departure" id="email" value="{{ $allInfo->departure }}" />
+      							</div>
+      						</div>
+      						<div class="f-row">
+      							<div class="one-half">
+      								<label for="name">Destination</label>
+      								<input type="text" name="destination" id="destination" value="{{ $allInfo->destination_id }}" />
+      							</div>
+      							<div class="one-half">
+      								<label for="email">Bus Name</label>
+      								<input type="text" name="bus_name" id="bus_name" value="{{ $allInfo->bus_name_id }}" />
+      							</div>
+      						</div>
+      						<div class="f-row">
+      							<div class="one-half">
+      								<label for="name">Bus Chassis</label>
+      								<input type="text" name="bus_chassis" id="bus_chassis" value="{{ $allInfo->bus_chassis }}" />
+      							</div>
+      							<div class="one-half">
+      								<label for="email">Coach Type</label>
+      								<input type="text" name="coach_type" id="coach_type" value="{{ $allInfo->coach_type }}" />
+      							</div>
+      						</div>
+      						<div class="f-row">
+      							<div class="one-half">
+      								<label for="name">Journey Date</label>
+      								<input type="text" name="journey_date" id="journey_date" value="{{ date('d-M-Y', strtotime($allInfo->journey_date_id)) }}" />
+      							</div>
+      							<div class="one-half">
+      								<label for="email">Departure Time</label>
+      								<input type="text" name="departure_time" id="departure_time" value="{{ date('h:i A', strtotime($allInfo->departure_time_id)) }}" />
+      							</div>
+      						</div>
+      						<div class="f-row">
+      							<div class="one-half">
+      								<label for="name">Seat Nos</label>
+      								<input type="text" name="seat_no" id="seat_no" value="{{ $allInfo->seat_no }}" />
+      							</div>
+      							<div class="one-half">
+      								<label for="email">Total Seat</label>
+      								<input type="number" name="total_seat" id="total_seat" value="{{ $allInfo->total_seat }}" />
+      							</div>
+    							</div>
+      						<div class="f-row">
+                  <div class="one-half">
+                    <label for="email">Ticket Price</label>
+                    <input type="number" name="ticket_price" id="ticket_price" value="{{ $allInfo->ticket_price }}" />
+                  </div>
+      							<div class="one-half">
+      								<label for="name">Total Price</label>
+      								<input type="number" name="total_price" id="total_price" value="{{ $allInfo->total_price }}" />
+      							</div>
+      						</div>
+      						<div class="f-row">
+                    <div class="one-half">
+                      <label for="email">Boardin Point</label>
+                      <input type="text" name="terminal" id="terminal" value="{{ App\BoardingPoint::findOrFail($allInfo->terminal_id)->terminal_name }}" />
+                    </div>
+        						<div class="one-half">
+        							<input type="submit" value="Submit" id="submit" name="submit" class="btn color medium right" />
+        						</div>
+                  </div>
+      					</form>
+      				</div>
+      				<!-- //Form -->
+            </div>
+          </div>
         </div>
-    </div>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 offset-md-3">
-				<form action="{{Route('saveTicket')}}" method="post">
-					@csrf
-			<label for="">Passanger Name:</label>	 <input  type="text" name="customer_name" value="{{$allInfo->customer_name_id}}">
-				Passanger Phone: <input class="form-control" type="text" name="phone" value="{{$allInfo->phone_id}}">
-				Bus Route: <input class="form-control" type="text" name="bus_route" value="{{$allInfo->bus_route}}">
-				Departure: <input class="form-control" type="text" name="departure" value="{{$allInfo->departure}}">
-				Destination: <input class="form-control" type="text" name="destination" value="{{$allInfo->destination_id}}">
-				Operator Name: <input class="form-control" type="text" name="bus_name" value="{{$allInfo->bus_name_id}}">				
-				Bus Chassis: <input class="form-control" type="text" name="bus_chassis" value="{{$allInfo->bus_chassis}}">				
-				Coach Type: <input class="form-control" type="text" name="coach_type" value="{{$allInfo->coach_type}}">
-				Journey Date: <input class="form-control" type="text" name="journey_date" value="{{$allInfo->journey_date_id}}">
-				Departure Time: <input class="form-control" type="text" name="departure_time" value="{{$allInfo->departure_time_id}}">
-				Seat Nos: <input class="form-control" type="text" name="seat_no" value="{{$allInfo->seat_no}}">
-				Total Seat: <input class="form-control" type="text" name="total_seat" value="{{$allInfo->total_seat}}">
-				Ticket Price: <input class="form-control" type="text" name="ticket_price" value="{{$allInfo->ticket_price}}">
-				Total Price: <input class="form-control" type="text" name="total_price" value="{{$allInfo->total_price}}">
-				Boarding Terminal: <input class="form-control" type="text" name="terminal" value="{{App\BoardingPoint::findOrFail($allInfo->terminal_id)->terminal_name }}">
-				<button type="submit" class=" btn btn-success">Book Ticket</button>
-				
-
-				<!-- Form -->
-				<div class="three-fourth">
-					<form method="post" action="#" name="contactform" id="contactform">
-						<div id="message"></div>
-						<div class="f-row">
-							<div class="one-half">
-								<label for="name">Passanger Name</label>
-								<input type="text" id="customer_name" value="{{ $allInfo->name }}" />
-							</div>
-							<div class="one-half">
-								<label for="email">Email address</label>
-								<input type="email" id="email" />
-							</div>
-						</div>
-						<div class="f-row">
-							<input type="submit" value="Submit" id="submit" name="submit" class="btn color medium right" />
-						</div>
-					</form>
-				</div>
-				<!-- //Form -->
-
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
+</main>
 
 @endsection

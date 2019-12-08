@@ -22,6 +22,7 @@ class InputController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('restrict_user');
     }
 	function input(){
 		$all_chassis_no = Chassis::paginate(4);
@@ -396,13 +397,13 @@ class InputController extends Controller
 
 
 
-	
 
-	
 
-	
 
-	
 
-	
+
+
+
+
+
 }

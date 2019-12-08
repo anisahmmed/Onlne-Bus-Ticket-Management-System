@@ -9,6 +9,11 @@ use App\RegisterTerminal;
 
 class RegisterTerminalController extends Controller
 {
+	function __construct()
+	{
+		$this->middleware('auth');
+		$this->middleware('restrict_user');
+	}
 	//Register Terminal Index
 	function index(){
 		$all_bus = Bus::all();
