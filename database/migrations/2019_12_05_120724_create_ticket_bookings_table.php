@@ -18,6 +18,7 @@ class CreateTicketBookingsTable extends Migration
             $table->string('customer_name')->default('No Data');
             $table->string('phone')->default('No Data');
             $table->string('bus_name')->default('No Data');
+            $table->string('gender')->default('No Data');
             $table->string('bus_type')->default('No Data');
             $table->string('bus_chassis')->default('No Data');
             $table->string('bus_route')->default('No Data');

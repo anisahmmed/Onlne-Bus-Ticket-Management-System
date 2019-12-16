@@ -77,8 +77,8 @@ Ticekt Booking Information
                                                         <td>Due</td>
                                                     @endif
                                                     <td>
-                                                      @if ($booking_info->created_at ==Null)
-                                                        <a href="{{ url('/customer/booking-information/delete') }}/{{ $booking_info->id }}" class="btn color medium right" onclick="return confirm('Are you sure?')" style="color: red;">Cancel Booking</a>
+                                                      @if ($booking_info->created_at !=Null)
+                                                        <a href="{{ url('/customer/booking-information/delete') }}/{{ $booking_info->id }}" class="btn color medium right" onclick="return confirm('Are you sure?')" style="color: red;">Cancel</a>
 
 
                                                       @endif

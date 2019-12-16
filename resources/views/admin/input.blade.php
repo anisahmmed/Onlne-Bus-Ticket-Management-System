@@ -14,7 +14,7 @@ Add Individual Component
             </ol>
         </div>
     </div>
-    
+
     @if($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -27,6 +27,7 @@ Add Individual Component
     <!-- End error message -->
 
     <!-- Bus Chassis -->
+    <p style="text-align:center; color:#FF5733; font-weight:bold; font-size:18px;">Input Bus Chassis Number</p>
 	<div class="container-fluid">
 	    <div class="row justify-content-center">
 	        <div class="col-lg-5">
@@ -41,7 +42,7 @@ Add Individual Component
 	                                    <input type="text" class="form-control" name="chassis_no" required value="{{ old('chassis_no') }}">
 	                                </div>
 	                            </div>
-	                            
+
 	                            <div class="form-group row">
 	                                <div class="col-lg-8 ml-auto">
 	                                    <button type="submit" class="btn btn-primary">Submit</button>
@@ -86,8 +87,9 @@ Add Individual Component
 	    </div>
 	</div>
 	<!-- Bus Chassis End -->
-	
+
 	<!-- Bus Routes -->
+  <p style="text-align:center; color:#FF5733; font-weight:bold; font-size:18px;">Input Bus Route</p>
 	<div class="container-fluid">
 	    <div class="row justify-content-center">
 	        <div class="col-lg-5">
@@ -102,7 +104,7 @@ Add Individual Component
 	                                    <input type="text" class="form-control" name="bus_route" required value="{{ old('bus_route') }}">
 	                                </div>
 	                            </div>
-	                            
+
 	                            <div class="form-group row">
 	                                <div class="col-lg-8 ml-auto">
 	                                    <button type="submit" class="btn btn-primary">Submit</button>
@@ -147,8 +149,9 @@ Add Individual Component
 	    </div>
 	</div>
 	<!-- Bus Routes End -->
-	
+
 	<!-- Bus Operator -->
+  <p style="text-align:center; color:#FF5733; font-weight:bold; font-size:18px;">Input Bus Operator</p>
 	<div class="container-fluid">
 	    <div class="row justify-content-center">
 	        <div class="col-lg-5">
@@ -163,7 +166,7 @@ Add Individual Component
 	                                    <input type="text" class="form-control" id="bus_operator" name="operator_name" required value="{{ old('operator_name') }}">
 	                                </div>
 	                            </div>
-	                            
+
 	                            <div class="form-group row">
 	                                <div class="col-lg-8 ml-auto">
 	                                    <button type="submit" class="btn btn-primary">Submit</button>
@@ -177,7 +180,7 @@ Add Individual Component
 	        <div class="col-7">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Bus Route Informations</h4>
+                        <h4 class="card-title">Bus Operator Informations</h4>
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered zero-configuration" style="color: #000;">
                                 <thead>
@@ -210,6 +213,7 @@ Add Individual Component
 	<!-- Bus Opearator End -->
 
 	<!-- Date start here -->
+  <p style="text-align:center; color:#FF5733; font-weight:bold; font-size:18px;">Input Journey Date</p>
 	<div class="container-fluid">
 	    <div class="row justify-content-center">
 	        <div class="col-lg-5">
@@ -224,7 +228,7 @@ Add Individual Component
 	                                    <input type="date" class="form-control" id="date" name="date"  value="{{ old('date') }}" required>
 	                                </div>
 	                            </div>
-	                            
+
 	                            <div class="form-group row">
 	                                <div class="col-lg-8 ml-auto">
 	                                    <button type="submit" class="btn btn-primary">Submit</button>
@@ -252,7 +256,7 @@ Add Individual Component
                                     @foreach($all_dates as $dates)
                                     <tr>
                                         <td>{{$dates->id}}</td>
-                                        <td>{{ date('d-m-y', strtotime($dates->date)) }}</td>
+                                        <td>{{ date('d-M-y', strtotime($dates->date)) }}</td>
                                         <td>
                                             <a href="{{ url('/admin/dates/edit') }}\{{ $dates->id }}" class="btn btn-primary">Edit</a>
                                             <a href="{{ url('/admin/dates/delete') }}\{{ $dates->id }}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
@@ -271,6 +275,7 @@ Add Individual Component
 	<!-- Date End here -->
 
 	<!-- Departure info start -->
+  <p style="text-align:center; color:#FF5733; font-weight:bold; font-size:18px;">Input Bus Departure Information</p>
 	<div class="container-fluid">
 	    <div class="row justify-content-center">
 	        <div class="col-lg-5">
@@ -291,7 +296,7 @@ Add Individual Component
 	                                    <input type="time" class="form-control" id="departure_time" name="departure_time" required value="{{ old('departure_time') }}">
 	                                </div>
 	                            </div>
-	                            
+
 	                            <div class="form-group row">
 	                                <div class="col-lg-8 ml-auto">
 	                                    <button type="submit" class="btn btn-primary">Submit</button>
@@ -340,6 +345,7 @@ Add Individual Component
 	<!-- Departure infp End -->
 
 	<!-- Destination info start -->
+  <p style="text-align:center; color:#FF5733; font-weight:bold; font-size:18px;">Input Bus Destination Information</p>
 	<div class="container-fluid">
 	    <div class="row justify-content-center">
 	        <div class="col-lg-5">
@@ -360,7 +366,7 @@ Add Individual Component
 	                                    <input type="file" class="form-control" id="destination_scenario" name="destination_scenario" >
 	                                </div>
 	                            </div>
-	                            
+
 	                            <div class="form-group row">
 	                                <div class="col-lg-8 ml-auto">
 	                                    <button type="submit" class="btn btn-primary">Submit</button>
@@ -407,8 +413,9 @@ Add Individual Component
 	    </div>
 	</div>
 	<!-- Departure infp End -->
-	
+
 	<!-- Bus Type Start -->
+  <p style="text-align:center; color:#FF5733; font-weight:bold; font-size:18px;">Input Coach Type</p>
 	<div class="container-fluid">
 	    <div class="row justify-content-center">
 	        <div class="col-lg-5">
@@ -423,7 +430,7 @@ Add Individual Component
 	                                	<input type="text" class="form-control" name="bus_type" required>
 	                                </div>
 	                            </div>
-	                            
+
 	                            <div class="form-group row">
 	                                <div class="col-lg-8 ml-auto">
 	                                    <button type="submit" class="btn btn-primary">Submit</button>
@@ -468,8 +475,9 @@ Add Individual Component
 	    </div>
 	</div>
 	<!-- Bus Type End -->
-	
+
 	<!-- Total Seat Start here -->
+  <p style="text-align:center; color:#FF5733; font-weight:bold; font-size:18px;">Input Total Seat</p>
 	<div class="container-fluid">
 	    <div class="row justify-content-center">
 	        <div class="col-lg-5">
@@ -484,7 +492,7 @@ Add Individual Component
 	                                	<input type="number" class="form-control" name="total_seat" value="{{ old('total_seat') }}" required>
 	                                </div>
 	                            </div>
-	                            
+
 	                            <div class="form-group row">
 	                                <div class="col-lg-8 ml-auto">
 	                                    <button type="submit" class="btn btn-primary">Submit</button>
@@ -529,8 +537,9 @@ Add Individual Component
 	    </div>
 	</div>
 	<!-- Total seat End here -->
-	
+
 	<!-- Ticket Price Start here -->
+  <p style="text-align:center; color:#FF5733; font-weight:bold; font-size:18px;">Input Ticket Price</p>
 	<div class="container-fluid">
 	    <div class="row justify-content-center">
 	        <div class="col-lg-5">
@@ -545,7 +554,7 @@ Add Individual Component
 	                                	<input type="number" class="form-control" name="ticket_price" value="{{ old('ticket_price') }}" required>
 	                                </div>
 	                            </div>
-	                            
+
 	                            <div class="form-group row">
 	                                <div class="col-lg-8 ml-auto">
 	                                    <button type="submit" class="btn btn-primary">Submit</button>
@@ -592,6 +601,7 @@ Add Individual Component
 	<!-- Ticket Price End here -->
 
     <!-- Boarding Point Start here -->
+    <p style="text-align:center; color:#FF5733; font-weight:bold; font-size:18px;">Input Bus Boarding Point</p>
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-lg-5">
@@ -606,7 +616,7 @@ Add Individual Component
                                         <input type="text" class="form-control" name="terminal_name" value="{{ old('terminal_name') }}" required>
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group row">
                                     <div class="col-lg-8 ml-auto">
                                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -653,4 +663,3 @@ Add Individual Component
     <!-- Boarding Point End here -->
 </div>
 @endsection
-

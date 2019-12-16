@@ -41,7 +41,7 @@ Create Bus Information
 	                                    <select name="date_id" id="date_id" class="form-control" required>
 	                                    	<option class="bg-dark text-white">Select</option>
 	                                    	@foreach($all_dates as $dates)
-	                                    	<option value="{{ $dates->id }}">{{ date('d-m-y', strtotime($dates->date))  }}</option>
+	                                    	<option value="{{ $dates->id }}">{{ date('d-M-y', strtotime($dates->date))  }}</option>
 	                                    	@endforeach
 	                                    </select>
 	                                </div>
@@ -63,7 +63,7 @@ Create Bus Information
 	                                    <select name="chassis_no_id" id="chassis_no_id" class="form-control" required>
 	                                    	<option class="bg-dark text-white">Select</option>
 	                                    	@foreach($all_chassises as $chassis)
-	                                    	<option value="{{ $chassis->id }}">{{ $chassis->chassis_no }}</option>
+	                                    	<option value="{{ $chassis->id }}" required>{{ $chassis->chassis_no }}</option>
 	                                    	@endforeach
 	                                    </select>
 	                                </div>
@@ -145,7 +145,7 @@ Create Bus Information
 	                                    </select>
 	                                </div>
 	                            </div>
-	                            
+
 	                            <div class="form-group row">
 	                                <div class="col-lg-8 ml-auto">
 	                                    <button type="submit" class="btn btn-primary">Submit</button>

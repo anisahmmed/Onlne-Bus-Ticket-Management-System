@@ -12,9 +12,6 @@ use Carbon\Carbon;
 
 class HomepageController extends Controller
 {
-    function blog(){
-        echo "alsdkj";
-    }
 
     function index(){
     	$all_bus_route = BusRoute::all();
@@ -42,6 +39,12 @@ class HomepageController extends Controller
       ]);
       toastr()->info('Message Has Been Send Successfully!');
       return back();
+    }
+
+    //vendor
+    function vendor()
+    {
+      return view('homepage.vendor');
     }
 
 

@@ -147,7 +147,10 @@
                         <li class="icons dropdown">
                             <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
                                 <span class="activity active"></span>
-                                <img src="{{ asset('dashboard/assets/images/user/1.png') }}" height="40" width="40" alt="">
+                                @php
+                                $name = App\User::findOrFail(Auth::id())->name;
+                                @endphp
+                                  <span class="btn btn-primary ">{{ $name }}</span>
                             </div>
                             <div class="drop-down dropdown-profile  dropdown-menu">
                                 <div class="dropdown-content-body">

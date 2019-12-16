@@ -30,31 +30,31 @@ Online Bus | Ticket
                     <div class="one-third wow fadeIn">
                         <span class="circle"><span class="icon  icon-themeenergy_savings"></span></span>
                         <h3>Fixed rates</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy  tinc dolore magna.</p>
+                        <p>Here ticket price is fixed</p>
                     </div>
                     <!-- //Item -->
 
                     <!-- Item -->
                     <div class="one-third wow fadeIn" data-wow-delay=".2s">
                         <span class="circle"><span class="icon icon-themeenergy_lockpad"></span></span>
-                        <h3>Reliable transfers</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy  tinc dolore magna.</p>
+                        <h3>Reliable Journey</h3>
+                        <p>We are ensuring your reliable journey. </p>
                     </div>
                     <!-- //Item -->
 
                     <!-- Item -->
                     <div class="one-third wow fadeIn" data-wow-delay=".4s">
                         <span class="circle"><span class="icon icon-themeenergy_open-wallet"></span></span>
-                        <h3>No booking fees</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy  tinc dolore magna.</p>
+                        <h3>No extra booking fees</h3>
+                        <p>We don't take extra booking fees.</p>
                     </div>
                     <!-- //Item -->
 
                     <!-- Item -->
                     <div class="one-third wow fadeIn">
                         <span class="circle"><span class="icon icon-themeenergy_heart"></span></span>
-                        <h3>Free cancellation</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy  tinc dolore magna.</p>
+                        <h3>Easy cancellation</h3>
+                        <p>We provide easy booked ticket cancelation.</p>
                     </div>
                     <!-- //Item -->
 
@@ -62,7 +62,7 @@ Online Bus | Ticket
                     <div class="one-third wow fadeIn" data-wow-delay=".2s">
                         <span class="circle"><span class="icon icon-themeenergy_magic-trick"></span></span>
                         <h3>Booking flexibility</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy  tinc dolore magna.</p>
+                        <p>Our Booking procedures are very much fexible and user friendly.</p>
                     </div>
                     <!-- //Item -->
 
@@ -70,42 +70,21 @@ Online Bus | Ticket
                     <div class="one-third wow fadeIn" data-wow-delay=".4s">
                         <span class="circle"><span class="icon icon-themeenergy_call"></span></span>
                         <h3>24h customer service</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy  tinc dolore magna.</p>
+                        <p>We provide 24/7 hour customer service.</p>
                     </div>
                     <!-- //Item -->
 
-                    <!-- Item -->
-                    <div class="one-third wow fadeIn">
-                        <span class="circle"><span class="icon icon-themeenergy_cup"></span></span>
-                        <h3>Award winning service</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy  tinc dolore magna.</p>
-                    </div>
-                    <!-- //Item -->
-
-                    <!-- Item -->
-                    <div class="one-third wow fadeIn" data-wow-delay=".2s">
-                        <span class="circle"><span class="icon icon-themeenergy_attach"></span></span>
-                        <h3>Benefits for partners</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy  tinc dolore magna.</p>
-                    </div>
-                    <!-- //Item -->
-
-                    <!-- Item -->
-                    <div class="one-third wow fadeIn" data-wow-delay=".4s">
-                        <span class="circle"><span class="icon icon-themeenergy_stars"></span></span>
-                        <h3>Quality vehicles</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy  tinc dolore magna.</p>
-                    </div>
-                    <!-- //Item -->
                 </div>
             </div>
         </div>
         <!-- //Services iconic -->
 
         <!-- Call to action -->
-        <div class="black cta">
-            <div class="wrap">
-                <p class="wow fadeInLeft">Like what you see? Are you ready to stand out? You know what to do.</p>
+        <div class="black center" style="color: #fff;">
+            <div class="wrap" style="color: #fff;">
+              <h6 class="wow fadeInDown"><i class="fa fa-quote-left"></i>Travel is never a matter of money, but of courage.</h6>
+              <p class="wow fadeInUp">Travel makes one modest. You see what a tiny place you occupy in the world. </p>
+              <p class="meta wow fadeInUp">– Gustave Flaubert</p>
 
             </div>
         </div>
@@ -114,7 +93,7 @@ Online Bus | Ticket
         <!-- Services -->
         <div class="services boxed white" id="services">
             <!-- Item -->
-            <article class="one-fourth wow fadeIn" data-wow-delay=".6s">
+            {{-- <article class="one-fourth wow fadeIn" data-wow-delay=".6s">
                 <figure class="featured-image">
                     <img src="images/uploads/img3.jpg" alt="" />
                     <div class="overlay">
@@ -126,19 +105,19 @@ Online Bus | Ticket
                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
                     <a class="more" title="Read more" href="services.html">Read more</a>
                 </div>
-            </article>
+            </article> --}}
             <!-- //Item -->
         </div>
         <!-- //Services -->
 
         <!-- Testimonials -->
-        <div class="testimonials center black">
+        {{-- <div class="testimonials center black">
             <div class="wrap">
                 <h6 class="wow fadeInDown"><i class="fa fa-quote-left"></i>Travel is never a matter of money, but of courage.</h6>
                 <p class="wow fadeInUp">Travel makes one modest. You see what a tiny place you occupy in the world. </p>
                 <p class="meta wow fadeInUp">– Gustave Flaubert</p>
             </div>
-        </div>
+        </div> --}}
         <!-- //Testimonials -->
 
         <div class="partners white center">

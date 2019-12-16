@@ -21,6 +21,9 @@ Route::post('/contactForm/insert','HomepageController@contact_insert')->name('co
 
 //Destinations
 Route::get('/destinations','HomepageController@destinations')->name('destinations');
+
+//Vendor
+Route::get('/vendors','HomepageController@vendor')->name('vendor');
 //About
 Route::get('/about','HomepageController@about')->name('about');
 

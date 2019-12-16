@@ -37,11 +37,13 @@ class InputController extends Controller
 		$all_boarding_point = BoardingPoint::paginate(4);
 	    return view('admin.input',compact('all_chassis_no','all_routes','all_operators','all_dates','all_departure_info','all_destination','all_bus_types','total_seats','ticket_prices','all_boarding_point'));
 	}
-
+  // chassis no insert
 	function input_chassis(Request $request){
 		$request->validate([
 			'chassis_no' => 'required|string|min:4',
-		]);
+		],[
+        'chassis_no.required'  =>  'User Name Is Required.',
+    ]);
 	    Chassis::insert($request->except('_token'));
 	    toastr()->success('Data has been added successfully!');
 	    return back();
@@ -294,6 +296,9 @@ class InputController extends Controller
 
 	// Total seat insert
 	function input_total_seat(Request $request){
+    $request->validate([
+			'total_seat' =>'required|numeric',
+		]);
 		TotalSeat::insert($request->except('_token'));
 	    toastr()->success('Data has been added successfully!');
 		return back();
@@ -308,7 +313,7 @@ class InputController extends Controller
 	// Update Total seat
 	function update_total_seat(Request $request){
 		$request->validate([
-			'total_seat' =>'required|string',
+			'total_seat' =>'required|numeric',
  		]);
 		TotalSeat::find($request->id)->update([
 			'total_seat' =>$request->total_seat,
@@ -326,6 +331,9 @@ class InputController extends Controller
 
 	// Ticket Price Insert
 	function input_ticket_price(Request $request){
+    $request->validate([
+			'ticket_price' =>'required|numeric',
+		]);
 		TicketPrice::insert($request->except('_token'));
 	    toastr()->success('Data has been added successfully!');
 		return back();
@@ -340,7 +348,7 @@ class InputController extends Controller
 	// Update Ticket Price
 	function update_ticket_price(Request $request){
 		$request->validate([
-			'ticket_price' =>'required|string',
+			'ticket_price' =>'required|numeric',
 		]);
 		TicketPrice::find($request->id)->update([
 			'ticket_price' =>$request->ticket_price,

@@ -25,8 +25,9 @@ Ticket Booking Information
                                 <thead>
                                     <tr>
                                         <th>SL</th>
-                                        <th>Ticket No</th>
+                                        {{-- <th>Ticket No</th> --}}
                                         <th>Customer Name</th>
+                                        <th>Gender</th>
                                         <th>Customer Contact No</th>
                                         <th>Bus Name</th>
                                         <th>Journey Date</th>
@@ -37,7 +38,7 @@ Ticket Booking Information
                                         {{-- <th>Destination</th> --}}
                                         <th>Seat Nos</th>
                                         <th>Total Seat</th>
-                                        <th>Ticket Price</th>
+                                        {{-- <th>Ticket Price</th> --}}
                                         <th>Total Fare</th>
                                         <th>Boarding Point</th>
                                         <th>Payment Status</th>
@@ -48,8 +49,9 @@ Ticket Booking Information
                                     @foreach($all_ticket_booking_info as $booking_info)
                                     <tr>
                                         <td>{{ $booking_info->id }}</td>
-                                        <td>{{ $booking_info->ticket_token }}</td>
+                                        {{-- <td>{{ $booking_info->ticket_token }}</td> --}}
                                         <td>{{ $booking_info->customer_name }}</td>
+                                        <td>{{ $booking_info->gender }}</td>
                                         <td>{{ $booking_info->phone }}</td>
                                         <td>{{ $booking_info->bus_name }}</td>
                                         <td>{{ $booking_info->journey_date }}</td>
@@ -60,7 +62,7 @@ Ticket Booking Information
                                         {{-- <td>{{$booking_info->destination}}</td> --}}
                                         <td>{{$booking_info->seat_no}}</td>
                                         <td>{{$booking_info->total_seat}}</td>
-                                        <td>{{$booking_info->ticket_price}}</td>
+                                        {{-- <td>{{$booking_info->ticket_price}}</td> --}}
                                         <td>{{$booking_info->total_price}}</td>
                                         <td>{{$booking_info->terminal}}</td>
                                         @if ($booking_info->payment_status ==1)
@@ -69,7 +71,6 @@ Ticket Booking Information
                                             <td>Due</td>
                                         @endif
                                         <td>
-                                            <a href="#" class="btn btn-primary">Edit</a>
                                             <a href="#" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
                                         </td>
                                     </tr>

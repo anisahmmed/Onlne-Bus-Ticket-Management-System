@@ -31,6 +31,7 @@ class TicketBookingController extends Controller
         $check = TicketBooking::insertGetId([
             'terminal' =>$request->terminal,
             'customer_name' =>$request->customer_name,
+            'gender' =>$request->customer_gender,
             'phone' =>$request->phone,
             'bus_name' =>$request->bus_name,
             'bus_type' =>$request->coach_type,

@@ -20,7 +20,9 @@ class AdminController extends Controller
     }
     function index()
     {
-    	return view('admin.index');
+      $all_booking_info = TicketBooking::all();
+      $all_contact = ContactForm::all();
+    	return view('admin.index',compact('all_booking_info','all_contact'));
     }
 
     //COntact form view

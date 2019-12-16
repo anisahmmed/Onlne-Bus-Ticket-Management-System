@@ -46,19 +46,19 @@
             <div class="wrap">
                 <!-- Logo -->
                 <div class="logo">
-                    <a href="#" title="Transfers"><img src="{{ asset('frontend/front/images/transfers.jpg') }}" alt="Transfers" /></a>
+                    <a href="{{ url('/') }}" title="Transfers"><img src="{{ asset('frontend/front/images/transfers.jpg') }}" alt="Transfers" /></a>
                 </div>
                 <!-- //Logo -->
 
                 <!-- Main Nav -->
                 <nav role="navigation" class="main-nav">
                     <ul>
-                        <li><a href="{{ url('/') }}" title="">Home</a></li>
+                        <li><a href="{{ url('/') }}" title="Home">Home</a></li>
                         <li><a href="{{ url('/destinations') }}" title="Destinations">Destinations</a></li>
-                        <li><a href="{{ url('/blog') }}" title="Blog">Blog</a></li>
+                        <li><a href="{{ url('/vendors') }}" title="Vendor">Vendor</a></li>
                         <li><a href="{{ url('/contact') }}" title="Contact">Contact</a></li>
-                        <li><a href="{{ url('/about') }}" title="Pages">About Us</a></li>
-                        <li><a href="{{ url('/customer_login') }}" title="Pages">Login</a></li>
+                        <li><a href="{{ url('/about') }}" title="About">About Us</a></li>
+                        <li><a href="{{ url('/customer_login') }}" title="Login">Login</a></li>
 
                         @guest
                         @else
@@ -91,7 +91,10 @@
                 <!-- Column -->
                 <article class="one-half">
                     <h6>About us</h6>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.</p>
+                    <p>
+                       It is a premium online booking portal which allows you to purchase
+                       tickets for various bus services across the country.
+                    </p>
                 </article>
                 <!-- //Column -->
 
@@ -124,13 +127,11 @@
 
                 <nav role="navigation" class="foot-nav">
                     <ul>
-                        <li><a href="#" title="Home">Home</a></li>
-                        <li><a href="#" title="Blog">Blog</a></li>
-                        <li><a href="#" title="About us">About us</a></li>
-                        <li><a href="#" title="Contact us">Contact us</a></li>
-                        <li><a href="#" title="Terms of use">Terms of use</a></li>
-                        <li><a href="#" title="Help">Help</a></li>
-                        <li><a href="#" title="For partners">For partners</a></li>
+                      <li><a href="{{ url('/') }}" title="Home">Home</a></li>
+                      <li><a href="{{ url('/destinations') }}" title="Destinations">Destinations</a></li>
+                      <li><a href="{{ url('/vendors') }}" title="Vendor">Vendor</a></li>
+                      <li><a href="{{ url('/contact') }}" title="Contact">Contact</a></li>
+                      <li><a href="{{ url('/about') }}" title="About">About Us</a></li>
                     </ul>
                 </nav>
             </div>
