@@ -14,50 +14,78 @@ Bus Report Detail
               </ol>
           </div>
       </div>
-      <div class="container-fluid">
-          <div class="row justify-content-center">
-              <div class="col-lg-12">
-                  <div class="card">
-                      <div class="card-body">
-                                  <div class="form-group row" style="color: #000;">
-                                    <div class="col-lg-12"><label class="col-lg-4 col-form-label" style="font-weight: bold;">Bus Name :</label>
-                                      {{$busName}}
-                                    </div>
-                                      <div class="col-lg-12"><label class="col-lg-4 col-form-label" style="font-weight: bold;">Bus Chassis :</label>
-                                      {{$chassis}}
-                                    </div>
-                                      <div class="col-lg-12"><label class="col-lg-4 col-form-label" style="font-weight: bold;">Destination :</label>
-                                      {{$distination}}
-                                    </div>
-                                      <div class="col-lg-12"><label class="col-lg-4 col-form-label" style="font-weight: bold;">Journey Date :</label>
-                                      {{date('d-M-Y', strtotime($journey))}}
-                                    </div>
-                                      <div class="col-lg-12"><label class="col-lg-4 col-form-label" style="font-weight: bold;">Bording Points :</label>
-                                      {{$depature}}
-                                    </div>
-                                      <div class="col-lg-12"><label class="col-lg-4 col-form-label" style="font-weight: bold;">Seat Nos :</label>
-                                      {{$seats}}
-                                    </div>
-                                      <div class="col-lg-12"><label class="col-lg-4 col-form-label" style="font-weight: bold;">Total Sold Seat :</label>
-                                      {{$totalSeat}}
-                                    </div>
-                                      <div class="col-lg-12"><label class="col-lg-4 col-form-label" style="font-weight: bold;">Ticket Price :</label>
-                                      {{$ticketPrice}} TK
-                                    </div>
-                                      <div class="col-lg-12"><label class="col-lg-4 col-form-label" style="font-weight: bold;">Total Sold Price :</label>
-                                      {{$totalPrice}} TK
-                                      </div>
-                                          <div class="col-lg-8 ml-auto">
-                                              <a href="{{ url('/generate-pdf') }}/{{ $chassis }}" class="btn btn-primary">PDF</a>
-                                          </div>
-                                    </div>
-                                  </div>
-                      </div>
-                  </div>
-              </div>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                          <div id="printableArea">
+                          <p style="color: #000; font-size:14px;">Report of Individual Bus For Specific Route</p>
+                              <div class="form-group row" style="color: #000; font-size:14px;">
+                                <table class="table table-borderless">
+                                  <thead>
+                                    <tr class="table-warning">
+                                      <th scope="col">Criteria</th>
+                                      <th scope="col">Description</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>Bus Name</td>
+                                      <td>{{ $busName }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td class="table-warning">Bus Chassis No</td>
+                                      <td>{{ $chassis }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Bus Route</td>
+                                      <td>{{ $bus_routes }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td class="table-warning">Journey Date</td>
+                                      <td>{{ date('d-M-Y', strtotime($journey)) }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Destination</td>
+                                      <td>{{ $distination }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td class="table-warning">Boarding Points With Time</td>
+                                      <td>{{ $depature }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td >Seat Nos</td>
+                                      <td>{{ $seats }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td class="table-warning">Total Seat</td>
+                                      <td>{{ $totalSeat }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Ticket Price</td>
+                                      <td>{{ $ticketPrice }} Tk</td>
+                                    </tr>
+                                    <tr>
+                                      <td class="table-warning">Total Sell</td>
+                                      <td>{{ $totalPrice }} Tk</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+
+
+                              </div>
+                            </div>
+                            <div class="col-md-10 text-center">
+                              <button id="singlebutton" name="singlebutton" class="btn btn-primary" onclick="printDiv('printableArea')">Next Step!</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
           </div>
-    </div>
-</div>
+          {{-- <button class="btn btn-primary" onclick="printDiv('printableArea')">Print</button> --}}
+  </div>
 
 
 @endsection

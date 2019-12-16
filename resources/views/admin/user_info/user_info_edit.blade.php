@@ -21,6 +21,17 @@ Edit Users Information
 		                <div class="card-body">
 	            			<h4 class="card-title">Edit User Info</h4>
 		                    <div class="form-validation">
+
+                          @if($errors->any())
+                          <div class="alert alert-danger">
+                              <ul>
+                                  @foreach ($errors->all() as $error)
+                                  <li>{{ $error }}</li>
+                                  @endforeach
+                              </ul>
+                          </div><br />
+                          @endif
+
 		                        <form class="form-valide" action="{{ route('users_info_update') }}" method="post">
 		                        	@csrf
 		                            <div class="form-group row">
@@ -48,7 +59,7 @@ Edit Users Information
 		                                    <select name="status_id" id="status_id" class="form-control" required>
 		                                    	@if($single_user_info->status_id ==1)
 		                                    	<option value="1" class="bg-success text-white">Active</option>
-												@else
+												                  @else
 		                                    	<option value="2" class="bg-danger text-white">Deactive</option>
 		                                    	@endif
 		                                    	<option value="1">Active</option>
@@ -56,7 +67,7 @@ Edit Users Information
 		                                    </select>
 		                                </div>
 		                            </div>
-		                            
+
 		                            <div class="form-group row">
 		                                <div class="col-lg-8 ml-auto">
 		                                    <button type="submit" class="btn btn-primary">Submit</button>

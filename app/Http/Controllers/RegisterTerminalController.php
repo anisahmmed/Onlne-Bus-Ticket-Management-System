@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Bus;
 use App\BoardingPoint;
 use App\RegisterTerminal;
+use App\Operator;
 
 class RegisterTerminalController extends Controller
 {

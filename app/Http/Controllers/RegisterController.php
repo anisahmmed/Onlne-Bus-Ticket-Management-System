@@ -21,6 +21,7 @@ class RegisterController extends Controller
 
             $request->validate([
                 'name' => 'required|string|max:80',
+                'gender' => 'required|string',
                 'email' => 'required|email|unique:users|max:80',
                 'phone' => 'required|numeric|unique:users|min:11',
                 'password'=>'required|string|min:8|confirmed',
@@ -28,6 +29,7 @@ class RegisterController extends Controller
 
             ],[
                 'name.required'  =>  'User Name Is Required.',
+                'gender.required'  =>  'Gender Is Required.',
                 'email.email'    => 'You must enter your valid email address.',
                 'email.required' => 'Applicant Email Is Required.',
                 'phone.required' => 'Contact No Is Required.',
@@ -38,6 +40,7 @@ class RegisterController extends Controller
 
             User::insert([
             	'name'=>$request->name,
+            	'gender'=>$request->gender,
             	'email'=>$request->email,
             	'phone'=>$request->phone,
             	'password'=>Hash::make($request->password),
@@ -48,7 +51,7 @@ class RegisterController extends Controller
 
             toastr()->success('Registration has been completed successfully!');
             return redirect(route('customer_regis'));
-            
+
         }
 
         function customer_login(){

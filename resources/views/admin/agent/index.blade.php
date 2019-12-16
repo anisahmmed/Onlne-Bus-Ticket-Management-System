@@ -21,12 +21,32 @@ Create User
 	                <div class="card-body">
             			<h4 class="card-title">Create User</h4>
 	                    <div class="form-validation">
+
+                        @if($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div><br />
+                        @endif
 	                        <form class="form-valide" action="{{ route('create_user') }}" method="post">
 	                        	@csrf
 	                            <div class="form-group row">
 	                                <label class="col-lg-4 col-form-label" for="sessis_no">User Name<span class="text-danger">*</span></label>
 	                                <div class="col-lg-6">
 	                                    <input type="text" class="form-control" name="name" value="{{ old('chassis_no') }}" placeholder="User Name" required>
+	                                </div>
+	                            </div>
+	                            <div class="form-group row">
+	                                <label class="col-lg-4 col-form-label" for="gender">Gender<span class="text-danger">*</span></label>
+	                                <div class="col-lg-6">
+	                                    <select class="form-control" name="gender">
+                                        <option selected>Select</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                      </select>
 	                                </div>
 	                            </div>
 	                            <div class="form-group row">
@@ -65,7 +85,7 @@ Create User
 	                                    </select>
 	                                </div>
 	                            </div>
-	                            
+
 	                            <div class="form-group row">
 	                                <div class="col-lg-8 ml-auto">
 	                                    <button type="submit" class="btn btn-primary">Submit</button>

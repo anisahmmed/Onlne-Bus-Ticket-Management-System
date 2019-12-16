@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-   
+
 <head>
     <style>
         .action{
@@ -12,11 +12,11 @@
     <meta name="keywords" content="Transfers - Private Transport and Car Hire HTML Template" />
     <meta name="description" content="Transfers - Private Transport and Car Hire HTML Template">
     <meta name="author" content="themeenergy.com">
-    
+
     <title>
         @yield('title')
     </title>
-    
+
     <link rel="stylesheet" href="{{ asset('frontend/front/css/styler.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/front/css/theme-pink.css') }}" id="template-color" />
     {{-- <link rel="stylesheet" href="../../../../ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"> --}}
@@ -26,22 +26,22 @@
     <link rel="stylesheet" href="{{ asset('frontend/front/css/animate.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/front/css/icons.css') }}" />
     {{-- <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700|Montserrat:400,700' rel='stylesheet' type='text/css'> --}}
-    <link rel="shortcut icon" href="{{ asset('frontend/front/images/favicon.ico') }}" />{{-- 
+    <link rel="shortcut icon" href="{{ asset('frontend/front/images/favicon.png') }}" />{{-- 
     <script src="../../../../use.fontawesome.com/e808bf9397.js"></script> --}}
-    
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
+
     {{-- search --}}
-    
+
   </head>
-  
+
   <body class="home">
-        
+
         <!-- Header -->
         <header class="header" role="banner">
             <div class="wrap">
@@ -50,7 +50,7 @@
                     <a href="#" title="Transfers"><img src="{{ asset('frontend/front/images/transfers.jpg') }}" alt="Transfers" /></a>
                 </div>
                 <!-- //Logo -->
-                
+
                 <!-- Main Nav -->
                 <nav role="navigation" class="main-nav">
                     <ul>
@@ -60,7 +60,7 @@
                         <li><a href="{{ url('/contact') }}" title="Contact">Contact</a></li>
                         <li><a href="{{ url('/about') }}" title="Pages">About Us</a></li>
                         <li><a href="{{ url('/customer_login') }}" title="Pages">Login</a></li>
-                           
+
                         @guest
                         @else
                         <li><a>{{ Auth::user()->name }}</a>
@@ -95,7 +95,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.</p>
                 </article>
                 <!-- //Column -->
-                
+
                 <!-- Column -->
                 <article class="one-fourth">
                     <h6>Need help?</h6>
@@ -104,7 +104,7 @@
                     <p class="contact-data"><span class="icon icon-themeenergy_mail-2"></span> <a href="mailto:help@transfers.com">16103128@iubat.edu</a></p>
                 </article>
                 <!-- //Column -->
-                
+
                 <!-- Column -->
                 <article class="one-fourth">
                     <h6>Follow us</h6>
@@ -119,10 +119,10 @@
                 </article>
                 <!-- //Column -->
             </div>
-            
+
             <div class="copy">
                 <p>Copyright 2019, Anis Ahmmed. All rights reserved. </p>
-                
+
                 <nav role="navigation" class="foot-nav">
                     <ul>
                         <li><a href="#" title="Home">Home</a></li>
@@ -138,7 +138,7 @@
         </div>
     </footer>
     <!-- //Footer -->
-    
+
      <!-- jQuery -->
     {{-- <script src="../../../../ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="../../../../ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
@@ -150,12 +150,12 @@
     <script src="{{ asset('frontend/front/js/search.js') }}"></script>
     <script src="{{ asset('frontend/front/js/scripts.js') }}"></script>
     <script src="https://use.fontawesome.com/185aa2bd5e.js"></script>
-    
-    
+
+
     <script src="{{ asset('frontend/front/js/styler.js') }}"></script>
 
 @yield('js')
-    
+
   </body>
 
 </html>

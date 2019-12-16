@@ -10,7 +10,7 @@ Report
           <div class="col p-md-0">
               <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="{{ url('/admin/homepage') }}">Dashboard</a></li>
-                  <li class="breadcrumb-item active"><a href="{{ url('/admin/buses') }}">Create Bus Information</a></li>
+                  <li class="breadcrumb-item active"><a href="{{ url('/admin/show_bus_chassis') }}">Generate Report</a></li>
               </ol>
           </div>
       </div>
@@ -19,6 +19,7 @@ Report
               <div class="col-lg-12">
                   <div class="card">
                       <div class="card-body">
+                        <p style="color: #000; font-size: 15px;">Generate Report For Indiviual Bus</p>
                           <div class="form-validation">
                               <form class="form-valide" action="{{ Route('show_bus_details') }}" method="post">
                                 @csrf
@@ -49,11 +50,11 @@ Report
                                           </select>
                                       </div>
 
-                                      <div class="form-group row">
-                                          <div class="col-lg-8 ml-auto">
-                                              <button type="submit" class="btn btn-primary">Show Details</button>
-                                          </div>
-                                      </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <div class="col-lg-8 ml-auto">
+                                      <button type="submit" class="btn btn-primary">Show Details</button>
+                                    </div>
                                   </div>
                               </form>
                           </div>

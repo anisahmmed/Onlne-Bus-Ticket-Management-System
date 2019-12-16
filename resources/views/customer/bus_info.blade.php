@@ -22,15 +22,53 @@ Bus Informations
                 <div class="container">
                     <h1>Bus Informations</h1>
                     <nav role="navigation" class="breadcrumbs">
-                        <ul>
-                            <li><a href="{{ url('/customer/homepage') }}" title="Home">Search</a></li>
-                            <li>Bus Information</li>
-                        </ul>
+                        <a href="{{ url('/customer/booking-information') }}" class="btn color medium ">View Booking Informations</a>
                     </nav>
                 </div>
             </div>
         </header>
-        <div class="wrap">        
+        <!-- Search -->
+    		<div class="advanced-search color" id="booking">
+    			<div class="wrap">
+    				<form role="form" action="http://themeenergy.com/themes/html/transfers/search-results.html" method="post">
+    					<!-- Row -->
+    					<div class="f-row">
+    						<div class="form-group select one-third">
+    							<label>Journey date</label>
+    							<input type="date" class="form-control" />
+    						</div>
+    						<div class="form-group select one-third">
+    							<label>Departure</label>
+    							<select>
+    								<option selected>&nbsp;</option>
+    									<option value="Berlin Central Train Station">Berlin Central Train Station</option>
+    							</select>
+    						</div>
+    						<div class="form-group select one-third">
+    							<label>Destination</label>
+    							<select>
+    								<option selected>&nbsp;</option>
+    									<option value="Berlin Central Train Station">Berlin Central Train Station</option>
+    							</select>
+    						</div>
+    					</div>
+    					<!-- //Row -->
+
+
+    					<!-- Row -->
+    					<div class="f-row">
+    						<div class="form-group right">
+    							<button type="submit" class="btn large black">Search</button>
+    						</div>
+    					</div>
+    					<!--// Row -->
+    				</form>
+    			</div>
+    		</div>
+    		<!-- //Search -->
+        <br>
+
+        <div class="wrap">
             <div class="container">
                 <div class="row">
                     <div class="col-12">

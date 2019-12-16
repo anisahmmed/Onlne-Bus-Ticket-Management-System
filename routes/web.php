@@ -15,6 +15,10 @@ Route::get('/','HomepageController@index')->name('homepage');
 
 //Contact page
 Route::get('/contact','HomepageController@contact')->name('contact');
+// Contact form insert
+Route::post('/contactForm/insert','HomepageController@contact_insert')->name('contact_insert');
+
+
 //Destinations
 Route::get('/destinations','HomepageController@destinations')->name('destinations');
 //About
@@ -53,15 +57,22 @@ Route::post('/customer/search/result','SearchController@search_result')->name('s
 // Bus info view
 // Route::get('/customer/bus_info/view','UserController@user_bus_info_view')->name('view_bus_info');
 
-Route::get('/customer/bus_seat/view/{id}', 'UserController@bus_seat')-> name('bus_seat');
+Route::get('/customer/bus_seat/view/{id}', 'UserController@bus_seat')->name('bus_seat');
 // Bus Seat booking
-Route::post('/customer/bus_seat/booking', 'TicketBookingController@bus_seat_booking')-> name('bus_seat_booking');
+Route::post('/customer/bus_seat/booking', 'TicketBookingController@bus_seat_booking')->name('bus_seat_booking');
 
-Route::get('/customer/bus_info', 'UserController@bus_info')-> name('bus_info');
+Route::get('/customer/bus_info', 'UserController@bus_info')->name('bus_info');
 
 //Journey DEtails
-Route::get('/customer/bus_info/bus_seat/view/journey_deatails', 'UserController@journey_deatais')-> name('journey_deatais');
+Route::get('/customer/bus_info/bus_seat/view/journey_deatails', 'UserController@journey_deatais')->name('journey_deatais');
 
+//Customer Booking Informations
+Route::get('/customer/booking-information','UserController@booking_info')->name('customer_booking_info');
+// Customer Booking Info delete
+Route::get('/customer/booking-information/delete/{id}','UserController@delete_booking_info')->name('delete_booking_info');
+
+// veiw Deleted Booking Info
+// Route::get('/customer/trashed-booking-information','UserController@trashed_booking_info')->name('trashed_booking_info');
 
 // Customer search bus
 Route::get('/customer/search','UserController@search')->name('search');
@@ -76,6 +87,8 @@ Route::get('/customer/search','UserController@search')->name('search');
 // Admin Dashboard
 Route::get('/admin/homepage', 'AdminController@index')-> name('admin_dashboard');
 
+// view contact form info
+Route::get('/admin/contact-form/view','AdminController@contact_form_view')->name('contact_form_view');
 
 // Users Information
 Route::get('/admin/users_info', 'AdminController@users_info')-> name('users_info');
@@ -238,6 +251,9 @@ Route::post('/admin/terminal/update','InputController@update_terminal')->name('t
 Route::get('/admin/terminal/delete/{id}','InputController@delete_terminal')->name('terminal_delete');
 
 
+// View TicketBooking Info
+Route::get('/admin/ticket-booking-info','TicketBookingController@booking_info')->name('booking_info');
+
 
 // Save ticket
 Route::post('/saveTicket','TicketBookingController@saveTicket')->name('saveTicket');
@@ -264,5 +280,7 @@ Auth::routes();
 
 // DomPDF
 Route::get('/generate-pdf/{ch}','AdminController@generatePDF');
+// Admin Report generate form
 Route::get('/admin/show_bus_chassis','AdminController@show_bus_chassis')->name('show_bus_chassis');
+// Report
 Route::post('/admin/show_bus_details','AdminController@show_bus_details')->name('show_bus_details');

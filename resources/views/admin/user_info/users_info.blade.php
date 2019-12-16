@@ -20,7 +20,7 @@ Users Informations
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title" style="font-weight: bold; font-size: 22px; text-align: center;">Users Informations</h4><br>
-                        <a href="{{ url('/admin/create_user/index') }}" class="btn btn-info ">Create New <i class="fa fa-plus-square-o" aria-hidden="true"></i></a> 
+                        <a href="{{ url('/admin/create_user/index') }}" class="btn btn-info ">Create New <i class="fa fa-plus-square-o" aria-hidden="true"></i></a>
                         <button class="btn btn-info" onclick="printDiv('printableArea')">Print</button>
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered zero-configuration" style="color: #000;">
@@ -28,6 +28,7 @@ Users Informations
                                     <tr>
                                         <th>ID</th>
                                         <th>Name</th>
+                                        <th>Gender</th>
                                         <th>Email</th>
                                         <th>Phone</th>
                                         <th>Action</th>
@@ -38,6 +39,7 @@ Users Informations
                                     <tr>
                                         <td>{{$user->id}}</td>
                                         <td>{{$user->name}}</td>
+                                        <td>{{$user->gender}}</td>
                                         <td>{{$user->email}}</td>
                                         <td>{{$user->phone}}</td>
                                         <td>

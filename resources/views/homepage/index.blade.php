@@ -14,7 +14,7 @@ Online Bus | Ticket
                     <h1 class="wow fadeInDown">Need To Buy Bus Ticket?</h1>
                     <h2 class="wow fadeInUp">You've come to the right place.</h2>
                     <div class="actions">
-                        <a href="{{ url('/customer_login') }}" title="Make a booking" class="btn large color wow fadeInRight anchor">Buy Ticket</a>
+                        <a href="{{ route('bus_info') }}" title="Make a booking" class="btn large color wow fadeInRight anchor">Buy Ticket</a>
                     </div>
                 </div>
             </div>

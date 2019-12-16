@@ -21,36 +21,37 @@ Contact
 			</div>
 		</header>
 		<!-- //Page info -->
-		
-		
+
+
 		<div class="wrap">
 			<div class="row">
-				
+
 				<!--- Content -->
 				<div class="full-width content textongrey">
 					<h2>Send us a message</h2>
-					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit. All fields are required.</p>
+					<p>If you have any query feel free you can send us message.</p>
 				</div>
 				<!--- //Content -->
-				
+
 				<!-- Form -->
 				<div class="three-fourth">
-					<form method="post" action="#" name="contactform" id="contactform">
+					<form method="post" action="{{ route('contact_insert') }}" name="contactform" id="contactform">
+						@csrf
 						<div id="message"></div>
 						<div class="f-row">
 							<div class="one-half">
-								<label for="name">Name and surname</label>
-								<input type="text" id="name" />
+								<label for="name">Full Name</label>
+								<input type="text" id="name" name="name" required/>
 							</div>
 							<div class="one-half">
-								<label for="email">Email address</label>
-								<input type="email" id="email" />
+								<label for="email">Email Address</label>
+								<input type="email" id="email" name="email" required />
 							</div>
 						</div>
 						<div class="f-row">
 							<div class="full-width">
 								<label for="comments">Message</label>
-								<textarea id="comments"></textarea>
+								<textarea id="comments" name="message" required></textarea>
 							</div>
 						</div>
 						<div class="f-row">
@@ -59,7 +60,7 @@ Contact
 					</form>
 				</div>
 				<!-- //Form -->
-				
+
 				<!--- Sidebar -->
 				<aside class="one-fourth sidebar right">
 					<!-- Widget -->
@@ -71,7 +72,7 @@ Contact
 						</div>
 					</div>
 					<!-- //Widget -->
-					
+
 					<!-- Widget -->
 					<div class="widget">
 						<h4>Advertisment</h4>

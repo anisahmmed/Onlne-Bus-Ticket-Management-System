@@ -51,7 +51,7 @@ Seat View
         </nav>
     </div>
 
-        
+
 
         <!-- =========== Main Ticket Booking Area Start ===================== -->
     <div id="ticket-booking">
@@ -60,9 +60,9 @@ Seat View
                 <div class="col-12 text-center">
                     <h4>BUS COMPANY</h4>
                     <h6 style="color: green;">{{ $operator_name }}</h6>
-                    
+
                     <p><strong><span class="text-danger">Route: </span> {{ $bus_route }}</strong></p>
-                    
+
                     <p>Dep Time: {{ date('h:i A', strtotime($departure_time)) }} <span class="text-success">({{ date('d-M-Y', strtotime($journey_date)) }})</span></p>
                     <strong>Total Seat: {{ $total_seat }}</strong>
                     <div class="margin-bottom-5"></div>
@@ -1178,7 +1178,7 @@ Seat View
                         </div>
                     </div>
                 </div>
-            
+
                 <div class="col-md-6 col-sm-12">
 
                     <form action="{{ route('bus_seat_booking') }}" class="price-details" id="bookingFrm" method="post" accept-charset="utf-8">
@@ -1194,7 +1194,7 @@ Seat View
                         </div>
                         <div class="form-group">
                         </div>
-                        
+
                         <div class="table-responsive ">
                             <table class="table table table-bordered table-striped">
                                 <tbody>
@@ -1209,23 +1209,23 @@ Seat View
                                 </tbody>
                             </table>
 
-                            <input type="hidden" name="customer_name_id" id="customer_name_id" value="{{ $customer_name }}">
+                            <input type="hidden" name="customer_name" id="customer_name_id" value="{{ $customer_name }}">
+                            <input type="hidden" name="customer_gender" id="customer_name_id" value="{{ $customer_gender }}">
                             <input type="hidden" name="bus_route" id="bus route" value="{{ $bus_route }}">
-                            <input type="hidden" name="phone_id" id="phone_id" 
-                                   value="{{ $customer_phone }}">
-                            <input type="hidden" name="bus_name_id" id="bus_name_id" value="{{ $operator_name }}">
+                            <input type="hidden" name="phone" id="phone_id" value="{{ $customer_phone }}">
+                            <input type="hidden" name="bus_route" id="bus_route" value="{{ $bus_route }}">
+                            <input type="hidden" name="bus_name" id="bus_name_id" value="{{ $operator_name }}">
                             <input type="hidden" name="bus_chassis" id="bus_chassis" value="{{ $bus_chassis }}">
-                            <input type="hidden" name="journey_date_id" id="journey_date_id" value="{{ $journey_date }}">
-                            <input type="hidden" name="departure_time_id" id="departure_time_id" value="{{ $departure_time }}">
+                            <input type="hidden" name="journey_date" id="journey_date" value="{{ $journey_date }}">
+                            <input type="hidden" name="departure_time" id="departure_time" value="{{ $departure_time }}">
                             <input type="hidden" name="coach_type" id="coach_type" value="{{ $coach_type }}">
                             {{-- <input type="hidden" name="terminal_id" id="terminal_id" value="{{ $terminal_name }}"> --}}
                             <input type="hidden" name="departure" id="departure" value="{{ $departure }}">
-                            <input type="hidden" name="destination_id" id="destination_id" value="{{ $destination }}">
-                            <input type="hidden" name="ticket_price" id="ticket_price" class="ticket_price" value="{{$ticket_price}}">
+                            <input type="hidden" name="destination" id="destination" value="{{ $destination }}">
+                            <input type="hidden" name="ticket_price" id="ticket_price" value="{{$ticket_price}}">
                             <input type="hidden" name="total_seat">
                             <input type="hidden" name="seat_no">
                             <input type="hidden" name="total_price">
-                            <input type="hidden" name="ticket_token" value="329d9sd">
 
                         </div>
                         <button type="submit" id="submit-btn" class="btn btn-block">Continue</button>
@@ -1243,7 +1243,7 @@ Seat View
 
 
 
- 
+
 
 
 @section('js')
@@ -1352,5 +1352,3 @@ Seat View
     </script>
 
     @endsection
-
-

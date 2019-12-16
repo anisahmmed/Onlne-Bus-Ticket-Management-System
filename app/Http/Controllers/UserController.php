@@ -29,7 +29,7 @@ class UserController extends Controller
     {
         $this->middleware('auth');
     }
-
+    // Customer Seat view
     function bus_seat($id)
     {
 
@@ -50,9 +50,6 @@ class UserController extends Controller
 
       // print_r ($finalSeat);
 
-
-
-
        $single_id = $id;
        $terminal = RegisterTerminal::where('bus_id',$single_id)->get();
 
@@ -63,6 +60,7 @@ class UserController extends Controller
        //Customer name and phone
        $customer_name = User::findOrFail(Auth::id())->name;
        $customer_phone = User::findOrFail(Auth::id())->phone;
+       $customer_gender = User::findOrFail(Auth::id())->gender;
 
        //Operator name
        $operator_id = Bus::findOrFail($single_id)->operator_name_id;
@@ -100,16 +98,16 @@ class UserController extends Controller
        $total_seat_id = Bus::findOrFail($single_id)->total_seat_id;
        $total_seat = TotalSeat::findOrFail($total_seat_id)->total_seat;
 
-    	return view('customer.bus_seat',compact('single_id','terminal','ticket_price','customer_name','customer_phone','operator_name','journey_date','departure_time','departure','destination','bus_route','coach_type','total_seat','bus_chassis','finalSeat'));
+    	return view('customer.bus_seat',compact('single_id','terminal','ticket_price','customer_name','customer_gender','customer_phone','operator_name','journey_date','departure_time','departure','destination','bus_route','coach_type','total_seat','bus_chassis','finalSeat'));
     }
 
-
+// Customer Bus Info
     function bus_info()
     {
     	$all_bus_info = Bus::all();
         return view('customer.bus_info',compact('all_bus_info'));
     }
-
+    // Customer Journey Details
     function journey_deatais(){
       return view('customer.journey_deatails');
     }
@@ -120,11 +118,33 @@ class UserController extends Controller
       return view('customer.search');
     }
 
+    // Customer Booking Information
+    function booking_info()
+    {
+      $single_booking_info = TicketBooking::all();
+      $deleted_booking_info = TicketBooking::onlyTrashed()->paginate(6);
+      return view('customer.booking_info',compact('single_booking_info','deleted_booking_info'));
+    }
+
+    // Customer Booking Info delete
+    function delete_booking_info($id)
+    {
+      TicketBooking::findOrFail($id)->delete();
+      return back();
+    }
+
+    // View Trashed boooking info
+    // function trashed_booking_info()
+    // {
+    //   $deleted_booking_info = TicketBooking::onlyTrashed()->paginate(6);
+    //   return view('customer.booking_info',compact('deleted_booking_info'));
+    // }
 
 
 
 
 
 
-//End    
+
+//End
 }

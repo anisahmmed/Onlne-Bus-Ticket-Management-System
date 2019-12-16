@@ -3,13 +3,13 @@
     <head>
         <title>Customer Registration</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">    
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/png" href="{{ asset('login_resource/icon.jpg') }}"/>
         <link rel="shortcut icon" href="{{ asset('frontend/front/images/favicon.ico') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('login_resource/vendor/bootstrap/css/bootstrap.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('login_resource/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('login_resource/fonts/iconic/css/material-design-iconic-font.min.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('login_resource/vendor/animate/animate.css') }}">   
+        <link rel="stylesheet" type="text/css" href="{{ asset('login_resource/vendor/animate/animate.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('login_resource/vendor/css-hamburgers/hamburgers.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('login_resource/vendor/animsition/css/animsition.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('login_resource/vendor/select2/select2.min.css') }}">
@@ -20,13 +20,13 @@
         <!-- End Login -->
     </head>
     <body>
-        
+
         <!-- <ul class="nav ">
           <li class="nav-item">
             <a href="{{ route('homepage') }}" class="nav-link btn-outline-success " style="font-weight: bold; font-size: 16px;">Home</a>
           </li>
         </ul> -->
-            
+
         <div class="limiter">
             <div class="container-login100">
                 <div class="wrap-login100">
@@ -52,6 +52,13 @@
                         <div class="wrap-input100 validate-input" data-validate = "Enter name">
                             <input class="input100" type="text" name="name" required>
                             <span class="focus-input100" data-placeholder="Name"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input" data-validate = "Enter Gender">
+                            <select class="input100" name="gender">
+                                <option selected>select</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
                         </div>
                         <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
                             <input class="input100" type="email" name="email" required>
@@ -110,7 +117,7 @@
         </div>
 
         <div id="dropDownSelect1"></div>
-        
+
         <script src="{{ asset('login_resource/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
         <script src="{{ asset('login_resource/vendor/animsition/js/animsition.min.js') }}"></script>
         <script src="{{ asset('login_resource/vendor/bootstrap/js/popper.js') }}"></script>

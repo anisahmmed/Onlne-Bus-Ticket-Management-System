@@ -18,7 +18,10 @@ class CreateTicketBookingsTable extends Migration
             $table->string('customer_name')->default('No Data');
             $table->string('phone')->default('No Data');
             $table->string('bus_name')->default('No Data');
+            $table->string('bus_type')->default('No Data');
             $table->string('bus_chassis')->default('No Data');
+            $table->string('bus_route')->default('No Data');
+            $table->string('departure')->default('No Data');
             $table->string('destination')->default('No Data');
             $table->string('journey_date')->default('No Data');
             $table->string('departure_time')->default('No Data');
@@ -29,6 +32,7 @@ class CreateTicketBookingsTable extends Migration
             $table->string('total_price')->default('No Data');
             $table->integer('payment_status')->default(0);
             $table->string('ticket_token')->default('No Data');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -45,7 +45,38 @@ class StripePaymentController extends Controller
             $phone = $request->phone;
             $check = $request->check;
             $seat_no = $request->seat_no;
-        Mail::to("xubi.aunshon@gmail.com")->send(new TicketEmail($total_price,$phone,'seat_no'));
+            $total_seat= $request->total_seat;
+            $customer_name = $request->customer_name;
+            $gender = $request->gender;
+            $bus_name = $request->bus_name;
+            $bus_type = $request->coach_type;
+            $bus_chassis = $request->bus_chassis;
+            $journey_date = $request->journey_date;
+            $departure_time = $request->departure_time;
+            $departure = $request->departure;
+            $destination = $request->destination;
+            $bus_routes = $request->bus_route;
+            $ticket_price = $request->ticket_price;
+            $terminal = $request->terminal;
+        Mail::to("anisahmed450@gmail.com")->send(new TicketEmail(
+            $total_price,
+            $phone,
+            $seat_no,
+            $total_seat,
+            $customer_name,
+            $gender,
+            $bus_name,
+            $bus_type,
+            $bus_chassis,
+            $journey_date,
+            $departure_time,
+            $bus_routes,
+            $ticket_price,
+            $terminal,
+            $departure,
+            $destination
+          ));
+          toastr()->success('successfully Payment For Booking!');
         return redirect('/customer/bus_info');
         // Session::flash('success', 'Payment successful!');
 
