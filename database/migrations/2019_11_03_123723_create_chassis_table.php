@@ -16,6 +16,7 @@ class CreateChassisTable extends Migration
         Schema::create('chassis', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('chassis_no');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

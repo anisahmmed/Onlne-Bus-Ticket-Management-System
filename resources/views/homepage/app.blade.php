@@ -58,7 +58,15 @@
                         <li><a href="{{ url('/vendors') }}" title="Vendor">Vendor</a></li>
                         <li><a href="{{ url('/contact') }}" title="Contact">Contact</a></li>
                         <li><a href="{{ url('/about') }}" title="About">About Us</a></li>
-                        <li><a href="{{ url('/customer_login') }}" title="Login">Login</a></li>
+                        <li><a href="{{ url('/user-login') }}" title="Pages">Login</a></li>
+                        {{-- @php
+                          $role_id = App\User::findOrFail(Auth::id())->role_id;
+                        @endphp
+                          @if ($role_id ==1)
+                            <li><a href="{{ route('admin_dashboard') }}" title="About">Admin Pannel</a></li>
+                          @endif --}}
+
+
 
                         @guest
                         @else

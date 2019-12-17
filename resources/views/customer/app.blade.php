@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/front/css/animate.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/front/css/icons.css') }}" />
     {{-- <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700|Montserrat:400,700' rel='stylesheet' type='text/css'> --}}
-    <link rel="shortcut icon" href="{{ asset('frontend/front/images/favicon.png') }}" />{{-- 
+    <link rel="shortcut icon" href="{{ asset('frontend/front/images/favicon.png') }}" />{{--
     <script src="../../../../use.fontawesome.com/e808bf9397.js"></script> --}}
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -59,7 +59,11 @@
                         <li><a href="{{ url('/blog') }}" title="Blog">Blog</a></li>
                         <li><a href="{{ url('/contact') }}" title="Contact">Contact</a></li>
                         <li><a href="{{ url('/about') }}" title="Pages">About Us</a></li>
-                        <li><a href="{{ url('/customer_login') }}" title="Pages">Login</a></li>
+                        @foreach (App\User::findOrFail(Auth::id()) as $element)
+                          @if ($element =Null)
+                            <li><a href="{{ url('/user-login') }}" title="Pages">Login</a></li>
+                          @endif
+                        @endforeach
 
                         @guest
                         @else

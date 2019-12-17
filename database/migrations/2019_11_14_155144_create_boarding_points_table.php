@@ -16,6 +16,7 @@ class CreateBoardingPointsTable extends Migration
         Schema::create('boarding_points', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('terminal_name');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -2,14 +2,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Customer Login</title>
+    <title>User Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="{{ asset('frontend/front/images/favicon.ico') }}" />
+    <link rel="shortcut icon" href="{{ asset('frontend/front/images/favicon.png') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('login_resource/vendor/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('login_resource/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('login_resource/fonts/iconic/css/material-design-iconic-font.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('login_resource/vendor/animate/animate.css') }}">   
+    <link rel="stylesheet" type="text/css" href="{{ asset('login_resource/vendor/animate/animate.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('login_resource/vendor/css-hamburgers/hamburgers.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('login_resource/vendor/animsition/css/animsition.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('login_resource/vendor/select2/select2.min.css') }}">
@@ -24,11 +24,11 @@
   </li>
 </ul> -->
 <body>
-    
+
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                
+
                 @if($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -90,7 +90,7 @@
                             Don’t have an account?
                         </span>
 
-                        <a class="txt2 btn-primaryfont-weight-bold" style="color: #00ff40;" href="{{ url('/customer_register') }}">
+                        <a class="txt2 btn-primaryfont-weight-bold" style="color: #00ff40;" href="{{ url('/user-registration') }}">
                             Sign Up
                         </a>
                     </div>
@@ -98,7 +98,7 @@
             </div>
         </div>
     </div>
-    
+
 
     <div id="dropDownSelect1"></div>
     <script src="{{ asset('login_resource/vendor/jquery/jquery-3.2.1.min.js') }}"></script>

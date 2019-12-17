@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class RegisterTerminal extends Model
 {
+  use SoftDeletes;
     protected $fillable = [
     	'boarding_point_id','bus_id',
     ];

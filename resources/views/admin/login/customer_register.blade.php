@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Customer Registration</title>
+        <title>User Registration</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/png" href="{{ asset('login_resource/icon.jpg') }}"/>
-        <link rel="shortcut icon" href="{{ asset('frontend/front/images/favicon.ico') }}" />
+        <link rel="shortcut icon" href="{{ asset('frontend/front/images/favicon.png') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('login_resource/vendor/bootstrap/css/bootstrap.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('login_resource/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('login_resource/fonts/iconic/css/material-design-iconic-font.min.css') }}">
@@ -107,7 +107,7 @@
                                 Have already an account?
                             </span>
 
-                            <a class="txt2 font-weight-bold" style="color: #00ff40;" href="{{ url('\customer_login') }}">
+                            <a class="txt2 font-weight-bold" style="color: #00ff40;" href="{{ url('\user-login') }}">
                                 Login here
                             </a>
                         </div>

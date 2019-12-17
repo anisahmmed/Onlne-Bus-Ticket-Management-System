@@ -181,7 +181,7 @@ class InputController extends Controller
 
 	// Departure Info insert
 	function input_departure_info(Request $request){
-		DepartureInfo::insert([$request->except('_token')]);
+		DepartureInfo::insert($request->except('_token'));
 	    toastr()->success('Data has been added successfully!');
 		return back();
 	}

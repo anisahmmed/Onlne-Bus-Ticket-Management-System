@@ -33,9 +33,16 @@ Bus Informations
     				<form role="form" action="http://themeenergy.com/themes/html/transfers/search-results.html" method="post">
     					<!-- Row -->
     					<div class="f-row">
-    						<div class="form-group select one-third">
+    						{{-- <div class="form-group select one-third">
     							<label>Journey date</label>
     							<input type="date" class="form-control" />
+    						</div> --}}
+    						<div class="form-group select one-third">
+    							<label>Journey Date</label>
+    							<select>
+    								<option selected>&nbsp;</option>
+    									<option value="Berlin Central Train Station">Berlin Central Train Station</option>
+    							</select>
     						</div>
     						<div class="form-group select one-third">
     							<label>Departure</label>

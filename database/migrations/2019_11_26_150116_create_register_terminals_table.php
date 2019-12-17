@@ -17,6 +17,7 @@ class CreateRegisterTerminalsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('boarding_point_id');
             $table->integer('bus_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

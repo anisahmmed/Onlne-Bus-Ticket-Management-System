@@ -16,6 +16,7 @@ class CreateOperatorsTable extends Migration
         Schema::create('operators', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('operator_name');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -17,6 +17,7 @@ class CreateDepartureInfosTable extends Migration
             $table->bigIncrements('id');
             $table->string('departure');
             $table->time('departure_time');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

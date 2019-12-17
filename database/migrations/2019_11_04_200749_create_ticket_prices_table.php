@@ -16,6 +16,7 @@ class CreateTicketPricesTable extends Migration
         Schema::create('ticket_prices', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('ticket_price');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

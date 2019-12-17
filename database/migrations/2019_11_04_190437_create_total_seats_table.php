@@ -16,6 +16,7 @@ class CreateTotalSeatsTable extends Migration
         Schema::create('total_seats', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('total_seat');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -17,6 +17,7 @@ class CreateDestinationsTable extends Migration
             $table->bigIncrements('id');
             $table->string('destination');
             $table->string('destination_scenario')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

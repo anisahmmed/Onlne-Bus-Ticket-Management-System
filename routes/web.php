@@ -30,10 +30,10 @@ Route::get('/about','HomepageController@about')->name('about');
 
 
 //Customer Login
-Route::get('/customer_login','RegisterController@customer_login')->name('customer_login');
+Route::get('/user-login','RegisterController@customer_login')->name('customer_login');
 
 //customer registration form
-Route::get('/customer_register','RegisterController@index')->name('customer_regis');
+Route::get('/user-registration','RegisterController@index')->name('customer_regis');
 // Customer Registration
 Route::post('/customer/register','RegisterController@register')-> name('customer_register');
 
