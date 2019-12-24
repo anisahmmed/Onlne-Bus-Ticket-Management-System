@@ -58,6 +58,7 @@
                         <li><a href="{{ url('/vendors') }}" title="Vendor">Vendor</a></li>
                         <li><a href="{{ url('/contact') }}" title="Contact">Contact</a></li>
                         <li><a href="{{ url('/about') }}" title="About">About Us</a></li>
+                        <li><a href="{{ route('bus_info') }}" title="About">Buy Ticket</a></li>
                         <li><a href="{{ url('/user-login') }}" title="Pages">Login</a></li>
                         {{-- @php
                           $role_id = App\User::findOrFail(Auth::id())->role_id;

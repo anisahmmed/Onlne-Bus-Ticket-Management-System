@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use Auth;
 use App\TicketBooking;
@@ -104,8 +105,11 @@ class UserController extends Controller
 // Customer Bus Info
     function bus_info()
     {
+      $all_dates = Date::all();
+      $all_departure = DepartureInfo::all();
+      $all_destination = Destination::all();
     	$all_bus_info = Bus::all();
-        return view('customer.bus_info',compact('all_bus_info'));
+        return view('customer.bus_info',compact('all_bus_info','all_dates','all_departure','all_destination'));
     }
     // Customer Journey Details
     function journey_deatais(){
@@ -121,9 +125,10 @@ class UserController extends Controller
     // Customer Booking Information
     function booking_info()
     {
+      $time = \DB::table('ticket_bookings')->where('created_at', '>',Carbon::now()->subHours(3)->toDateTimeString());
       $single_booking_info = TicketBooking::all();
       $deleted_booking_info = TicketBooking::onlyTrashed()->paginate(6);
-      return view('customer.booking_info',compact('single_booking_info','deleted_booking_info'));
+      return view('customer.booking_info',compact('single_booking_info','deleted_booking_info','time'));
     }
 
     // Customer Booking Info delete

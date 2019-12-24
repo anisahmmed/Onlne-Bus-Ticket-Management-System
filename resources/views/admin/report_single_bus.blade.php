@@ -32,7 +32,6 @@ Report
                                               $ch = null;
                                             @endphp
                                             @foreach($all_bus_info as $operators)
-                                            @endphp
                                             @if ($ch==null)
                                               @php
                                                 $ch=$operators->bus_chassis;

@@ -29,4 +29,6 @@ class TicketBooking extends Model
   		'payment_status',
   		'ticket_token',
     ];
+
+
 }

@@ -47,7 +47,7 @@
             <div class="wrap">
                 <!-- Logo -->
                 <div class="logo">
-                    <a href="#" title="Transfers"><img src="{{ asset('frontend/front/images/transfers.jpg') }}" alt="Transfers" /></a>
+                    <a href="{{ url('/') }}" title="Transfers"><img src="{{ asset('frontend/front/images/transfers.jpg') }}" alt="Transfers" /></a>
                 </div>
                 <!-- //Logo -->
 
@@ -59,6 +59,7 @@
                         <li><a href="{{ url('/blog') }}" title="Blog">Blog</a></li>
                         <li><a href="{{ url('/contact') }}" title="Contact">Contact</a></li>
                         <li><a href="{{ url('/about') }}" title="Pages">About Us</a></li>
+                        <li><a href="{{ route('bus_info') }}" title="Pages">Buy Ticket</a></li>
                         @foreach (App\User::findOrFail(Auth::id()) as $element)
                           @if ($element =Null)
                             <li><a href="{{ url('/user-login') }}" title="Pages">Login</a></li>

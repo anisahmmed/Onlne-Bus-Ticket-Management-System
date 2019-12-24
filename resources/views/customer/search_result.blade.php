@@ -30,16 +30,17 @@ Search Result
                 </div>
             </div>
         </header>
-        <div class="wrap">        
+        <div class="wrap">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
                                 <div class="table-responsive">
-								@if(isset($details))
 
-								{{ $query }}
+                								@if(isset($details))
+
+                								{{ $query }}
 
 
                                     <table class="table table-striped table-bordered zero-configuration" style="color: #000; font-size: 14px;">
@@ -60,7 +61,7 @@ Search Result
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($all_bus_info as $bus_infos)
+                                            @foreach($details as $bus_infos)
                                             <tr>
                                                 <td>{{ $bus_infos->id }}</td>
 
@@ -82,7 +83,7 @@ Search Result
                                             @endforeach
                                         </tbody>
                                     </table>
-                                    
+
                                     @endif
 
                                 </div>

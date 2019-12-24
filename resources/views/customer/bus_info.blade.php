@@ -30,7 +30,8 @@ Bus Informations
         <!-- Search -->
     		<div class="advanced-search color" id="booking">
     			<div class="wrap">
-    				<form role="form" action="http://themeenergy.com/themes/html/transfers/search-results.html" method="post">
+    				<form role="search" action="{{ route('search_result') }}" method="post">
+              @csrf
     					<!-- Row -->
     					<div class="f-row">
     						{{-- <div class="form-group select one-third">
@@ -40,22 +41,28 @@ Bus Informations
     						<div class="form-group select one-third">
     							<label>Journey Date</label>
     							<select>
-    								<option selected>&nbsp;</option>
-    									<option value="Berlin Central Train Station">Berlin Central Train Station</option>
+                    <option selected>Select</option>
+                    @foreach ($all_dates as $dates)
+                      <option value="{{ $dates->id }}">{{ $dates->date }}</option>
+                    @endforeach
     							</select>
     						</div>
     						<div class="form-group select one-third">
     							<label>Departure</label>
     							<select>
-    								<option selected>&nbsp;</option>
-    									<option value="Berlin Central Train Station">Berlin Central Train Station</option>
+    								<option selectedi>Select</option>
+                    @foreach ($all_departure as $departures)
+                      <option value="{{ $departures->id }}">{{ $departures->departure }}</option>
+                    @endforeach
     							</select>
     						</div>
     						<div class="form-group select one-third">
     							<label>Destination</label>
     							<select>
-    								<option selected>&nbsp;</option>
-    									<option value="Berlin Central Train Station">Berlin Central Train Station</option>
+    								<option selected>Select</option>
+                    @foreach ($all_destination as $destinations)
+                      <option value="{{ $destinations->id }}">{{ $destinations->destination }}</option>
+                    @endforeach
     							</select>
     						</div>
     					</div>

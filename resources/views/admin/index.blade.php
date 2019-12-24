@@ -36,12 +36,12 @@ Admin Pannel
                                         <i class="mdi mdi-receipt"></i>
                                     </div>
                                     <div class="stat-digit">
-                                        <p class="mb-2">Total Cost</p>
+                                        <p class="mb-2">Total Sell</p>
 
-                                        <h3>৳ </h3>
+                                        <h3>৳ {{ $today_sell }}</h3>
                                     </div>
                                 </div>
-                                <p class="mb-0"> Since Last Month</p>
+                                <p class="mb-0"> Today's Sell</p>
                             </div>
                         </div>
                     </div>
@@ -57,10 +57,11 @@ Admin Pannel
                                         @php
                                           $total = DB::table('ticket_bookings')->sum('total_price');
                                         @endphp
+
                                         <h3>৳ {{ $total }}</h3>
                                     </div>
                                 </div>
-                                <p class="mb-0"> Since Last Month</p>
+                                <p class="mb-0"> Total sell</p>
                             </div>
                         </div>
                     </div>

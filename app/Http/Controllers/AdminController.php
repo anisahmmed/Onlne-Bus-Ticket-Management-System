@@ -11,6 +11,7 @@ use PDF;
 use App\Bus;
 use App\TicketBooking;
 use App\ContactForm;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
@@ -20,9 +21,14 @@ class AdminController extends Controller
     }
     function index()
     {
-      $all_booking_info = TicketBooking::all();
+      //user active time
+    //   $users = Session::whereNotNull('user_id')
+    // ->where('last_activity', '>=', now()->subMinutes(10))
+    // ->get();
+      $all_booking_info = TicketBooking::latest()->paginate(8);
       $all_contact = ContactForm::all();
-    	return view('admin.index',compact('all_booking_info','all_contact'));
+      $today_sell = TicketBooking::whereDate('created_at',Carbon::today())->sum('total_price');
+    	return view('admin.index',compact('all_booking_info','all_contact','today_sell'));
     }
 
     //COntact form view

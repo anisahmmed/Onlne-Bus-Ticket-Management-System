@@ -20,7 +20,8 @@ Bus Report Detail
                     <div class="card">
                         <div class="card-body">
                           <div id="printableArea">
-                          <p style="color: #000; font-size:14px;">Report of Individual Bus For Specific Route</p>
+                          <p style="color: #000; font-size:18px;">Report of <strong style="color:green;">{{ $busName }}</strong> For <strong style="color:green;">{{ $bus_routes }}</strong> Route</p>
+                          <br>
                               <div class="form-group row" style="color: #000; font-size:14px;">
                                 <table class="table table-borderless">
                                   <thead>
@@ -77,7 +78,7 @@ Bus Report Detail
                               </div>
                             </div>
                             <div class="col-md-10 text-center">
-                              <button id="singlebutton" name="singlebutton" class="btn btn-primary" onclick="printDiv('printableArea')">Next Step!</button>
+                              <button id="singlebutton" name="singlebutton" class="btn btn-primary" onclick="printDiv('printableArea')">PDF!</button>
                             </div>
                         </div>
                     </div>

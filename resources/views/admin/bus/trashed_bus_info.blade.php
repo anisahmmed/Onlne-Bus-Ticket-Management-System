@@ -34,7 +34,6 @@ Trashed Bus Informations
                                         <th>Departure Time</th>
                                         <th>Total Seat</th>
                                         <th>Ticket Price</th>
-                                        <th>Terminal Name</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -48,11 +47,10 @@ Trashed Bus Informations
                                         <td>{{ $deleted_buses->relationbetweenchassis->chassis_no }}</td>
                                         <td>{{ $deleted_buses->relationbetweenBusType->bus_type }}</td>
                                         <td>{{$deleted_buses->relationbetweenbusroutes->bus_route}}</td>
-                                        <td>{{ date('h:i A', strtotime($deleted_buses->relationbetweentime->departure_time)) }}</td>
+                                        <td>{{ date('h:i A', strtotime($deleted_buses->relationbetweenDepartureInfo->departure_time)) }}</td>
 
                                         <td>{{ $deleted_buses->relationbetweenTotalSeat->total_seat }}</td>
                                         <td>{{ $deleted_buses->relationbetweenTicketPrice->ticket_price }}</td>
-                                        <td>{{ $deleted_buses->relationbetweenBoardinPoint->terminal_name }}</td>
                                         <td>
                                             <a href="{{ url('/admin/trashed_bus_info/view/restore') }}\{{ $deleted_buses->id }}" class="btn btn-success">Restore</a>
                                         </td>

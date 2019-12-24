@@ -127,7 +127,7 @@
                                             <a href="javascript:void()">
                                                 <span class="mr-3 avatar-icon bg-success-lighten-2"><i class="icon-present"></i></span>
                                                 <div class="notification-content">
-                                                    <h6 class="notification-heading">New Order From {{ $notifications->customer_name }}</h6>
+                                                    <h6 class="notification-heading">New Booking From {{ $notifications->customer_name }}</h6>
                                                     <span class="notification-text">{{ $notifications->created_at->diffForHumans() }}</span>
                                                 </div>
                                             </a>
