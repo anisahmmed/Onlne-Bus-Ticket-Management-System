@@ -28,13 +28,13 @@ Ticekt Booking Information
                                       <thead>
                                           <tr>
                                             <th>SL</th>
-                                            <th>Ticket No</th>
+                                            {{-- <th>Ticket No</th> --}}
                                             <th>Name</th>
                                             <th>Phone</th>
                                             <th>Bus Name</th>
                                             <th>Journey Date</th>
                                             {{-- <th>Bus Chassis No</th> --}}
-                                            <th>Bus Route</th>
+                                            {{-- <th>Bus Route</th> --}}
                                             {{-- <th>Departure</th> --}}
                                             <th>Departure Time</th>
                                             {{-- <th>Destination</th> --}}
@@ -45,6 +45,7 @@ Ticekt Booking Information
                                             <th>Boarding Point</th>
                                             <th>Payment Status</th>
                                             <th>Action</th>
+                                            <th>View Ticket</th>
                                           </tr>
                                       </thead>
                                       <tbody>
@@ -55,13 +56,13 @@ Ticekt Booking Information
                                               @if (Auth::user()->phone == $booking_info->phone)
                                                 <tr>
                                                     <td>{{ $booking_info->id }}</td>
-                                                    <td>{{ $booking_info->ticket_token }}</td>
+                                                    {{-- <td>{{ $booking_info->ticket_token }}</td> --}}
                                                     <td>{{ $booking_info->customer_name }}</td>
                                                     <td>{{ $booking_info->phone }}</td>
                                                     <td>{{ $booking_info->bus_name }}</td>
                                                     <td>{{ $booking_info->journey_date }}</td>
                                                     {{-- <td>{{$booking_info->bus_chassis}}</td> --}}
-                                                    <td>{{$booking_info->bus_route}}</td>
+                                                    {{-- <td>{{$booking_info->bus_route}}</td> --}}
                                                     {{-- <td>{{$booking_info->departure}}</td> --}}
                                                     <td>{{$booking_info->departure_time}}</td>
                                                     {{-- <td>{{$booking_info->destination}}</td> --}}
@@ -81,6 +82,9 @@ Ticekt Booking Information
                                                         @else --}}
                                                           <a href="{{ url('/customer/booking-information/delete') }}/{{ $booking_info->id }}" class="btn color medium right" onclick="return confirm('Are you sure?')" style="color: red;">Cancel</a>
 
+                                                    </td>
+                                                    <td>
+                                                      <a href="{{ url('/customer/booking-ticket/view') }}/{{ $booking_info->id }}" target="_blank" class="btn color medium right">View Ticket</a>
                                                     </td>
                                                 </tr>
                                             @endif

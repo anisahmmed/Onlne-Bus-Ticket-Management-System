@@ -41,7 +41,7 @@ class BusinfoController extends Controller
 		return view('admin.bus.bus_info_insert_form',compact('all_dates','all_chassises','all_buses','all_routes','all_departure_info','all_destination','all_bus_types','all_operators','all_seats','all_ticket_prices','all_terminals'));
 	}
 
-	
+
 	// Insert Bus Info
 	function bus_info_insert(Request $request){
 		Bus::insert($request->except('_token'));
@@ -94,6 +94,7 @@ class BusinfoController extends Controller
 	//Bus Information Delete
 	function delete_bus_info($id){
 		Bus::findOrFail($id)->delete();
+		toastr()->error('Record has been Deleted!');
 		return back();
 	}
 

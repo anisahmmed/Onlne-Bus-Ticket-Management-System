@@ -220,7 +220,7 @@
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="{{ route('bus_info_trashed') }}">Bus Information</a></li>
-                            <li><a href="#">Users Information</a></li>
+                            {{-- <li><a href="#">Users Information</a></li> --}}
                         </ul>
                     </li>
                     {{-- <li><a href="{{ route('show_bus_chassis') }}"><i class="icon-globe-alt menu-icon"></i>Generate Report</a></li> --}}
@@ -235,6 +235,7 @@
                       </a>
                       <ul aria-expanded="false">
                         <li><a href="{{ route('booking_info') }}">Ticket Booking Info</a></li>
+                        <li><a href="{{ route('cancel_info') }}">Cancel Booking Info</a></li>
                       </ul>
                     </li>
                     {{-- <li class="nav-label">Apps</li> --}}

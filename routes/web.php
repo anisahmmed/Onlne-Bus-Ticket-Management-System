@@ -74,6 +74,9 @@ Route::get('/customer/booking-information','UserController@booking_info')->name(
 // Customer Booking Info delete
 Route::get('/customer/booking-information/delete/{id}','UserController@delete_booking_info')->name('delete_booking_info');
 
+// Customer Ticket view
+Route::get('/customer/booking-ticket/view/{id}','UserController@ticket_view')->name('ticket_view');
+
 // veiw Deleted Booking Info
 // Route::get('/customer/trashed-booking-information','UserController@trashed_booking_info')->name('trashed_booking_info');
 
@@ -105,6 +108,10 @@ Route::get('/admin/users_info/edit/{id}', 'AdminController@edit')-> name('users_
 Route::post('/admin/users_info/update', 'AdminController@user_update')->name('users_info_update');
 //User Delete
 Route::get('/admin/users_info/delete/{id}', 'AdminController@delete')-> name('delete');
+
+
+//Cancel Booking Informations
+Route::get('/admin/cancel_booking_info','AdminController@cancel_info')->name('cancel_info');
 
 
 
@@ -256,6 +263,10 @@ Route::get('/admin/terminal/delete/{id}','InputController@delete_terminal')->nam
 
 // View TicketBooking Info
 Route::get('/admin/ticket-booking-info','TicketBookingController@booking_info')->name('booking_info');
+
+
+
+
 
 
 // Save ticket

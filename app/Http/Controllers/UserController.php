@@ -135,7 +135,49 @@ class UserController extends Controller
     function delete_booking_info($id)
     {
       TicketBooking::findOrFail($id)->delete();
+      toastr()->info('You have canceled booking Successfully!');
       return back();
+    }
+
+    // Customer Ticket view
+    function ticket_view($id)
+    {
+      $journey_date = TicketBooking::findOrFail($id)->journey_date;
+      $customer_name = TicketBooking::findOrFail($id)->customer_name;
+      $customer_phone = TicketBooking::findOrFail($id)->phone;
+      $customer_gender = TicketBooking::findOrFail($id)->gender;
+      $departure_time = TicketBooking::findOrFail($id)->departure_time;
+      $bus_route = TicketBooking::findOrFail($id)->bus_route;
+      $bus_name = TicketBooking::findOrFail($id)->bus_name;
+      $bus_type = TicketBooking::findOrFail($id)->bus_type;
+      $bus_chassis = TicketBooking::findOrFail($id)->bus_chassis;
+      $departure = TicketBooking::findOrFail($id)->departure;
+      $destination = TicketBooking::findOrFail($id)->destination;
+      $seat_no = TicketBooking::findOrFail($id)->seat_no;
+      $total_seat = TicketBooking::findOrFail($id)->total_seat;
+      $ticket_price = TicketBooking::findOrFail($id)->ticket_price;
+      $total_price = TicketBooking::findOrFail($id)->total_price;
+      $terminal = TicketBooking::findOrFail($id)->terminal;
+      $payment_status = TicketBooking::findOrFail($id)->payment_status;
+      return view('customer.view_ticket',compact(
+        'journey_date',
+        'customer_name',
+        'customer_phone',
+        'customer_gender',
+        'departure_time',
+        'bus_route',
+        'bus_name',
+        'bus_type',
+        'bus_chassis',
+        'departure',
+        'destination',
+        'seat_no',
+        'total_seat',
+        'ticket_price',
+        'total_price',
+        'terminal',
+        'payment_status'
+      ));
     }
 
     // View Trashed boooking info

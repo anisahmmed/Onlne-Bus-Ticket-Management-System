@@ -217,6 +217,12 @@ class AdminController extends Controller
       ));
     }
 
+    function cancel_info()
+    {
+      $cancel_ticket = TicketBooking::onlyTrashed()->paginate(10);
+      return view('admin.cancel_booking_info',compact('cancel_ticket'));
+    }
+
 
 
 

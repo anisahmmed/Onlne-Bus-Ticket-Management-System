@@ -37,6 +37,7 @@
     <![endif]-->
 
     {{-- search --}}
+    @toastr_css
 
   </head>
 
@@ -97,7 +98,10 @@
                 <!-- Column -->
                 <article class="one-half">
                     <h6>About us</h6>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.</p>
+                    <p>
+                      It is a premium online booking portal which allows you to purchase
+                      tickets for various bus services across the country.
+                    </p>
                 </article>
                 <!-- //Column -->
 
@@ -158,6 +162,9 @@
 
 
     <script src="{{ asset('frontend/front/js/styler.js') }}"></script>
+    @jquery
+    @toastr_js
+    @toastr_render
 
 @yield('js')
 
