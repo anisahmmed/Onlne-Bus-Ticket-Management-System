@@ -24,7 +24,7 @@ Admin Pannel
                                         <h3>{{ App\User::where('role_id',3)->count() }}</h3>
                                     </div>
                                 </div>
-                                <p class="mb-0"> Since Last Month</p>
+                                <p class="mb-0"></p>
                             </div>
                         </div>
                     </div>
@@ -55,7 +55,7 @@ Admin Pannel
                                     <div class="stat-digit">
                                         <p class="mb-2">Total Sales</p>
                                         @php
-                                          $total = DB::table('ticket_bookings')->sum('total_price');
+                                          $total = DB::table('ticket_bookings')->where('payment_status', 1)->sum('total_price');
                                         @endphp
 
                                         <h3>৳ {{ $total }}</h3>

@@ -41,7 +41,7 @@ class UserController extends Controller
        $bus_chassis = Chassis::findOrFail($bus_chassis_id)->chassis_no;
        // echo $bus_chassis;
 
-      $allBookedTickets = TicketBooking::where('bus_chassis',$bus_chassis)->get();
+      $allBookedTickets = TicketBooking::where('bus_chassis',$bus_chassis)->where('payment_status', 1)->get();
       foreach ($allBookedTickets as $key => $value) {
         $allSeat.=$value->seat_no;
       }
@@ -126,8 +126,8 @@ class UserController extends Controller
     function booking_info()
     {
       $time = \DB::table('ticket_bookings')->where('created_at', '>',Carbon::now()->subHours(3)->toDateTimeString());
-      $single_booking_info = TicketBooking::all();
-      $deleted_booking_info = TicketBooking::onlyTrashed()->paginate(6);
+      $single_booking_info = TicketBooking::where('payment_status', 1)->get();
+      $deleted_booking_info = TicketBooking::onlyTrashed()->where('payment_status', 1)->paginate(6);
       return view('customer.booking_info',compact('single_booking_info','deleted_booking_info','time'));
     }
 

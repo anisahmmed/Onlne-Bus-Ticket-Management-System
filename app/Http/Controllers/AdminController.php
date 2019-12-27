@@ -27,7 +27,7 @@ class AdminController extends Controller
     // ->get();
       $all_booking_info = TicketBooking::latest()->paginate(8);
       $all_contact = ContactForm::all();
-      $today_sell = TicketBooking::whereDate('created_at',Carbon::today())->sum('total_price');
+      $today_sell = TicketBooking::whereDate('created_at',Carbon::today())->where('payment_status', 1)->sum('total_price');
     	return view('admin.index',compact('all_booking_info','all_contact','today_sell'));
     }
 
@@ -127,45 +127,45 @@ class AdminController extends Controller
 
 
   // DomPDF
-    public function generatePDF($chassis)
-    {
-      $busName='';
-      $chassis='';
-      $distination='';
-      $journey='';
-      $depature='';
-      $seats='';
-      $totalSeat=0;
-      $terminal='';
-      $ticketPrice=0;
-      $totalPrice=0;
-
-      $ticket_detail = TicketBooking::where('bus_chassis',$chassis)->get();
-      foreach ($ticket_detail as $key => $value) {
-        $busName=$value->bus_name;
-        $chassis=$value->bus_chassis;
-        $distination=$value->destination;
-        $journey=$value->journey_date;
-        $depature.=$value->terminal."-".$value->departure_time." , ";
-        // $depature=array_push($depature,$value->departure_time);
-        $seats.=$value->seat_no;
-        $totalSeat+=$value->total_seat;
-        $ticketPrice=$value->ticket_price;
-        $totalPrice+=$value->total_price;
-      }
-
-
-
-
-
-        $data = [
-          'busName'=>"krgn",
-        ];
-        $pdf = PDF::loadView('admin.myPDF',$data);
-
-        // return $pdf->download('itsolutionstuff.pdf');
-        return $pdf->stream();
-    }
+    // public function generatePDF($chassis)
+    // {
+    //   $busName='';
+    //   $chassis='';
+    //   $distination='';
+    //   $journey='';
+    //   $depature='';
+    //   $seats='';
+    //   $totalSeat=0;
+    //   $terminal='';
+    //   $ticketPrice=0;
+    //   $totalPrice=0;
+    //
+    //   $ticket_detail = TicketBooking::where('bus_chassis',$chassis)->get();
+    //   foreach ($ticket_detail as $key => $value) {
+    //     $busName=$value->bus_name;
+    //     $chassis=$value->bus_chassis;
+    //     $distination=$value->destination;
+    //     $journey=$value->journey_date;
+    //     $depature.=$value->terminal."-".$value->departure_time." , ";
+    //     $depature=array_push($depature,$value->departure_time);
+    //     $seats.=$value->seat_no;
+    //     $totalSeat+=$value->total_seat;
+    //     $ticketPrice=$value->ticket_price;
+    //     $totalPrice+=$value->total_price;
+    //   }
+    //
+    //
+    //
+    //
+    //
+    //     $data = [
+    //       'busName'=>"krgn",
+    //     ];
+    //     $pdf = PDF::loadView('admin.myPDF',$data);
+    //
+    //     return $pdf->download('itsolutionstuff.pdf');
+    //     return $pdf->stream();
+    // }
 
     function show_bus_chassis(){
       $all_bus_info = TicketBooking::all();
@@ -187,7 +187,7 @@ class AdminController extends Controller
       $ticketPrice=0;
       $totalPrice=0;
 
-      $ticket_detail = TicketBooking::where('bus_chassis',$request->chassis)->get();
+      $ticket_detail = TicketBooking::where('bus_chassis',$request->chassis)->where('payment_status', 1)->get();
       foreach ($ticket_detail as $key => $value) {
         $busName=$value->bus_name;
         $chassis=$value->bus_chassis;

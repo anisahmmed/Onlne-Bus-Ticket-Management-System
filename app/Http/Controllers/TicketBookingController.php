@@ -92,7 +92,7 @@ class TicketBookingController extends Controller
 
     function booking_info()
     {
-      $all_ticket_booking_info = TicketBooking::all();
+      $all_ticket_booking_info = TicketBooking::where('payment_status', 1)->get();
       return view('admin.ticket_booking_info.booking_info',compact('all_ticket_booking_info'));
     }
 //End

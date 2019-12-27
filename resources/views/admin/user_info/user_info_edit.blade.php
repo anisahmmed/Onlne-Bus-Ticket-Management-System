@@ -9,7 +9,7 @@ Edit Users Information
         <div class="col p-md-0">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                <li class="breadcrumb-item active"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active"><a href="{{ url('/admin/users_info/edit') }}/{{ $single_user_info->id }}">Edit User</a></li>
             </ol>
         </div>
     </div>

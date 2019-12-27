@@ -1,6 +1,6 @@
 @extends('admin.app')
 @section('title')
-Users Informations
+User Informations
 @endsection
 @section('content')
 <div class="content-body">
@@ -19,7 +19,7 @@ Users Informations
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title" style="font-weight: bold; font-size: 22px; text-align: center;">Users Informations</h4><br>
+                        <h4 class="card-title" style="font-weight: bold; font-size: 22px; text-align: center;">User Informations</h4><br>
                         <a href="{{ url('/admin/create_user/index') }}" class="btn btn-info ">Create New <i class="fa fa-plus-square-o" aria-hidden="true"></i></a>
                         <button class="btn btn-info" onclick="printDiv('printableArea')">Print</button>
                         <div class="table-responsive">
@@ -31,6 +31,8 @@ Users Informations
                                         <th>Gender</th>
                                         <th>Email</th>
                                         <th>Phone</th>
+                                        <th>User Type</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -42,9 +44,21 @@ Users Informations
                                         <td>{{$user->gender}}</td>
                                         <td>{{$user->email}}</td>
                                         <td>{{$user->phone}}</td>
+                                        @if ($user->role_id ==1)
+                                          <td>Admin</td>
+                                        @elseif ($user->role_id==2)
+                                          <td>Agent</td>
+                                        @else
+                                          <td>Customer</td>
+                                        @endif
+
+                                        @if ($user->status_id==1)
+                                          <td>Active</td>
+                                        @else
+                                          <td>Blocked</td>
+                                        @endif
                                         <td>
                                             <a href="{{ url('/admin/users_info/edit') }}\{{ $user->id }}" class="btn btn-primary">Edit</a>
-                                            <a href="{{ url('/admin/users_info/delete') }}\{{ $user->id }}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
                                         </td>
                                     </tr>
                                     @endforeach

@@ -105,7 +105,7 @@ Seat View
                                     <span class='seat-bottom'></span>
                                 </div>
                             </div>
-                            <p>Booked Seat</p>
+                            <p>Sold Seat</p>
                         </div>
                     </div>
                     <div class="margin-bottom-40"></div>
@@ -1186,9 +1186,9 @@ Seat View
                         <div class="form-group">
                             <label><strong>Choose Boarding Point <span class="text-danger">*</span></strong></label>
                             <select name="terminal_id" id="stoppage" class="form-control form-control-lg boarding_point" required>
-                                    <option >Boarding Point</option>
+                              <option>Boarding Point</option>
                                 @foreach($terminal as $terminals)
-                                    <option value="{{$terminals->boarding_point_id}}">{{App\BoardingPoint::findOrFail($terminals->boarding_point_id)->terminal_name}}</option>
+                                    <option value="{{$terminals->boarding_point_id}}" required>{{App\BoardingPoint::findOrFail($terminals->boarding_point_id)->terminal_name}}</option>
                                 @endforeach
                             </select>
                         </div>

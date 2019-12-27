@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8">
     <title>Ticket</title>
+    <link rel="shortcut icon" href="{{ asset('frontend/front/images/favicon.png') }}" />
+    
 
     <style>
     .invoice-box {

@@ -53,7 +53,7 @@
                             <input class="input100" type="text" name="name" required>
                             <span class="focus-input100" data-placeholder="Name"></span>
                         </div>
-                        <div class="wrap-input100 validate-input" data-validate = "Enter Gender">
+                        <div class="wrap-input100 validate-input" data-validate = "Select Gender">
                             <select class="input100" name="gender">
                                 <option selected>select</option>
                                 <option value="Male">Male</option>
@@ -81,7 +81,7 @@
                                 <i class="zmdi zmdi-eye"></i>
                             </span>
                             <input class="input100" type="password" name="password_confirmation" required>
-                            <span class="focus-input100" data-placeholder="Password"></span>
+                            <span class="focus-input100" data-placeholder="Confirm Password"></span>
                             <span class="invalid-feedback" role="alert">
                         </div>
 

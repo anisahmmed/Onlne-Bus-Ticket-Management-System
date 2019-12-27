@@ -49,13 +49,15 @@ Ticekt Booking Information
                                           </tr>
                                       </thead>
                                       <tbody>
-
+                                        @php
+                                          $sl= 1;
+                                        @endphp
                                         @foreach($single_booking_info as $booking_info)
 
 
                                               @if (Auth::user()->phone == $booking_info->phone)
                                                 <tr>
-                                                    <td>{{ $booking_info->id }}</td>
+                                                    <td>{{ $sl++ }}</td>
                                                     {{-- <td>{{ $booking_info->ticket_token }}</td> --}}
                                                     <td>{{ $booking_info->customer_name }}</td>
                                                     <td>{{ $booking_info->phone }}</td>
@@ -80,7 +82,7 @@ Ticekt Booking Information
                                                       {{-- @if ($time)
                                                         <span style="color: green; font-weight: bold;">Booked</span>
                                                         @else --}}
-                                                          <a href="{{ url('/customer/booking-information/delete') }}/{{ $booking_info->id }}" class="btn color medium right" onclick="return confirm('Are you sure?')" style="color: red;">Cancel</a>
+                                                          <a href="{{ url('/customer/booking-information/delete') }}/{{ $booking_info->id }}" class="btn color medium right" onclick="return confirm('Are you sure?')" style="background:red;">Cancel</a>
 
                                                     </td>
                                                     <td>

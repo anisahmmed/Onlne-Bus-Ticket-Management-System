@@ -78,8 +78,8 @@
 }
 /*selected*/
 .seat.selected .seat-body{
-    background-color: #bb5f33;
-    border-color:  #bb5f33;
+    background-color: #98c157;
+    border-color:  #31672b;
     color:#fff;
 }
 .seat.selected .seat-body span{
@@ -87,8 +87,8 @@
 }
 /*ladies*/
 .seat.ladies .seat-body {
-    background-color: #98c157;
-    border-color: #31672b;
+    background-color: #991F05;
+    border-color: #991F05;
 }
 .seat.ladies .seat-body span{
     border-color:  #31672b;
@@ -523,4 +523,3 @@ div.last-seat-11:last-of-type {
         bottom: 23px;
     }
 }
-

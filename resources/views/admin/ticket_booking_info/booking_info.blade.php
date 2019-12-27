@@ -27,7 +27,6 @@ Ticket Booking Information
                                         <th>SL</th>
                                         {{-- <th>Ticket No</th> --}}
                                         <th>Customer Name</th>
-                                        <th>Gender</th>
                                         <th>Customer Contact No</th>
                                         <th>Bus Name</th>
                                         <th>Journey Date</th>
@@ -46,12 +45,14 @@ Ticket Booking Information
                                     </tr>
                                 </thead>
                                 <tbody>
+                                  @php
+                                    $no=1;
+                                  @endphp
                                     @foreach($all_ticket_booking_info as $booking_info)
                                     <tr>
-                                        <td>{{ $booking_info->id }}</td>
+                                        <td>{{$no++ }}</td>
                                         {{-- <td>{{ $booking_info->ticket_token }}</td> --}}
                                         <td>{{ $booking_info->customer_name }}</td>
-                                        <td>{{ $booking_info->gender }}</td>
                                         <td>{{ $booking_info->phone }}</td>
                                         <td>{{ $booking_info->bus_name }}</td>
                                         <td>{{ $booking_info->journey_date }}</td>
@@ -71,7 +72,7 @@ Ticket Booking Information
                                             <td>Due</td>
                                         @endif
                                         <td>
-                                            <a href="#" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
+                                            <a href="#" class="btn btn-danger" onclick="return confirm('Are you sure?')">Cancel</a>
                                         </td>
                                     </tr>
                                     @endforeach
