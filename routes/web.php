@@ -39,7 +39,7 @@ Route::post('/customer/register','RegisterController@register')-> name('customer
 
 
 // Blocked user
-Route::get('/admin/blocked_user','HomepageController@blocked_user')->name('user_blocked');
+Route::get('/customer/blocked_user','HomepageController@blocked_user')->name('user_blocked');
 
 
 
@@ -108,10 +108,6 @@ Route::get('/admin/users_info/edit/{id}', 'AdminController@edit')-> name('users_
 Route::post('/admin/users_info/update', 'AdminController@user_update')->name('users_info_update');
 //User Delete
 Route::get('/admin/users_info/delete/{id}', 'AdminController@delete')-> name('delete');
-
-
-//Cancel Booking Informations
-Route::get('/admin/cancel_booking_info','AdminController@cancel_info')->name('cancel_info');
 
 
 
@@ -263,6 +259,10 @@ Route::get('/admin/terminal/delete/{id}','InputController@delete_terminal')->nam
 
 // View TicketBooking Info
 Route::get('/admin/ticket-booking-info','TicketBookingController@booking_info')->name('booking_info');
+// Admin Cancel Booking
+Route::get('/admin/ticket-booking-info/cancel/{id}','AdminController@admin_cancel')->name('admin_cancel');
+//Cancel Booking Informations
+Route::get('/admin/cancel_booking_info','AdminController@cancel_info')->name('cancel_info');
 
 
 
@@ -290,7 +290,8 @@ Route::post('/getsetprice','TicketBooking@getsetprice');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+// Auth::routes();
+Auth::routes(['verify' => true]);
 
 // DomPDF
 Route::get('/generate-pdf/{ch}','AdminController@generatePDF');

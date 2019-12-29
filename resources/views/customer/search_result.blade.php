@@ -23,7 +23,7 @@ Search Result
                     <h1>Bus Informations</h1>
                     <nav role="navigation" class="breadcrumbs">
                         <ul>
-                            <li><a href="{{ url('/customer/homepage') }}" title="Home">Search</a></li>
+                            <li><a href="{{ url('/customer/bus_info') }}" title="Home">Search</a></li>
                             <li>Search Result</li>
                         </ul>
                     </nav>
@@ -40,8 +40,7 @@ Search Result
 
                 								@if(isset($details))
 
-                								{{ $query }}
-
+                								<b style="color:green;">[{{ $query }}]</b> <span>Result Found..</span><br><br><br>
 
                                     <table class="table table-striped table-bordered zero-configuration" style="color: #000; font-size: 14px;">
                                         <thead>
@@ -57,13 +56,16 @@ Search Result
                                                 <th>Destination</th>
                                                 <th>Total Seat</th>
                                                 <th>Ticket Price</th>
-                                                <th>Action</th>
+                                                <th>View Seat</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                          @php
+                                            $sl = 1;
+                                          @endphp
                                             @foreach($details as $bus_infos)
                                             <tr>
-                                                <td>{{ $bus_infos->id }}</td>
+                                                <td>{{ $sl++ }}</td>
 
                                                 <td>{{ date('d-m-y', strtotime($bus_infos->relationbetweendate->date)) }}</td>
                                                 <td>{{ $bus_infos->ralationbetweenOperator->operator_name }}</td>

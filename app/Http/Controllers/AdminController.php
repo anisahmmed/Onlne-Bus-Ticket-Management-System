@@ -91,17 +91,6 @@ class AdminController extends Controller
     // Users Update
     function user_update(Request $request){
 
-      $request->validate([
-        'name' => 'required|string|max:60',
-        'email' => 'required|string|unique:users',
-        'phone' => 'required|string|min:11',
-      ],[
-          'name.required'  =>  'User Name Is Required.',
-          'email.email'    => 'You must enter your valid email address.',
-          'email.required' => 'Applicant Email Is Required.',
-          'phone.required' => 'Contact No Is Required.',
-      ]);
-
     	User::find($request->id)->update([
     		'name' => $request->name,
         'status_id' =>$request->status_id,
@@ -221,6 +210,14 @@ class AdminController extends Controller
     {
       $cancel_ticket = TicketBooking::onlyTrashed()->paginate(10);
       return view('admin.cancel_booking_info',compact('cancel_ticket'));
+    }
+
+    // Admin cancel booking
+    function admin_cancel($id)
+    {
+      TicketBooking::findOrFail($id)->delete();
+      toastr()->error('Cancel Booking Successfully!');
+      return back();
     }
 
 

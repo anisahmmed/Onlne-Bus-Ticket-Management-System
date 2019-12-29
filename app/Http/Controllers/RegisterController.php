@@ -13,7 +13,7 @@ class RegisterController extends Controller
      /**
      * Where to redirect users after registration.
      */
-    protected $redirectTo = '/customer_register';
+    protected $redirectTo = '/home';
 
 
     function register(Request $request)

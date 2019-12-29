@@ -14,7 +14,7 @@ Add Individual Component
             </ol>
         </div>
     </div>
-
+    <!-- Start error message -->
     @if($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -88,6 +88,18 @@ Add Individual Component
 	</div>
 	<!-- Bus Chassis End -->
 
+  <!-- Start error message -->
+  @if($errors->any())
+  <div class="alert alert-danger">
+      <ul>
+          @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+  </div><br />
+  @endif
+  <!-- End error message -->
+
 	<!-- Bus Routes -->
   <p style="text-align:center; color:#FF5733; font-weight:bold; font-size:18px;">Input Bus Route</p>
 	<div class="container-fluid">
@@ -149,6 +161,18 @@ Add Individual Component
 	    </div>
 	</div>
 	<!-- Bus Routes End -->
+
+  <!-- Start error message -->
+  @if($errors->any())
+  <div class="alert alert-danger">
+      <ul>
+          @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+  </div><br />
+  @endif
+  <!-- End error message -->
 
 	<!-- Bus Operator -->
   <p style="text-align:center; color:#FF5733; font-weight:bold; font-size:18px;">Input Bus Operator</p>
@@ -212,6 +236,18 @@ Add Individual Component
 	</div>
 	<!-- Bus Opearator End -->
 
+  <!-- Start error message -->
+  @if($errors->any())
+  <div class="alert alert-danger">
+      <ul>
+          @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+  </div><br />
+  @endif
+  <!-- End error message -->
+
 	<!-- Date start here -->
   <p style="text-align:center; color:#FF5733; font-weight:bold; font-size:18px;">Input Journey Date</p>
 	<div class="container-fluid">
@@ -273,6 +309,18 @@ Add Individual Component
 	    </div>
 	</div>
 	<!-- Date End here -->
+
+  <!-- Start error message -->
+  @if($errors->any())
+  <div class="alert alert-danger">
+      <ul>
+          @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+  </div><br />
+  @endif
+  <!-- End error message -->
 
 	<!-- Departure info start -->
   <p style="text-align:center; color:#FF5733; font-weight:bold; font-size:18px;">Input Bus Departure Information</p>
@@ -344,6 +392,18 @@ Add Individual Component
 	</div>
 	<!-- Departure infp End -->
 
+  <!-- Start error message -->
+  @if($errors->any())
+  <div class="alert alert-danger">
+      <ul>
+          @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+  </div><br />
+  @endif
+  <!-- End error message -->
+
 	<!-- Destination info start -->
   <p style="text-align:center; color:#FF5733; font-weight:bold; font-size:18px;">Input Bus Destination Information</p>
 	<div class="container-fluid">
@@ -414,6 +474,18 @@ Add Individual Component
 	</div>
 	<!-- Departure infp End -->
 
+  <!-- Start error message -->
+  @if($errors->any())
+  <div class="alert alert-danger">
+      <ul>
+          @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+  </div><br />
+  @endif
+  <!-- End error message -->
+
 	<!-- Bus Type Start -->
   <p style="text-align:center; color:#FF5733; font-weight:bold; font-size:18px;">Input Coach Type</p>
 	<div class="container-fluid">
@@ -475,6 +547,18 @@ Add Individual Component
 	    </div>
 	</div>
 	<!-- Bus Type End -->
+
+  <!-- Start error message -->
+  @if($errors->any())
+  <div class="alert alert-danger">
+      <ul>
+          @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+  </div><br />
+  @endif
+  <!-- End error message -->
 
 	<!-- Total Seat Start here -->
   <p style="text-align:center; color:#FF5733; font-weight:bold; font-size:18px;">Input Total Seat</p>
@@ -538,6 +622,18 @@ Add Individual Component
 	</div>
 	<!-- Total seat End here -->
 
+  <!-- Start error message -->
+  @if($errors->any())
+  <div class="alert alert-danger">
+      <ul>
+          @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+  </div><br />
+  @endif
+  <!-- End error message -->
+
 	<!-- Ticket Price Start here -->
   <p style="text-align:center; color:#FF5733; font-weight:bold; font-size:18px;">Input Ticket Price</p>
 	<div class="container-fluid">
@@ -599,6 +695,18 @@ Add Individual Component
 	    </div>
 	</div>
 	<!-- Ticket Price End here -->
+
+  <!-- Start error message -->
+  @if($errors->any())
+  <div class="alert alert-danger">
+      <ul>
+          @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+  </div><br />
+  @endif
+  <!-- End error message -->
 
     <!-- Boarding Point Start here -->
     <p style="text-align:center; color:#FF5733; font-weight:bold; font-size:18px;">Input Bus Boarding Point</p>

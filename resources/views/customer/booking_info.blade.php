@@ -28,23 +28,17 @@ Ticekt Booking Information
                                       <thead>
                                           <tr>
                                             <th>SL</th>
-                                            {{-- <th>Ticket No</th> --}}
                                             <th>Name</th>
                                             <th>Phone</th>
                                             <th>Bus Name</th>
                                             <th>Journey Date</th>
-                                            {{-- <th>Bus Chassis No</th> --}}
-                                            {{-- <th>Bus Route</th> --}}
-                                            {{-- <th>Departure</th> --}}
                                             <th>Departure Time</th>
-                                            {{-- <th>Destination</th> --}}
                                             <th>Seat Nos</th>
-                                            {{-- <th>Total Seat</th> --}}
-                                            {{-- <th>Ticket Price</th> --}}
                                             <th>Total Fare</th>
                                             <th>Boarding Point</th>
                                             <th>Payment Status</th>
-                                            <th>Action</th>
+                                            {{-- <th>cr</th> --}}
+                                            <th>Cancel</th>
                                             <th>View Ticket</th>
                                           </tr>
                                       </thead>
@@ -55,22 +49,15 @@ Ticekt Booking Information
                                         @foreach($single_booking_info as $booking_info)
 
 
-                                              @if (Auth::user()->phone == $booking_info->phone)
+                                              @if (Auth::user()->phone == $booking_info->phone && $booking_info->payment_status ==1)
                                                 <tr>
                                                     <td>{{ $sl++ }}</td>
-                                                    {{-- <td>{{ $booking_info->ticket_token }}</td> --}}
                                                     <td>{{ $booking_info->customer_name }}</td>
                                                     <td>{{ $booking_info->phone }}</td>
                                                     <td>{{ $booking_info->bus_name }}</td>
                                                     <td>{{ $booking_info->journey_date }}</td>
-                                                    {{-- <td>{{$booking_info->bus_chassis}}</td> --}}
-                                                    {{-- <td>{{$booking_info->bus_route}}</td> --}}
-                                                    {{-- <td>{{$booking_info->departure}}</td> --}}
                                                     <td>{{$booking_info->departure_time}}</td>
-                                                    {{-- <td>{{$booking_info->destination}}</td> --}}
                                                     <td>{{$booking_info->seat_no}}</td>
-                                                    {{-- <td>{{$booking_info->total_seat}}</td> --}}
-                                                    {{-- <td>{{$booking_info->ticket_price}}</td> --}}
                                                     <td>{{$booking_info->total_price}}</td>
                                                     <td>{{$booking_info->terminal}}</td>
                                                     @if ($booking_info->payment_status ==1)
@@ -78,13 +65,37 @@ Ticekt Booking Information
                                                       @else
                                                         <td>Due</td>
                                                     @endif
+                                                    {{-- <td>{{ $booking_info->created_at }}</td> --}}
                                                     <td>
-                                                      {{-- @if ($time)
-                                                        <span style="color: green; font-weight: bold;">Booked</span>
-                                                        @else --}}
-                                                          <a href="{{ url('/customer/booking-information/delete') }}/{{ $booking_info->id }}" class="btn color medium right" onclick="return confirm('Are you sure?')" style="background:red;">Cancel</a>
-
+                                                      <button id="cancle{{ $booking_info->id }}" onclick="callRoute({{ $booking_info->id }})" type="button" class="btn color medium right" style="background:red;">Cancel</button>
                                                     </td>
+
+                                                    <script>
+                                                        var databaseDate = new Date("{{ $booking_info->created_at }}");
+                                                        var currentDate = new Date();
+
+                                                        if (databaseDate.getFullYear() == currentDate.getFullYear())  {
+                                                          if (databaseDate.getDate() == currentDate.getDate()) {
+                                                            if (databaseDate.getHours()-currentDate.getHours() < 12) {
+                                                              var cancleBtn = document.getElementById("cancle{{ $booking_info->id }}");
+                                                              cancleBtn.disabled = false;
+                                                            }
+                                                            else {
+                                                                var cancleBtn = document.getElementById("cancle{{ $booking_info->id }}");
+                                                                cancleBtn.disabled = true;
+                                                            }
+                                                          }
+                                                          else {
+                                                            var cancleBtn = document.getElementById("cancle{{ $booking_info->id }}");
+                                                            cancleBtn.disabled = true;
+                                                          }
+                                                        }
+                                                        else {
+                                                          var cancleBtn = document.getElementById("cancle{{ $booking_info->id }}");
+                                                          cancleBtn.disabled = true;
+                                                        }
+                                                      </script>
+
                                                     <td>
                                                       <a href="{{ url('/customer/booking-ticket/view') }}/{{ $booking_info->id }}" target="_blank" class="btn color medium right">View Ticket</a>
                                                     </td>
@@ -96,80 +107,8 @@ Ticekt Booking Information
                                   </table>
                               </div>
                           </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="wrap">
-          <div class="container">
-              <div class="row">
-                  <div class="col-12">
-                      <div class="card">
-                          <div class="card-body">
-                            <h3 style="text-align: center; color: green;">Canceled Booking Information</h3>
-                              <div class="table-responsive">
-                                  <table class="table table-striped table-bordered zero-configuration" style="color: #000; font-size: 14px; text-align:center; ">
-                                      <thead>
-                                          <tr>
-                                            <th>SL</th>
-                                            <th>Ticket No</th>
-                                            <th>Name</th>
-                                            <th>Phone</th>
-                                            <th>Bus Name</th>
-                                            <th>Journey Date</th>
-                                            {{-- <th>Bus Chassis No</th> --}}
-                                            <th>Bus Route</th>
-                                            {{-- <th>Departure</th> --}}
-                                            <th>Departure Time</th>
-                                            {{-- <th>Destination</th> --}}
-                                            <th>Seat Nos</th>
-                                            {{-- <th>Total Seat</th> --}}
-                                            {{-- <th>Ticket Price</th> --}}
-                                            <th>Total Fare</th>
-                                            <th>Boarding Point</th>
-                                            <th>Payment Status</th>
-                                            <th>Booking Status</th>
-                                          </tr>
-                                      </thead>
-                                      <tbody>
-
-
-                                        @foreach($deleted_booking_info as $booking_info)
-
-
-                                              @if (Auth::user()->phone == $booking_info->phone)
-                                                <tr>
-                                                    <td>{{ $booking_info->id }}</td>
-                                                    <td>{{ $booking_info->ticket_token }}</td>
-                                                    <td>{{ $booking_info->customer_name }}</td>
-                                                    <td>{{ $booking_info->phone }}</td>
-                                                    <td>{{ $booking_info->bus_name }}</td>
-                                                    <td>{{ $booking_info->journey_date }}</td>
-                                                    {{-- <td>{{$booking_info->bus_chassis}}</td> --}}
-                                                    <td>{{$booking_info->bus_route}}</td>
-                                                    {{-- <td>{{$booking_info->departure}}</td> --}}
-                                                    <td>{{$booking_info->departure_time}}</td>
-                                                    {{-- <td>{{$booking_info->destination}}</td> --}}
-                                                    <td>{{$booking_info->seat_no}}</td>
-                                                    {{-- <td>{{$booking_info->total_seat}}</td> --}}
-                                                    {{-- <td>{{$booking_info->ticket_price}}</td> --}}
-                                                    <td>{{$booking_info->total_price}}</td>
-                                                    <td>{{$booking_info->terminal}}</td>
-                                                    @if ($booking_info->payment_status ==1)
-                                                      <td>Paid</td>
-                                                      @else
-                                                        <td>Due</td>
-                                                    @endif
-                                                    <td style="color: red; font-weight: bold;">Canceled</td>
-                                                </tr>
-                                            @endif
-
-                                        @endforeach
-                                      </tbody>
-                                  </table>
-                              </div>
-                          </div>
+                          <br><br><br>
+                          <span style="color: red;"><strong>Note:</strong> You will not be able to Cancel Ticket after 12 Hours.</span>
                       </div>
                   </div>
               </div>
@@ -177,5 +116,18 @@ Ticekt Booking Information
       </div>
     </main>
 
+    {{-- Button Disable --}}
+      <script>
+      function disBtn(id) {
+        var cancleBtn = document.getElementById(id);
+        cancleBtn.disabled = true;
+      }
+      </script>
 
+      {{-- Button Action --}}
+      <script>
+      function callRoute(busInfoId) {
+            window.location = '/customer/booking-information/delete/' + busInfoId;
+        }
+      </script>
 @endsection

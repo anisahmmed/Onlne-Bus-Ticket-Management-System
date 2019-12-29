@@ -25,8 +25,9 @@
 <body>
 
 <div class="container">
-
-    <br>
+	<br>
+	<span class="text-danger" style="font-size:15px;"><strong>Note:</strong> If you want to confirm your booking, you have to payment.</span>
+	<br><br><br><br><br>
 
     <div class="row">
         <div class="col-md-6 col-md-offset-3">

@@ -50,7 +50,7 @@ class HomepageController extends Controller
 
     //Destinations
     function destinations(){
-        $all_destination = Destination::paginate(7);
+        $all_destination = Destination::all();
         return view('homepage.destinations',compact('all_destination'));
     }
 
@@ -63,6 +63,6 @@ class HomepageController extends Controller
 
     // Blocked user
     function blocked_user(){
-    	return view('admin.blocked_user');
+    	return view('customer.blocked_user');
     }
 }

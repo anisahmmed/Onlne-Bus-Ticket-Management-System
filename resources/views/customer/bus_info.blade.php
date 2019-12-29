@@ -5,16 +5,6 @@ Bus Informations
 
 @section('content')
 
-{{-- <div class="content-body">
-
-    <div class="row page-titles mx-0">
-        <div class="col p-md-0">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ url('/admin/homepage') }}">Dashboard</a></li>
-                <li class="breadcrumb-item active"><a href="{{ url('/admin/buses') }}">Bus Information</a></li>
-            </ol>
-        </div>
-    </div> --}}
     <main class="main" role="main">
         <!-- Page info -->
         <header class="site-title color">
@@ -34,22 +24,18 @@ Bus Informations
               @csrf
     					<!-- Row -->
     					<div class="f-row">
-    						{{-- <div class="form-group select one-third">
-    							<label>Journey date</label>
-    							<input type="date" class="form-control" />
-    						</div> --}}
     						<div class="form-group select one-third">
     							<label>Journey Date</label>
-    							<select>
+    							<select name="journey_date">
                     <option selected>Select</option>
                     @foreach ($all_dates as $dates)
-                      <option value="{{ $dates->id }}">{{ $dates->date }}</option>
+                        <option value="{{ $dates->id }}">{{ $dates->date }}</option>
                     @endforeach
     							</select>
     						</div>
     						<div class="form-group select one-third">
     							<label>Departure</label>
-    							<select>
+    							<select name="departure">
     								<option selectedi>Select</option>
                     @foreach ($all_departure as $departures)
                       <option value="{{ $departures->id }}">{{ $departures->departure }}</option>
@@ -58,7 +44,7 @@ Bus Informations
     						</div>
     						<div class="form-group select one-third">
     							<label>Destination</label>
-    							<select>
+    							<select name="destination">
     								<option selected>Select</option>
                     @foreach ($all_destination as $destinations)
                       <option value="{{ $destinations->id }}">{{ $destinations->destination }}</option>
@@ -103,7 +89,7 @@ Bus Informations
                                                 <th>Destination</th>
                                                 <th>Total Seat</th>
                                                 <th>Ticket Price</th>
-                                                <th>Action</th>
+                                                <th>View Seat</th>
                                             </tr>
                                         </thead>
                                         <tbody>

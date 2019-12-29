@@ -10,7 +10,7 @@ use App\Bus;
 
 class SearchController extends Controller
 {
-    
+
     function index()
     {
       $all_departure = DepartureInfo::all();
@@ -33,7 +33,7 @@ class SearchController extends Controller
     		return view('customer.search_result')->withDetails($buses)->withQuery($a,$n,$i);
     	}
     	else{
-    		echo "Page Not Found";
+    		return view('customer.not_found');
     	}
     }
 }

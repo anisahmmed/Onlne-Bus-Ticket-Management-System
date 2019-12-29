@@ -22,13 +22,13 @@ Destinations
 			</div>
 		</header>
 		<!-- //Page info -->
-		
+
 		<div class="wrap">
 			<div class="row">
 				<!--- Content -->
 				<div class="full-width content">
-					
-				
+
+
 					<!-- TabContent -->
 					<div class="tab-content" id="tab1">
 						<div class="row">
@@ -49,19 +49,7 @@ Destinations
 							<!-- //Item -->
 						</div>
 					</div>
-					<nav aria-label="...">
-					  <ul class="pagination">
-					
-					    <li class="page-item disabled">
-					      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-					      {{ $all_destination->links() }}
-					    </li>
-					    <li class="page-item">
-					      <a class="page-link" >Next</a>
-					    </li>
-					  </ul>
-					</nav>
-					
+
 					<!-- //TabContent -->
 				</div>
 				<!--- //Content -->

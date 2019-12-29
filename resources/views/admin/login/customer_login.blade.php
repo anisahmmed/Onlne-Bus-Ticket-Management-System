@@ -76,13 +76,21 @@
                             </button>
                         </div>
                         <div class="text-center p-t-20">
-                            <span class="txt1">
-                                Return to home
-                            </span>
-                            <a class="txt2 btn-primaryfont-weight-bold" style="color: #00ff40;" href="{{ route('homepage') }}">
-                            Home
-                        </a>
+                        @if (Route::has('password.request'))
+                            <a class="btn btn-link" href="{{ route('password.request') }}">
+                                Forgot Your Password?
+                            </a>
+                        @endif
                         </div>
+
+                    </div>
+                    <div class="text-center p-t-20">
+                        <span class="txt1">
+                            Return to home
+                        </span>
+                        <a class="txt2 btn-primaryfont-weight-bold" style="color: #00ff40;" href="{{ route('homepage') }}">
+                        Home
+                    </a>
                     </div>
 
                     <div class="text-center p-t-115">

@@ -27,7 +27,7 @@ Ticket Booking Information
                                         <th>SL</th>
                                         {{-- <th>Ticket No</th> --}}
                                         <th>Customer Name</th>
-                                        <th>Customer Contact No</th>
+                                        <th>Contact No</th>
                                         <th>Bus Name</th>
                                         <th>Journey Date</th>
                                         <th>Bus Chassis No</th>
@@ -35,11 +35,11 @@ Ticket Booking Information
                                         {{-- <th>Departure</th> --}}
                                         <th>Departure Time</th>
                                         {{-- <th>Destination</th> --}}
-                                        <th>Seat Nos</th>
+                                        {{-- <th>Seat Nos</th> --}}
                                         <th>Total Seat</th>
                                         {{-- <th>Ticket Price</th> --}}
                                         <th>Total Fare</th>
-                                        <th>Boarding Point</th>
+                                        {{-- <th>Boarding Point</th> --}}
                                         <th>Payment Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -61,18 +61,18 @@ Ticket Booking Information
                                         {{-- <td>{{$booking_info->departure}}</td> --}}
                                         <td>{{$booking_info->departure_time}}</td>
                                         {{-- <td>{{$booking_info->destination}}</td> --}}
-                                        <td>{{$booking_info->seat_no}}</td>
+                                        {{-- <td>{{$booking_info->seat_no}}</td> --}}
                                         <td>{{$booking_info->total_seat}}</td>
                                         {{-- <td>{{$booking_info->ticket_price}}</td> --}}
                                         <td>{{$booking_info->total_price}}</td>
-                                        <td>{{$booking_info->terminal}}</td>
+                                        {{-- <td>{{$booking_info->terminal}}</td> --}}
                                         @if ($booking_info->payment_status ==1)
                                           <td>Paid</td>
                                           @else
                                             <td>Due</td>
                                         @endif
                                         <td>
-                                            <a href="#" class="btn btn-danger" onclick="return confirm('Are you sure?')">Cancel</a>
+                                            <a href="{{ url('/admin/ticket-booking-info/cancel') }}/{{ $booking_info->id }}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Cancel</a>
                                         </td>
                                     </tr>
                                     @endforeach

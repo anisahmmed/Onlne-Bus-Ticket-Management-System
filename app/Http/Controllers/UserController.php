@@ -29,6 +29,7 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('status');
     }
     // Customer Seat view
     function bus_seat($id)

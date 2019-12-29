@@ -76,7 +76,7 @@ class StripePaymentController extends Controller
             $departure,
             $destination
           ));
-          toastr()->success('successfully Payment For Booking!');
+          toastr()->success('Successfully Payment For Booking!');
         return redirect('/customer/bus_info');
         // Session::flash('success', 'Payment successful!');
 
